@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function TherapistCard({ therapist }) {
@@ -10,10 +11,12 @@ export default function TherapistCard({ therapist }) {
       <div className="md:flex">
         <div className="relative h-64 w-full overflow-hidden bg-[#CBD5E1] md:h-auto md:w-64">
           {therapist.photoUrl && !imageError ? (
-            <img
+
+            <Image
               src={therapist.photoUrl}
               alt={therapist.name}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-110"
               onError={() => setImageError(true)}
             />
           ) : (
