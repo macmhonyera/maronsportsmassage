@@ -58,8 +58,15 @@ function statusBadge(status) {
   }
 }
 
+function preferenceLabel(pref) {
+  const p = String(pref || "").toLowerCase();
+  if (p === "male") return "Male therapist";
+  if (p === "female") return "Female therapist";
+  if (p === "any") return "Anyone available";
+  return "";
+}
+
 export default async function AdminBookingsPage({ searchParams }) {
-  // ✅ Next.js requires awaiting dynamic APIs in some configs
   const sp = await searchParams;
 
   const q = (sp?.q ? String(sp.q) : "").trim();
@@ -208,43 +215,67 @@ export default async function AdminBookingsPage({ searchParams }) {
 
             <tbody className="divide-y divide-slate-100">
               {bookings.length ? (
-                bookings.map((b) => (
-                  <tr key={b.id} className="transition-colors hover:bg-slate-50">
-                    <td className="px-5 py-4 whitespace-nowrap text-slate-900">
-                      {fmt(b.startAt)}
-                    </td>
-                    <td className="px-5 py-4">
-                      <div className="font-semibold text-slate-900">
-                        {b.client.fullName}
-                      </div>
-                      <div className="mt-0.5 text-xs text-slate-600">
-                        {b.client.phone}
-                      </div>
-                    </td>
-                    <td className="px-5 py-4 text-slate-700">
-                      {b.service?.name || "-"}
-                    </td>
-                    <td className="px-5 py-4 text-slate-700">
-                      {b.therapist?.name || "-"}
-                    </td>
-                    <td className="px-5 py-4">{statusBadge(b.status)}</td>
-                    <td className="px-5 py-4">
-                      <span className="inline-flex items-center rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-200">
-                        {b.source || "-"}
-                      </span>
-                    </td>
-                    <td className="px-5 py-4">
-  <BookingActions id={b.id} status={b.status} />
-</td>
+                bookings.map((b) => {
+                  const assignedTherapistName = b.therapist?.name || "";
+                  const pref = preferenceLabel(b.therapistPreference);
 
-                  </tr>
-                ))
+                  return (
+                    <tr key={b.id} className="transition-colors hover:bg-slate-50">
+                      <td className="px-5 py-4 whitespace-nowrap text-slate-900">
+                        {fmt(b.startAt)}
+                      </td>
+
+                      <td className="px-5 py-4">
+                        <div className="font-semibold text-slate-900">
+                          {b.client.fullName}
+                        </div>
+                        <div className="mt-0.5 text-xs text-slate-600">
+                          {b.client.phone}
+                        </div>
+                      </td>
+
+                      <td className="px-5 py-4 text-slate-700">
+                        {b.service?.name || "-"}
+                      </td>
+
+                      <td className="px-5 py-4 text-slate-700">
+                        {assignedTherapistName ? (
+                          <div className="space-y-1">
+                            <div className="font-medium text-slate-900">
+                              {assignedTherapistName}
+                            </div>
+                            {pref ? (
+                              <div className="text-xs text-slate-500">
+                                Preference: {pref}
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : pref ? (
+                          <span className="inline-flex items-center rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-200">
+                            {pref}
+                          </span>
+                        ) : (
+                          "-"
+                        )}
+                      </td>
+
+                      <td className="px-5 py-4">{statusBadge(b.status)}</td>
+
+                      <td className="px-5 py-4">
+                        <span className="inline-flex items-center rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-200">
+                          {b.source || "-"}
+                        </span>
+                      </td>
+
+                      <td className="px-5 py-4 text-center">
+                        <BookingActions id={b.id} status={b.status} />
+                      </td>
+                    </tr>
+                  );
+                })
               ) : (
                 <tr>
-                  <td
-                    className="px-5 py-10 text-center text-slate-600"
-                    colSpan={7}
-                  >
+                  <td className="px-5 py-10 text-center text-slate-600" colSpan={7}>
                     No bookings found for the selected filters.
                   </td>
                 </tr>
@@ -256,8 +287,7 @@ export default async function AdminBookingsPage({ searchParams }) {
 
       {/* Note */}
       <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-600">
-        The public booking calendar blocks time slots as soon as a booking is
-        created (including WhatsApp/admin bookings).
+        The public booking calendar blocks time slots as soon as a booking is created (including WhatsApp/admin bookings).
       </div>
     </div>
   );

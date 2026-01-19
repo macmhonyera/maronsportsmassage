@@ -8,26 +8,29 @@ function todayISO() {
   return toISODate(new Date());
 }
 
-function buildSlots(startHH = 8, endHH = 18, stepMin = 60) {
+function buildSlots(startHH = 8, endHH = 18) {
   const slots = [];
-  for (let h = startHH; h < endHH; h++) {
-    const hh = String(h).padStart(2, "0");
-    const mm = "00";
-    slots.push(`${hh}:${mm}`);
-  }
+  for (let h = startHH; h < endHH; h++) slots.push(`${String(h).padStart(2, "0")}:00`);
   return slots;
 }
 
+const THERAPIST_OPTIONS = [
+  { id: "any", label: "Anyone Available" },
+  { id: "male", label: "Male Therapist" },
+  { id: "female", label: "Female Therapist" },
+];
+
 export default function BookPage() {
+  const slots = useMemo(() => buildSlots(8, 18), []);
+
   const [services, setServices] = useState([]);
-  const [therapists, setTherapists] = useState([]);
+  const [serviceId, setServiceId] = useState("");
+
+  const [therapistPreference, setTherapistPreference] = useState("any");
 
   const [dateISO, setDateISO] = useState(todayISO());
   const [selectedTime, setSelectedTime] = useState("");
   const [bookedTimes, setBookedTimes] = useState([]);
-
-  const [serviceId, setServiceId] = useState("");
-  const [therapistId, setTherapistId] = useState("");
 
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -37,16 +40,13 @@ export default function BookPage() {
 
   const [status, setStatus] = useState({ type: "idle", message: "" });
 
-  const slots = useMemo(() => buildSlots(8, 18, 60), []);
-
   useEffect(() => {
     (async () => {
-      const [sRes, tRes] = await Promise.all([fetch("/api/public/services"), fetch("/api/public/therapists")]);
-      const s = await sRes.json();
-      const t = await tRes.json();
-      setServices(s);
-      setTherapists(t);
-      if (s?.[0]?.id) setServiceId(s[0].id);
+      const res = await fetch("/api/public/services");
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : [];
+      setServices(list);
+      if (list?.[0]?.id) setServiceId(list[0].id);
     })();
   }, []);
 
@@ -76,28 +76,31 @@ export default function BookPage() {
           dateISO,
           timeHHMM: selectedTime,
           serviceId,
-          therapistId: therapistId || null,
+          therapistPreference,
           client: { fullName, phone, email, whatsappOptIn },
           notes,
+          source: "website",
         }),
       });
 
       const data = await res.json();
+
       if (!res.ok) {
         setStatus({ type: "error", message: data?.error || "Booking failed." });
         return;
       }
 
-      setStatus({ type: "success", message: "Booking created. We will confirm shortly." });
+      setStatus({ type: "success", message: "Booking received. We will confirm shortly." });
       await loadAvailability(dateISO);
-    } catch (err) {
+    } catch {
       setStatus({ type: "error", message: "Network error. Please try again." });
     }
   }
 
+  const selectedService = services.find((s) => s.id === serviceId);
+
   return (
     <div className="space-y-0">
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#0F172A] py-16 md:py-24">
         <div className="absolute inset-0 z-0">
           <Image
@@ -118,11 +121,9 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Booking Form */}
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* Date & Time Selection */}
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
               <h2 className="text-2xl font-bold text-[#0F172A] mb-2">1) Pick a date</h2>
               <input
@@ -152,7 +153,6 @@ export default function BookPage() {
                           ? "border-[#0F172A] bg-[#0F172A] text-white shadow-md"
                           : "border-[#14B8A6] bg-white text-[#0F172A] hover:bg-[#14B8A6] hover:text-white",
                       ].join(" ")}
-                      title={booked ? "Booked" : "Available"}
                     >
                       {t} {booked ? "•" : ""}
                     </button>
@@ -165,7 +165,6 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* Booking Details Form */}
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
               <h2 className="text-2xl font-bold text-[#0F172A] mb-6">3) Your booking details</h2>
 
@@ -176,26 +175,30 @@ export default function BookPage() {
                     className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                     value={serviceId}
                     onChange={(e) => setServiceId(e.target.value)}
+                    required
                   >
                     {services.map((s) => (
                       <option key={s.id} value={s.id}>
-                        {s.name}
+                        {s.name} ({s.durationMin} min)
                       </option>
                     ))}
                   </select>
+
+                  {selectedService?.description ? (
+                    <p className="mt-2 text-sm text-[#64748B]">{selectedService.description}</p>
+                  ) : null}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Therapist (optional)</label>
+                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Therapist preference</label>
                   <select
                     className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
-                    value={therapistId}
-                    onChange={(e) => setTherapistId(e.target.value)}
+                    value={therapistPreference}
+                    onChange={(e) => setTherapistPreference(e.target.value)}
                   >
-                    <option value="">No preference</option>
-                    {therapists.map((t) => (
-                      <option key={t.id} value={t.id}>
-                        {t.name}
+                    {THERAPIST_OPTIONS.map((o) => (
+                      <option key={o.id} value={o.id}>
+                        {o.label}
                       </option>
                     ))}
                   </select>
@@ -259,7 +262,7 @@ export default function BookPage() {
                   <div className="text-sm">
                     <span className="font-semibold text-[#0F172A]">Selected:</span>{" "}
                     <span className="text-[#64748B]">
-                      {dateISO} {selectedTime || "(choose a time slot)"}
+                      {dateISO} {selectedTime || "(choose a time slot)"} • {selectedService?.name || "Service"}
                     </span>
                   </div>
                 </div>

@@ -159,7 +159,7 @@ export default function AboutPage() {
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
                 We understand what it takes to perform at the highest level. Our team of
-                certified sports massage therapists brings years of experience working with
+                sports massage therapists brings years of experience working with
                 athletes across all disciplines—from runners and cyclists to gym enthusiasts
                 and team sports players.
               </p>

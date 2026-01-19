@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Reviews() {
   // Optional: set this to your Google reviews link (or your place link)
   const googleReviewsUrl =
-    "https://www.google.com/maps/search/?api=1&query=YOUR_BUSINESS_NAME";
+    "https://www.google.com/maps/place/Maron+Fitness+%7C+Massage+%26Spa/@-17.8195746,31.0466653,17z/data=!4m8!3m7!1s0x1931a55762556451:0x96d20cb86fabe1fd!8m2!3d-17.8195798!4d31.0515362!9m1!1b1!16s%2Fg%2F11x7jvn9m3?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D";
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">

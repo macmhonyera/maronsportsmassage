@@ -5,11 +5,15 @@ import { combineLocalDateAndTime } from "../../../lib/time";
 const BodySchema = z.object({
   dateISO: z.string().min(10),
   timeHHMM: z.string().regex(/^\d{2}:\d{2}$/),
+
   serviceId: z.string().min(1),
-  therapistId: z.string().nullable().optional(),
+
+  therapistPreference: z.enum(["any", "male", "female"]).optional().default("any"),
+
   notes: z.string().optional(),
   source: z.string().optional(),
   force: z.boolean().optional(),
+
   client: z.object({
     fullName: z.string().min(2),
     phone: z.string().min(5),
@@ -25,7 +29,7 @@ export async function POST(req) {
 
     const startAt = combineLocalDateAndTime(body.dateISO, body.timeHHMM);
 
-    // check conflicts (simple: any non-cancelled booking in same slot)
+    // 1) Conflict check
     const conflict = await prisma.booking.findFirst({
       where: {
         startAt,
@@ -35,50 +39,55 @@ export async function POST(req) {
     });
 
     if (conflict && !body.force) {
-      return new Response(
-        JSON.stringify({ error: "Selected slot is already booked." }),
-        { status: 409 }
-      );
+      return new Response(JSON.stringify({ error: "Selected slot is already booked." }), { status: 409 });
     }
 
-    // normalize phone (optional but recommended)
+    // 2) Ensure service exists
+    const service = await prisma.service.findFirst({
+      where: { id: body.serviceId, isActive: true },
+      select: { id: true },
+    });
+
+    if (!service) {
+      return new Response(JSON.stringify({ error: "Invalid service selected." }), { status: 400 });
+    }
+
+    // 3) Upsert client by phone
     const phone = body.client.phone.trim();
     const email = body.client.email ? body.client.email.trim() : "";
 
-    // find existing client by phone
     const existing = await prisma.client.findFirst({
       where: { phone },
       select: { id: true },
     });
 
-    let client;
-    if (existing) {
-      client = await prisma.client.update({
-        where: { id: existing.id },
-        data: {
-          fullName: body.client.fullName,
-          email: email || null,
-          whatsappOptIn: Boolean(body.client.whatsappOptIn),
-        },
-      });
-    } else {
-      client = await prisma.client.create({
-        data: {
-          fullName: body.client.fullName,
-          phone,
-          email: email || null,
-          whatsappOptIn: Boolean(body.client.whatsappOptIn),
-        },
-      });
-    }
+    const client = existing
+      ? await prisma.client.update({
+          where: { id: existing.id },
+          data: {
+            fullName: body.client.fullName,
+            email: email || null,
+            whatsappOptIn: Boolean(body.client.whatsappOptIn),
+          },
+        })
+      : await prisma.client.create({
+          data: {
+            fullName: body.client.fullName,
+            phone,
+            email: email || null,
+            whatsappOptIn: Boolean(body.client.whatsappOptIn),
+          },
+        });
 
+    // 4) Create booking: therapistId stays null for public flow
     const booking = await prisma.booking.create({
       data: {
         startAt,
         notes: body.notes || null,
         source: body.source || "website",
         status: "PENDING",
-        therapistId: body.therapistId || null,
+        therapistPreference: body.therapistPreference,
+        therapistId: null,
         serviceId: body.serviceId,
         clientId: client.id,
       },
