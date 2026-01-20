@@ -28,7 +28,7 @@ export default function Navbar() {
       {/* Header glass bar */}
       <div
         className="border-b border-slate-900/10 backdrop-blur-md shadow-sm"
-        style={{ background: "rgba(255,255,255,0.78)" }}
+        style={{ background: "#ffffff" }}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center px-4">
           {/* Left: Logo */}

@@ -169,16 +169,18 @@ export default async function HomePage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+              {/* UPDATED: logo card background + text contrast for visibility */}
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl">
                 <div className="flex items-center justify-center">
-                  <div className="relative h-24 w-[360px]">
+                  {/* UPDATED: slightly larger logo area for better readability */}
+                  <div className="relative h-32 w-[420px]">
                     <Image
                       src="/logo/logo3.png"
                       alt="Maron Sports Massage"
                       fill
                       className="object-contain"
                       priority
-                      sizes="360px"
+                      sizes="420px"
                     />
                   </div>
                 </div>
@@ -192,7 +194,7 @@ export default async function HomePage() {
                   ].map((t) => (
                     <div
                       key={t}
-                      className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85"
+                      className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
                     >
                       <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-[#14B8A6]" />
                       <span>{t}</span>
@@ -200,9 +202,10 @@ export default async function HomePage() {
                   ))}
                 </div>
 
+                {/* UPDATED: softer glow so it doesn’t wash out the logo/text */}
                 <div
                   className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl"
-                  style={{ background: "rgba(20,184,166,0.35)" }}
+                  style={{ background: "rgba(20,184,166,0.2)" }}
                 />
               </div>
             </div>
@@ -327,13 +330,7 @@ export default async function HomePage() {
       {/* LOCATION */}
       <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0">
-          <Image
-            src="/images/img2.jpg"
-            alt="Sports recovery location"
-            fill
-            className="object-cover"
-            priority={false}
-          />
+          <Image src="/images/img2.jpg" alt="Sports recovery location" fill className="object-cover" priority={false} />
           <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-white/40" />
         </div>
 
