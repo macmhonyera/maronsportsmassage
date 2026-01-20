@@ -153,7 +153,7 @@ export default async function HomePage() {
               <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
                   { k: "60–90 min", v: "Sessions" },
-                  { k: "Same-week", v: "Availability" },
+                  { k: "Home Visits", v: "Availability" },
                   { k: "Online", v: "Booking" },
                   { k: "WhatsApp", v: "Support" },
                 ].map((item) => (
