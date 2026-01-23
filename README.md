@@ -2,7 +2,7 @@
 
 This is a complete, mobile-responsive Next.js website for a sports massage business with:
 
-- Home, About, Services, Therapists, Contact, Terms
+- Home, About, Services, Contact, Terms
 - SEO basics (metadata, sitemap, robots)
 - Google Maps embed
 - Social links
@@ -136,7 +136,7 @@ Note: Real “reminders” to past clients typically require WhatsApp templates 
 
 ## 12) Next steps (production hardening)
 
-- Add a real availability model (per-therapist calendars, breaks, durations)
+- Add a real availability model (calendars, breaks, durations)
 - Add booking status management UI (confirm/cancel)
 - Add WhatsApp reminder scheduler (cron + templates)
 - Add privacy policy page if you store client details and send marketing messages

@@ -42,14 +42,14 @@ export default function ContactPage() {
                     <div className="text-2xl">📞</div>
                     <div>
                       <div className="font-semibold text-[#0F172A]">Phone</div>
-                      <div className="text-[#64748B]">+27 00 000 0000</div>
+                      <div className="text-[#64748B]"> +263 78 0525 557</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <div className="text-2xl">✉️</div>
                     <div>
                       <div className="font-semibold text-[#0F172A]">Email</div>
-                      <div className="text-[#64748B]">hello@example.com</div>
+                      <div className="text-[#64748B]">info@maronfitness.co.zw</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">

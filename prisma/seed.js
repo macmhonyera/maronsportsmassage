@@ -1,37 +1,64 @@
-/* eslint-disable no-console */
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+import "dotenv/config";
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
+
+if (!process.env.DATABASE_URL) {
+  console.error("Missing DATABASE_URL in environment. Add it to .env and retry.");
+  process.exit(1);
+}
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
+
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
+
+const SERVICES = [
+  { id: "swedish-60", name: "Swedish Massage", description: "Relax & reduce muscle tension", durationMin: 60, priceCents: 3000 },
+  { id: "deep-tissue-60", name: "Deep Tissue Massage", description: "Relieve pain & knots", durationMin: 60, priceCents: 3500 },
+  { id: "full-body-60", name: "Full Body Massage", description: "Improve circulation & overall well-being", durationMin: 60, priceCents: 4000 },
+  { id: "sports-60", name: "Sports Massage", description: "Enhance performance & reduce muscle soreness", durationMin: 60, priceCents: 4000 },
+  { id: "thai-60", name: "Thai Massage", description: "Improve flexibility & balance", durationMin: 60, priceCents: 4000 },
+  { id: "aromatherapy-60", name: "Aromatherapy Massage", description: "Promote relaxation & emotional balance", durationMin: 60, priceCents: 3000 },
+  { id: "hotstone-60", name: "Hotstone Massage", description: "Melt stress & soothe muscles", durationMin: 60, priceCents: 3500 },
+  { id: "cupping-therapy-60", name: "Cupping Therapy", description: "Release tension & improve circulation", durationMin: 60, priceCents: 3500 },
+  { id: "lymphatic-drainage-60", name: "Lymphatic Drainage", description: "Boost immunity & reduce swelling", durationMin: 60, priceCents: 3000 },
+  { id: "gentlemens-package", name: "Gentlemen's Package", description: "Foot Scrub + Full Body Massage + Facial Cleanse + Underarm Wax", durationMin: 60, priceCents: 5000 },
+];
 
 async function main() {
-  const existingServices = await prisma.service.count();
-  if (existingServices === 0) {
-    await prisma.service.createMany({
-      data: [
-        { name: "Sports Massage (60 min)", description: "Targeted recovery massage for athletes.", durationMin: 60, priceCents: 65000, isActive: true },
-        { name: "Deep Tissue (60 min)", description: "Deeper pressure to address persistent tension.", durationMin: 60, priceCents: 70000, isActive: true },
-        { name: "Recovery Session (45 min)", description: "Shorter recovery-focused session.", durationMin: 45, priceCents: 55000, isActive: true },
-      ],
+  for (const s of SERVICES) {
+    await prisma.service.upsert({
+      where: { id: s.id },
+      update: {
+        name: s.name,
+        description: s.description,
+        durationMin: s.durationMin,
+        priceCents: s.priceCents,
+        isActive: true,
+      },
+      create: {
+        id: s.id,
+        name: s.name,
+        description: s.description,
+        durationMin: s.durationMin,
+        priceCents: s.priceCents,
+        isActive: true,
+      },
     });
   }
 
-  const existingTherapists = await prisma.therapist.count();
-  if (existingTherapists === 0) {
-    await prisma.therapist.createMany({
-      data: [
-        { name: "Alex Ndlovu", bio: "Sports therapist focused on runners and cyclists.", specialties: "Sports recovery, Mobility, Trigger points", photoUrl: "/therapists/alex.jpg", isActive: true },
-        { name: "Sam Patel", bio: "Deep tissue and injury-prevention specialist.", specialties: "Deep tissue, Injury prevention, Mobility", photoUrl: "/therapists/sam.jpg", isActive: true },
-      ],
-    });
-  }
+  console.log("Seeded services:", SERVICES.length);
 }
 
 main()
-  .then(async () => {
-    console.log("Seed completed.");
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
+  .catch((e) => {
     console.error(e);
-    await prisma.$disconnect();
     process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+    await pool.end();
   });

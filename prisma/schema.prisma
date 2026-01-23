@@ -3,9 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
 }
+
 enum BookingStatus {
   PENDING
   CONFIRMED
@@ -54,28 +54,33 @@ model Client {
 }
 
 model Booking {
-  id           String        @id @default(cuid())
-  startAt      DateTime
-  notes        String?
-  source       String        @default("website") // website | whatsapp | admin
-  status       BookingStatus @default(PENDING)
+  id                  String        @id @default(cuid())
+  startAt             DateTime
+  notes               String?
+  source              String        @default("website") // website | whatsapp | admin
+  status              BookingStatus @default(PENDING)
 
-  therapistId  String?
-  therapist    Therapist?    @relation(fields: [therapistId], references: [id])
+  // public flow stores this string only:
+  therapistPreference String?       // "any" | "male" | "female"
 
-  serviceId    String
-  service      Service       @relation(fields: [serviceId], references: [id])
+  // optional, for admin assignment later:
+  therapistId         String?
+  therapist           Therapist?    @relation(fields: [therapistId], references: [id])
 
-  clientId     String
-  client       Client        @relation(fields: [clientId], references: [id])
+  serviceId           String
+  service             Service       @relation(fields: [serviceId], references: [id])
 
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  clientId            String
+  client              Client        @relation(fields: [clientId], references: [id])
+
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
 
   @@index([startAt])
   @@index([status])
   @@index([therapistId])
   @@index([serviceId])
+  @@index([therapistPreference])
 }
 
 model ReminderLog {

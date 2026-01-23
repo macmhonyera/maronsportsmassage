@@ -1,7 +1,25 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+function isActivePath(pathname, href) {
+  if (!pathname) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const menuItems = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       {/* Top stripe */}
@@ -10,7 +28,7 @@ export default function Navbar() {
       {/* Header glass bar */}
       <div
         className="border-b border-slate-900/10 backdrop-blur-md shadow-sm"
-        style={{ background: "rgba(255,255,255,0.78)" }} // off-white, transparent
+        style={{ background: "#ffffff" }}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center px-4">
           {/* Left: Logo */}
@@ -30,21 +48,33 @@ export default function Navbar() {
           </div>
 
           {/* Center: Menu */}
-          <nav className="hidden w-1/2 items-center justify-center gap-8 text-sm font-medium md:flex">
-            {[
-              { href: "/about", label: "About" },
-              { href: "/services", label: "Services" },
-              { href: "/therapists", label: "Therapists" },
-              { href: "/contact", label: "Contact" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-slate-700 transition-colors hover:text-slate-900 hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="hidden w-1/2 items-center justify-center gap-2 text-sm font-medium md:flex">
+            {menuItems.map((item) => {
+              const active = isActivePath(pathname, item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={[
+                    "relative rounded-lg px-3 py-2 transition-all",
+                    active
+                      ? "text-slate-900 bg-white/70"
+                      : "text-slate-700 hover:text-slate-900 hover:bg-white/50",
+                  ].join(" ")}
+                >
+                  {item.label}
+
+                  {/* Active underline */}
+                  <span
+                    className={[
+                      "absolute left-3 right-3 -bottom-[6px] h-[3px] rounded-full transition-all",
+                      active ? "bg-[#14B8A6]" : "bg-transparent",
+                    ].join(" ")}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right: CTA */}
@@ -61,21 +91,27 @@ export default function Navbar() {
 
         {/* Mobile menu row */}
         <div className="border-t border-slate-900/10 bg-white/60 backdrop-blur-md md:hidden">
-          <nav className="mx-auto flex max-w-6xl items-center justify-center gap-6 px-4 py-3 text-sm font-medium">
-            {[
-              { href: "/about", label: "About" },
-              { href: "/services", label: "Services" },
-              { href: "/therapists", label: "Therapists" },
-              { href: "/contact", label: "Contact" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-slate-700 transition-colors hover:text-slate-900 hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-3 text-sm font-medium">
+            {menuItems
+              .filter((i) => i.href !== "/") // keep Home in logo for mobile
+              .map((item) => {
+                const active = isActivePath(pathname, item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={[
+                      "rounded-lg px-3 py-2 transition-all",
+                      active
+                        ? "bg-[#14B8A6]/10 text-slate-900"
+                        : "text-slate-700 hover:text-slate-900 hover:bg-white/50",
+                    ].join(" ")}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
           </nav>
         </div>
       </div>
