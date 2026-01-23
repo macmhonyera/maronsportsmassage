@@ -1,3 +1,5 @@
+export const runtime = 'nodejs';
+
 export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACE_ID;
@@ -7,7 +9,6 @@ export async function GET() {
   }
 
   try {
-    // Places API (new) - returns rating and reviews if allowed by your project settings
     const url = `https://places.googleapis.com/v1/places/${placeId}?fields=rating,reviews,googleMapsUri`;
 
     const res = await fetch(url, {
