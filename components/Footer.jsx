@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export default function Footer() {
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_LINK || "https://wa.me/";
-  const instagram = process.env.NEXT_PUBLIC_INSTAGRAM_LINK || "#";
-  const facebook = process.env.NEXT_PUBLIC_FACEBOOK_LINK || "#";
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_LINK || "https://wa.me/263780525557";
+  const instagram = process.env.NEXT_PUBLIC_INSTAGRAM_LINK || "https://www.instagram.com/maron_zw/?utm_source=ig_web_button_share_sheet";
+  const facebook = process.env.NEXT_PUBLIC_FACEBOOK_LINK || "https://www.facebook.com/profile.php?id=61577595272486#";
 
   return (
     <footer className="border-t border-white/10 bg-[#0F172A]/80 backdrop-blur-md">
@@ -11,7 +11,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div className="text-xl font-semibold tracking-tight text-white">
-            Sports Massage
+            Maron Fitness | Massage &Spa
           </div>
           <p className="mt-3 text-sm leading-relaxed text-slate-300">
             Recovery-focused therapy for athletes and active people. Book online
@@ -19,10 +19,9 @@ export default function Footer() {
           </p>
 
           <p className="mt-4 text-sm text-slate-300">
-            <span className="font-medium text-white">Phone:</span> +27 00 000 0000
+            <span className="font-medium text-white">Phone:</span> +263 78 0525 557
             <br />
-            <span className="font-medium text-white">Address:</span> Your Street,
-            Your City
+            <span className="font-medium text-white">Address:</span> 116 Fife Ave, Harare
           </p>
         </div>
 
@@ -86,14 +85,14 @@ export default function Footer() {
                 Facebook
               </a>
             </li>
-            <li>
+            {/* <li>
               <Link
                 href="/admin"
                 className="text-slate-400 transition-colors hover:text-white hover:underline underline-offset-4"
               >
                 Admin
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

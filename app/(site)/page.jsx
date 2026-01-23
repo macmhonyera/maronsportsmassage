@@ -88,7 +88,7 @@ export default async function HomePage() {
     },
   ];
 
-  const serviceImages = ["/images/man.jpg", "/images/pain.jpg", "/images/tissue.jpg"];
+  const serviceImages = ["/images/man.jpg", "/images/neck.jpg", "/images/tissue.jpg"];
 
   return (
     <div className="space-y-0">

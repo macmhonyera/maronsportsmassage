@@ -17,7 +17,7 @@ const SERVICES = [
     tagline: "Relax & reduce muscle tension",
     price: 30,
     durationMin: 60,
-    image: "/images/man.jpg",
+    image: "/images/thai.jpg",
     benefits: ["Relieves stress and tension", "Improves circulation", "Promotes better sleep"],
   },
   {
@@ -44,7 +44,7 @@ const SERVICES = [
     tagline: "Enhance performance & reduce soreness",
     price: 40,
     durationMin: 60,
-    image: "/images/man.jpg",
+    image: "/images/spo.png",
     benefits: ["Speeds up recovery", "Reduces muscle soreness", "Improves performance readiness"],
   },
   {
@@ -53,7 +53,7 @@ const SERVICES = [
     tagline: "Improve flexibility & balance",
     price: 40,
     durationMin: 60,
-    image: "/images/pain.jpg",
+    image: "/images/thai.jpg",
     benefits: ["Improves flexibility", "Releases tight muscles", "Supports posture and balance"],
   },
   {
@@ -62,7 +62,7 @@ const SERVICES = [
     tagline: "Promote relaxation & emotional balance",
     price: 30,
     durationMin: 60,
-    image: "/images/man.jpg",
+    image: "/images/aro.png",
     benefits: ["Calms the nervous system", "Reduces stress and anxiety", "Enhances mood and relaxation"],
   },
   {
@@ -71,7 +71,7 @@ const SERVICES = [
     tagline: "Melt stress & soothe muscles",
     price: 35,
     durationMin: 60,
-    image: "/images/tissue.jpg",
+    image: "/images/hot.png",
     benefits: ["Deep muscle relaxation", "Eases stiffness with heat", "Improves circulation"],
   },
   {
@@ -80,7 +80,7 @@ const SERVICES = [
     tagline: "Release tension & improve circulation",
     price: 35,
     durationMin: 60,
-    image: "/images/pain.jpg",
+    image: "/images/neck.jpg",
     benefits: ["Releases deep tightness", "Supports circulation", "Aids recovery and mobility"],
   },
   {
@@ -99,7 +99,7 @@ const SPECIALS = [
     id: "gentlemens-package",
     name: "Gentlemen’s Package",
     price: 50,
-    image: "/images/tissue.jpg",
+    image: "/images/gent.png",
     tagline: "Best-value bundle for a full refresh",
     includes: ["Foot Scrub", "Full Body Massage", "Facial Cleanse", "Underarm Wax"],
     benefits: ["Complete head-to-toe refresh", "Great value bundle", "Perfect for events and self-care days"],
