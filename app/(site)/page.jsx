@@ -5,7 +5,7 @@ import Reviews from "../../components/Reviews";
 import GoogleMapEmbed from "../../components/GoogleMapEmbed";
 
 export const metadata = {
-  title: "Maron Sports Massage | Book Recovery & Performance Sessions",
+  title: "Maron Fitness | Massage &Spa | Book Recovery & Performance Sessions",
   description: "Book sports massage sessions online. Recovery-focused treatments.",
 };
 
@@ -187,10 +187,10 @@ export default async function HomePage() {
 
                 <div className="mt-6 space-y-3">
                   {[
-                    "Deep tissue, trigger point & assisted stretching",
+                    "Deep tissue, Relieve pain & knots",
                     "Sport-specific recovery for training blocks",
                     "Online booking + reminder workflow",
-                    "Transformative Touch: At your door steps",
+                    "Transformative Touch: At your door steps and ours.",
                   ].map((t) => (
                     <div
                       key={t}

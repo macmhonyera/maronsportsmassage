@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { prisma } from "../../lib/prisma";
 
-export const metadata = { title: "Admin | Maron Sports Massage" };
+export const metadata = { title: "Admin | Maron Fitness Massage &Spa" };
 
 function dayRange(date = new Date()) {
   const start = new Date(date);
@@ -126,7 +126,7 @@ export default async function AdminHome() {
             </h1>
             <p className="mt-2 max-w-2xl text-slate-600">
               Manage bookings, create manual entries, and monitor activity across
-              Maron Sports Massage.
+              Maron Fitness Massage &Spa.
             </p>
           </div>
 

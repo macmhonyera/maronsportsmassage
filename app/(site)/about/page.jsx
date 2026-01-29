@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About | Maron Sports Massage",
+  title: "About | Maron Fitnes  Massage &Spa",
   description: "Learn about our mission, approach, and therapist standards.",
 };
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
-              About Maron
+              About Maron Fitness | Massage &Spa
             </div>
 
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -237,7 +237,7 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-                Why Athletes Choose Maron
+                Why Choose Maron Fitness | Massage &Spa?
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">

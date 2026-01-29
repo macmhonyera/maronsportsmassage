@@ -27,6 +27,7 @@
     "react-dom": "^18.3.1",
     "react-floating-whatsapp": "^5.0.8",
     "twilio": "^5.4.0",
+    "wbiztool-client": "^0.1.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Admin | Maron Sports Massage",
+  title: "Admin | Maron Fitness Massage &Spa",
 };
 
 export default function AdminLayout({ children }) {
@@ -81,7 +81,7 @@ export default function AdminLayout({ children }) {
       {/* Footer sticks to bottom */}
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-slate-500">
-          © {new Date().getFullYear()} Maron Sports Massage — Admin
+          © {new Date().getFullYear()} Maron Fitness Massage &Spa — Admin
         </div>
       </footer>
     </div>

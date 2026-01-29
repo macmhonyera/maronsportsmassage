@@ -219,6 +219,7 @@ export default function BookPage() {
                     <input
                       className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                       value={phone}
+                      placeholder="26377777777"
                       onChange={(e) => setPhone(e.target.value)}
                       required
                     />
