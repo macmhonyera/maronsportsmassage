@@ -93,8 +93,8 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Built for athletes. Designed for{" "}
-              <span className="text-[#5EEAD4]">recovery</span>.
+              Built for movement. Designed for recovery and {" "}
+              <span className="text-[#5EEAD4]">wellness</span>.
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
@@ -154,7 +154,7 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-                Built for Athletes, By Athletes
+                Built for recovery. Guided by movement.
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
@@ -286,7 +286,7 @@ export default function AboutPage() {
             </div>
 
             <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-              Evidence-Based. Athlete-Focused.
+              Evidence-Informed. Personalised for Every body.
             </h2>
 
             <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -343,11 +343,11 @@ export default function AboutPage() {
     </div>
 
     <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
-      Ready to Elevate Your Performance?
+      Ready to feel your best?
     </h2>
 
     <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
-      Book your session today and experience the difference expert massage therapy can make in recovery, performance, and overall wellbeing.
+      Book your session today and experience the difference expert massage therapy can make whetehr it's recovery, relaxation, mobility or overal wellbeing.
     </p>
 
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

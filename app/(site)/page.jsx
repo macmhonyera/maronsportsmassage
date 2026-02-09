@@ -117,7 +117,7 @@ export default async function HomePage() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
-                Recovery • Performance • Mobility
+                Recovery • Performance • Relaxation
               </div>
 
               <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
@@ -190,7 +190,7 @@ export default async function HomePage() {
                     "Deep tissue, Relieve pain & knots",
                     "Sport-specific recovery for training blocks",
                     "Online booking + reminder workflow",
-                    "Transformative Touch: At your door steps and ours.",
+                    "Transformative Touch: At your door steps or ours.",
                   ].map((t) => (
                     <div
                       key={t}
