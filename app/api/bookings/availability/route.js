@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "./../../../../lib/prisma";
 
 function parseISODate(dateISO) {
   const [y, m, d] = dateISO.split("-").map(Number);
