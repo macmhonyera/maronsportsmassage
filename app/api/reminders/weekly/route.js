@@ -1,5 +1,5 @@
-import { prisma } from "@/lib/prisma";
-import { sendWhatsApp } from "@/lib/wbiztool";
+import { prisma } from "./../../../../lib/prisma";
+import { sendWhatsApp } from "./../../../../lib/wbiztool";
 
 export async function GET() {
   const now = new Date();
