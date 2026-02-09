@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0F172A] py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#0F172A] py-16 md:py-24 mt-10">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&q=80"

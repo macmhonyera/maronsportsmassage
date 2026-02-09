@@ -117,7 +117,7 @@ export default function ServicesPage() {
   return (
     <div className="space-y-0">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1224]">
+      <section className="relative overflow-hidden bg-[#0B1224] mt-5">
         <div className="absolute inset-0">
           <Image
             src="/images/man.jpg"

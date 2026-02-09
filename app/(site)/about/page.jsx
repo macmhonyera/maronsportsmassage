@@ -10,11 +10,11 @@ export default function AboutPage() {
   const values = [
     {
       title: "Precision",
-      description: "Every session is tailored to your specific needs, sport, and goals.",
+      description: "Every session is tailored to your body needs comfort level and goals whether recovery, relaxation or mobility.",
     },
     {
       title: "Performance",
-      description: "Helping athletes reach peak performance through expert recovery.",
+      description: "Supporting your body to move, function and feel its best in daily life work and physical activity.",
     },
     {
       title: "Partnership",
@@ -28,20 +28,20 @@ export default function AboutPage() {
 
   const benefits = [
     {
-      title: "Faster Recovery",
-      description: "Reduce muscle soreness and get back to training sooner.",
+      title: "Injury & Tension Prevention",
+      description: "Identify and address tightness, imbalances and stress before they turn into bigger issues.",
     },
     {
-      title: "Injury Prevention",
-      description: "Identify and address potential issues before they become problems.",
+      title: "Improved Movement & Performance",
+      description: "Enhance flexibility, mobility, and overall body function.",
     },
     {
-      title: "Enhanced Performance",
-      description: "Improve flexibility, mobility, and overall athletic performance.",
+      title: "Personalised Care",
+      description: "Every session is adapted to your body needs whether recovery relaxtion mobility or deep relief.",
     },
-    {
-      title: "Customized Approach",
-      description: "Every treatment is adapted to your sport, training load, and goals.",
+     {
+      title: "Evidence-Informed Care",
+      description: "We use proven massage techniques guided by anatomy, movement science and hands-on experience.",
     },
   ];
 
@@ -49,17 +49,17 @@ export default function AboutPage() {
     {
       title: "Assessment First",
       description:
-        "We start by understanding your training schedule, goals, and any specific concerns or areas of focus.",
+        "We begin by understanding your body, lifestyle and goals-wheteher for stress relief, recovery, mobility, or perfomance.",
     },
     {
       title: "Customized Treatment",
       description:
-        "Every session is tailored to your needs—whether you need deep tissue work, recovery massage, or pre-competition preparation.",
+        "Each session is tailored to your needs-deep tissue, relaxation, Swedish, Thai or sports-focused techniques ensuring you get the right care every time.",
     },
     {
       title: "Continuous Support",
       description:
-        "We work with you over time to track progress, adjust treatments, and help you maintain peak performance.",
+        "We follow your progress adapt treatments as your body changes and help you mantain wellness, mobility and overall balance.",
     },
   ];
 
@@ -158,15 +158,13 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
-                We understand what it takes to perform at the highest level. Our team of
-                sports massage therapists brings years of experience working with
-                athletes across all disciplines—from runners and cyclists to gym enthusiasts
-                and team sports players.
+                We understand the demands that movement, work and everyday life place on the body. Our massage therapy approach blends sports-informed 
+                techniques with therapeutic and relaxation-based care, supporting everyone from active individulas and fitness enthusiasts to those managing stress, tension or fatigue.
               </p>
 
               <p className="mt-4 text-lg leading-relaxed text-slate-700">
-                We provide evidence-informed sports massage focused on recovery, injury prevention,
-                and mobility. Every session is adapted to your training load, goals, and sport.
+               We offer evidence-informed massage focused on recovery, mobility and wellbeing. Every session is
+               personalised to your bodys needs, goals and lifestyle so you leave feeling restored, balanced and ready for whats next.
               </p>
 
               <div className="mt-8">
@@ -349,8 +347,7 @@ export default function AboutPage() {
     </h2>
 
     <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
-      Book your session today and experience the difference expert sports massage
-      can make in your training, recovery, and results.
+      Book your session today and experience the difference expert massage therapy can make in recovery, performance, and overall wellbeing.
     </p>
 
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

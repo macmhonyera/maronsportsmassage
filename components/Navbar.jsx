@@ -30,17 +30,17 @@ export default function Navbar() {
         className="border-b border-slate-900/10 backdrop-blur-md shadow-sm"
         style={{ background: "#ffffff" }}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center px-4">
+        <div className="mx-auto flex h-24 max-w-6xl items-center px-4">
           {/* Left: Logo */}
           <div className="flex w-1/4 items-center">
             <Link href="/" className="group flex items-center">
-              <div className="relative h-12 w-[240px]">
+              <div className="relative h-32 w-[420px]">
                 <Image
                   src="/logo/logo3.png"
                   alt="Maron Sports Massage"
                   fill
                   priority
-                  sizes="240px"
+                  sizes="420px"
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

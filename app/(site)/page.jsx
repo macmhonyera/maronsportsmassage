@@ -70,21 +70,21 @@ export default async function HomePage() {
   const services = [...SERVICES].sort((a, b) => a.durationMin - b.durationMin).slice(0, 3);
 
   const features = [
-    {
-      title: "Sport-Specific Care",
-      description: "Treatment plans tailored to your training load and competition schedule.",
-    },
+    // {
+    //   title: "Sport-Specific Care",
+    //   description: "Treatment plans tailored to your training load and competition schedule.",
+    // },
     {
       title: "Easy Online Booking",
-      description: "Pick a slot, confirm instantly, and get reminders before your session.",
+      description: "Choose a time, confirm instantly, and get reminders before your session.",
     },
     {
       title: "WhatsApp Support",
-      description: "Fast communication for rescheduling, questions, and appointment updates.",
+      description: "Simple, fast communication for questions, rescheduling and appointment updates.",
     },
     {
       title: "Personalized Sessions",
-      description: "Each session is adapted to your body’s needs—whether recovery, relaxation, or both.",
+      description: "Every session is adapted to your body-supporting recovery, relaxation, mobility or deep tension relief.",
     },
   ];
 
@@ -121,13 +121,12 @@ export default async function HomePage() {
               </div>
 
               <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-                Modern massage for <span className="text-[#5EEAD4]">peak performance</span> and{" "}
-                <span className="text-white">total relaxation</span>.
+                Modern massage therapy for <span className="text-[#5EEAD4]">active bodies</span> and{" "}
+                <span className="text-white">everyday life</span>.
               </h1>
 
               <p className="mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
-                We delivers targeted treatment for athletes and active individuals. Reduce soreness, improve mobility,
-                and stay ready for your next session.
+                We deliver targeted sports massage and therapeutic treatments designed to reduce pain, improve mobility and restore balance whether you are training hard, working long hours or simply need to rest.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -173,14 +172,15 @@ export default async function HomePage() {
               <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl">
                 <div className="flex items-center justify-center">
                   {/* UPDATED: slightly larger logo area for better readability */}
-                  <div className="relative h-32 w-[420px]">
+                 <div className="relative h-[30vh] w-[720px] max-w-sm">
+
                     <Image
                       src="/logo/logo3.png"
                       alt="Maron Sports Massage"
                       fill
                       className="object-contain"
                       priority
-                      sizes="420px"
+                      sizes="720px"
                     />
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
             {features.map((feature) => (
               <div
                 key={feature.title}
