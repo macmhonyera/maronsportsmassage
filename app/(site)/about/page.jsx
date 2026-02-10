@@ -347,7 +347,7 @@ export default function AboutPage() {
     </h2>
 
     <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
-      Book your session today and experience the difference expert massage therapy can make whetehr it's recovery, relaxation, mobility or overal wellbeing.
+      Book your session today and experience the difference expert massage therapy can make whether it&apos;s recovery, relaxation, mobility or overal wellbeing.
     </p>
 
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
