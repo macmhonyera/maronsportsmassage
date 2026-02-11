@@ -192,7 +192,7 @@ export default async function HomePage() {
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl whitespace-nowrap">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
               Built for recovery, relaxation and performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">

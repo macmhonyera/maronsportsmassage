@@ -25,30 +25,28 @@ export default function Navbar() {
       {/* Top stripe */}
       <div className="h-1 w-full bg-[#0F172A]" />
 
-      {/* Header glass bar */}
-      <div
-        className="border-b border-slate-900/10 backdrop-blur-md shadow-sm"
-        style={{ background: "#ffffff" }}
-      >
-        <div className="mx-auto flex h-24 max-w-6xl items-center px-4">
+      {/* Header bar */}
+      <div className="border-b border-slate-900/10 backdrop-blur-md shadow-sm bg-white">
+        <div className="mx-auto flex h-20 sm:h-24 max-w-7xl items-center px-6">
+          
           {/* Left: Logo */}
-          <div className="flex w-1/4 items-center">
+          <div className="flex items-center">
             <Link href="/" className="group flex items-center">
-              <div className="relative h-32 w-[420px]">
+              <div className="relative h-16 w-36 sm:h-20 sm:w-64 md:h-24 md:w-[380px]">
                 <Image
                   src="/logo/logo3.png"
                   alt="Maron Sports Massage"
                   fill
                   priority
-                  sizes="420px"
+                  sizes="(max-width: 640px) 140px, (max-width: 768px) 260px, 380px"
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </Link>
           </div>
 
-          {/* Center: Menu */}
-          <nav className="hidden w-1/2 items-center justify-center gap-2 text-sm font-medium md:flex">
+          {/* Center: Desktop Menu (True Centered) */}
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 text-sm font-medium">
             {menuItems.map((item) => {
               const active = isActivePath(pathname, item.href);
 
@@ -65,7 +63,6 @@ export default function Navbar() {
                 >
                   {item.label}
 
-                  {/* Active underline */}
                   <span
                     className={[
                       "absolute left-3 right-3 -bottom-[6px] h-[3px] rounded-full transition-all",
@@ -78,22 +75,21 @@ export default function Navbar() {
           </nav>
 
           {/* Right: CTA */}
-          <div className="flex w-1/4 items-center justify-end gap-2">
+          <div className="ml-auto flex items-center">
             <Link
               href="/book"
-              className="rounded-lg bg-[#14B8A6]/90 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300
-                         hover:bg-[#0D9488] hover:shadow-lg active:scale-95"
+              className="whitespace-nowrap rounded-lg bg-[#14B8A6]/90 px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0D9488] hover:shadow-lg active:scale-95"
             >
               Book Now
             </Link>
           </div>
         </div>
 
-        {/* Mobile menu row */}
+        {/* Mobile Menu Row (UNCHANGED) */}
         <div className="border-t border-slate-900/10 bg-white/60 backdrop-blur-md md:hidden">
           <nav className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-3 text-sm font-medium">
             {menuItems
-              .filter((i) => i.href !== "/") // keep Home in logo for mobile
+              .filter((i) => i.href !== "/")
               .map((item) => {
                 const active = isActivePath(pathname, item.href);
 
