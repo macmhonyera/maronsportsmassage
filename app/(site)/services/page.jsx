@@ -144,7 +144,7 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Choose your perfect session {" "}
+              Choose your perfect session to {" "}
               <span className="text-[#5EEAD4]">recover</span>,{" "}
               <span className="text-white">relax</span>, and{" "}
               <span className="text-white">reset</span>.
