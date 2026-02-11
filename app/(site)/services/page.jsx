@@ -144,7 +144,7 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Choose your perfect session —{" "}
+              Choose your perfect session {" "}
               <span className="text-[#5EEAD4]">recover</span>,{" "}
               <span className="text-white">relax</span>, and{" "}
               <span className="text-white">reset</span>.
@@ -187,7 +187,7 @@ export default function ServicesPage() {
               Services
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
-              Clear services, real benefits, and a premium experience — choose what fits your goal.
+              Clear services, real benefits, and a premium experience choose what fits your goal.
             </p>
           </div>
 
@@ -218,7 +218,7 @@ export default function ServicesPage() {
                     <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                       {s.durationMin} min
                     </span>
-                   
+
                   </div>
                 </div>
 
@@ -231,7 +231,16 @@ export default function ServicesPage() {
                       </h3>
                       <p className="mt-1 text-sm text-slate-600">{s.tagline}</p>
                     </div>
+
+                    {/* PRICE */}
+                    <div className="text-right">
+                      <div className="text-xs text-slate-500">From</div>
+                      <div className="text-lg font-semibold text-[#0F172A]">
+                        {moneyUSD(s.price)}
+                      </div>
+                    </div>
                   </div>
+
 
                   <ul className="mt-4 space-y-2 text-sm text-slate-700">
                     {s.benefits.map((b) => (
@@ -298,14 +307,23 @@ export default function ServicesPage() {
                     <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                       Special
                     </span>
-                   
+
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-[#0F172A]">
-                    {sp.name}
-                  </h3>
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-2xl font-semibold text-[#0F172A]">
+                      {sp.name}
+                    </h3>
+
+                    <div className="text-right">
+                      <div className="text-xs text-slate-500">Package</div>
+                      <div className="text-xl font-semibold text-[#0F172A]">
+                        {moneyUSD(sp.price)}
+                      </div>
+                    </div>
+                  </div>
                   <p className="mt-2 text-sm text-slate-600">{sp.tagline}</p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
