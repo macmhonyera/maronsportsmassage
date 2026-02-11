@@ -100,7 +100,7 @@ export default function BookPage() {
   const selectedService = services.find((s) => s.id === serviceId);
 
   return (
-    <div className="space-y-0">
+    <div className="space-y-0 mt-10">
       <section className="relative overflow-hidden bg-[#0F172A] py-16 md:py-24">
         <div className="absolute inset-0 z-0">
           <Image

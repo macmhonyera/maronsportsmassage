@@ -14,7 +14,7 @@ export default function Footer() {
             Maron Fitness | Massage &Spa
           </div>
           <p className="mt-3 text-sm leading-relaxed text-slate-300">
-            Personalised massage therapy for recovery, relaxation, and wellbeing. Book online in minutes.
+            Personalised massage therapy for recovery, relaxation, and wellbeing.
           </p>
 
           <p className="mt-4 text-sm text-slate-300">

@@ -70,10 +70,6 @@ export default async function HomePage() {
   const services = [...SERVICES].sort((a, b) => a.durationMin - b.durationMin).slice(0, 3);
 
   const features = [
-    // {
-    //   title: "Sport-Specific Care",
-    //   description: "Treatment plans tailored to your training load and competition schedule.",
-    // },
     {
       title: "Easy Online Booking",
       description: "Choose a time, confirm instantly, and get reminders before your session.",
@@ -94,138 +90,116 @@ export default async function HomePage() {
     <div className="space-y-0">
       {/* HERO */}
       <section className="relative overflow-hidden bg-[#0B1224]/80">
+        {/* Background */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=2400&q=80"
+            src="/images/hero.jpg"
             alt="Athlete recovery and therapy"
             fill
-            className="object-cover mix-blend-luminosity"
+            className="object-cover"
             priority
           />
+
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/60 via-[#0B1224]/85 to-[#0B1224]" />
+
           <div
-            className="absolute inset-0 opacity-80"
+            className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(900px 360px at 70% 15%, rgba(20,184,166,0.25) 0%, rgba(151, 248, 237, 0) 60%)",
+                "radial-gradient(900px 420px at 50% 20%, rgba(20,184,166,0.18) 0%, rgba(255,255,255,0) 65%)",
             }}
           />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 pt-28 pb-16 md:pt-36 md:pb-24">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
-                Recovery • Performance • Relaxation
-              </div>
-
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-                Modern massage therapy for <span className="text-[#5EEAD4]">active bodies</span> and{" "}
-                <span className="text-white">everyday life</span>.
-              </h1>
-
-              <p className="mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
-                We deliver targeted sports massage and therapeutic treatments designed to reduce pain, improve mobility and restore balance whether you are training hard, working long hours or simply need to rest.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
-                  href="/book"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
-                             hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
-                >
-                  Book Your Session
-                  <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-7 py-4 text-sm font-semibold text-white
-                             backdrop-blur transition hover:bg-white/15 hover:border-white/30"
-                >
-                  Explore Services
-                </Link>
-              </div>
-
-              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-                {[
-                  { k: "60–90 min", v: "Sessions" },
-                  { k: "Home Visits", v: "Availability" },
-                  { k: "Online", v: "Booking" },
-                  { k: "WhatsApp", v: "Support" },
-                ].map((item) => (
-                  <div
-                    key={item.v}
-                    className="rounded-xl border border-white/10 bg-white/5 p-4 text-white/90 backdrop-blur"
-                  >
-                    <div className="text-sm font-semibold">{item.k}</div>
-                    <div className="mt-1 text-xs text-white/70">{item.v}</div>
-                  </div>
-                ))}
-              </div>
+        {/* UPDATED RESPONSIVE PADDING */}
+        <div className="relative mx-auto max-w-7xl px-4 pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-36 md:pb-28">
+          <div className="mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm mx-auto">
+              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+              Recovery • Performance • Relaxation
             </div>
 
-            <div className="lg:col-span-5">
-              {/* UPDATED: logo card background + text contrast for visibility */}
-              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl">
-                <div className="flex items-center justify-center">
-                  {/* UPDATED: slightly larger logo area for better readability */}
-                 <div className="relative h-[30vh] w-[720px] max-w-sm">
+            {/* Heading */}
+            <h1 className="mt-6 mx-auto max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight">
+              Modern massage therapy for{" "}
+              <span className="text-[#14B8A6]">active bodies</span> and{" "}
+              <span className="text-white">everyday life</span>.
+            </h1>
 
-                    <Image
-                      src="/logo/logo3.png"
-                      alt="Maron Sports Massage"
-                      fill
-                      className="object-contain"
-                      priority
-                      sizes="720px"
-                    />
-                  </div>
-                </div>
+            {/* Paragraph */}
+            <p className="mt-6 mx-auto max-w-4xl text-sm text-slate-200 sm:text-lg leading-relaxed">
+              We deliver targeted sports massage and other therapeutic treatments designed
+              to reduce pain, improve mobility, promote relaxation and restore balance whether
+              you are training hard, working long hours or simply need to reset.
 
-                <div className="mt-6 space-y-3">
-                  {[
-                    "Deep tissue, Relieve pain & knots",
-                    "Sport-specific recovery for training blocks",
-                    "Online booking + reminder workflow",
-                    "Transformative Touch: At your door steps or ours.",
-                  ].map((t) => (
-                    <div
-                      key={t}
-                      className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
-                    >
-                      <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-[#14B8A6]" />
-                      <span>{t}</span>
-                    </div>
-                  ))}
-                </div>
+            </p>
 
-                {/* UPDATED: softer glow so it doesn’t wash out the logo/text */}
+            {/* Buttons */}
+            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="/book"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-md transition
+          hover:bg-[#0D9488] hover:shadow-lg active:scale-95"
+              >
+                Book Your Session
+                <svg
+                  className="ml-2 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
+
+              <Link
+                href="/services"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-4 text-sm font-semibold text-slate-700
+          transition hover:bg-slate-100"
+              >
+                Explore Services
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
+              {[
+                { k: "60–90 min", v: "Sessions" },
+                { k: "In-Studio & Home", v: "Available" },
+                { k: "Online", v: "Booking" },
+                { k: "WhatsApp", v: "Support" },
+              ].map((item) => (
                 <div
-                  className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl"
-                  style={{ background: "rgba(20,184,166,0.2)" }}
-                />
-              </div>
+                  key={item.v}
+                  className="rounded-xl border border-white/10 bg-white/5 p-3 sm:p-4 text-white/90 backdrop-blur text-center"
+                >
+                  <div className="text-sm font-semibold">{item.k}</div>
+                  <div className="mt-1 text-xs text-white/70">{item.v}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-
-        <div className="h-10 bg-gradient-to-b from-[#0B1224] to-white" />
       </section>
 
       {/* FEATURES */}
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
-              Built for recovery and performance
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl whitespace-nowrap">
+              Built for recovery, relaxation and performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
-              A modern therapy experience—from booking to treatment to follow-up.
+              A modern therapy experience from booking to treatment to follow-up.
             </p>
           </div>
+
 
           <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3">
             {features.map((feature) => (
@@ -258,13 +232,13 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="mt-4 grid gap-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
             {services.map((service, index) => (
               <div
                 key={service.id}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={serviceImages[(index + randInt(serviceImages.length)) % serviceImages.length]}
                     alt={service.name}
@@ -285,7 +259,7 @@ export default async function HomePage() {
 
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
 
-                  <div className="mt-5 flex items-center gap-3">
+                  <div className="mt-5 flex flex-col sm:flex-row items-center gap-3">
                     <Link
                       href="/book"
                       className="inline-flex w-full items-center justify-center rounded-xl bg-[#14B8A6] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0D9488] hover:shadow-md"
@@ -321,7 +295,7 @@ export default async function HomePage() {
       {/* REVIEWS */}
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <Section title="What Our Clients Say" subtitle="Real feedback from athletes and active individuals">
+          <Section title="What Our Clients Say" subtitle="Real feedback from clients focused on recovery, relaxation and wellbeing">
             <Reviews />
           </Section>
         </div>

@@ -50,14 +50,14 @@ Hi ${booking.client?.fullName || ""},
 
 Your booking has been confirmed.
 
-🗓 Date: ${booking.startAt.toLocaleDateString()}
-⏰ Time: ${booking.startAt.toLocaleTimeString([], {
+Date: ${booking.startAt.toLocaleDateString()}
+Time: ${booking.startAt.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           })}
-💆 Service: ${booking.service?.name || ""}
+Service: ${booking.service?.name || ""}
 
-We look forward to seeing you!`,
+We look forward to seeing you! Maron Fitness | Massage &Spa`,
         });
       }
 

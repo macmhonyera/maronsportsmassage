@@ -99,7 +99,7 @@ export default function AboutPage() {
 
             <p className="mx-auto mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
               We combine sports science, hands-on expertise, and a modern client
-              experience—from booking to follow-up—to keep you moving at your best.
+              experience from booking to follow-up to keep you moving at your best.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -192,7 +192,7 @@ export default function AboutPage() {
               Our Core Values
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              What drives our standard of care—every session, every client.
+              What drives our standard of care every session, every client.
             </p>
           </div>
 
@@ -240,7 +240,7 @@ export default function AboutPage() {
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
                 Clear communication, professional standards, and an outcome-driven approach.
-                Tell us about your event or training block—we tailor the work accordingly.
+                Tell us about your event or training block we tailor the work accordingly.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
