@@ -93,8 +93,8 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Built for movement. Designed for recovery and {" "}
-              <span className="text-[#5EEAD4]">wellness</span>.
+              Built for Movement. Designed for Recovery and {" "}
+              <span className="text-[#5EEAD4]">Wellness</span>.
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
@@ -154,7 +154,7 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-                Built for recovery. Guided by movement.
+                Built for Recovery. Guided by Movement.
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
@@ -163,7 +163,7 @@ export default function AboutPage() {
               </p>
 
               <p className="mt-4 text-lg leading-relaxed text-slate-700">
-               We offer evidence-informed massage focused on recovery, mobility and wellbeing. Every session is
+               We offer evidence informed massage focused on recovery, mobility and wellbeing. Every session is
                personalised to your bodys needs, goals and lifestyle so you leave feeling restored, balanced and ready for whats next.
               </p>
 
@@ -286,7 +286,7 @@ export default function AboutPage() {
             </div>
 
             <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-              Evidence-Informed. Personalised for Every body.
+              Evidence-Informed. Personalised for Every Body.
             </h2>
 
             <div className="mt-12 grid gap-8 md:grid-cols-3">
