@@ -73,6 +73,8 @@ model Booking {
   clientId            String
   client              Client        @relation(fields: [clientId], references: [id])
 
+  reminderSent Boolean @default(false)
+
   createdAt           DateTime      @default(now())
   updatedAt           DateTime      @updatedAt
 

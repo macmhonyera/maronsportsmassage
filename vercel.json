@@ -1,8 +1,12 @@
 {
   "crons": [
     {
+      "path": "/api/reminders/hourly",
+      "schedule": "*/5 * * * *"
+    },
+    {
       "path": "/api/reminders/weekly",
-      "schedule": "0 9 * * *"
+      "schedule": "0 9 * * 1"
     }
   ]
 }
