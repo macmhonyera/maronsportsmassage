@@ -129,7 +129,6 @@ export default function BookingActions({ id, status }) {
       >
         ⋯
       </button>
-
       {/* Dropdown */}
       {open && (
         <div className="absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl">
