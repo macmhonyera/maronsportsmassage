@@ -1,15 +1,10 @@
 import { prisma } from "../../../../../../lib/prisma";
 import { sendWhatsApp } from "../../../../../../lib/wbiztool";
 import { z } from "zod";
+import nodemailer from "nodemailer";
 
 const BodySchema = z.object({
-  status: z.enum([
-    "PENDING",
-    "CONFIRMED",
-    "COMPLETED",
-    "CANCELLED",
-    "NO_SHOW",
-  ]),
+  status: z.enum(["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]),
 });
 
 export async function POST(req, ctx) {
@@ -27,10 +22,30 @@ export async function POST(req, ctx) {
     const json = await req.json();
     const body = BodySchema.parse(json);
 
-    // Get previous booking (to prevent duplicate sends)
     const prevBooking = await prisma.booking.findUnique({
       where: { id },
+      include: { client: true, service: true },
     });
+
+    if (!prevBooking) {
+      return new Response(JSON.stringify({ error: "Booking not found" }), {
+        status: 404,
+      });
+    }
+
+    if (prevBooking.status === "COMPLETED") {
+      return new Response(
+        JSON.stringify({ error: "Completed bookings cannot be changed." }),
+        { status: 400 }
+      );
+    }
+
+    if (prevBooking.status === "CANCELLED") {
+      return new Response(
+        JSON.stringify({ error: "Cancelled bookings cannot be changed." }),
+        { status: 400 }
+      );
+    }
 
     const booking = await prisma.booking.update({
       where: { id },
@@ -38,45 +53,91 @@ export async function POST(req, ctx) {
       include: { client: true, service: true, therapist: true },
     });
 
-    // 🔔 SEND WHATSAPP MESSAGE ON STATUS CHANGE
-    if (prevBooking?.status !== body.status && booking.client?.phone) {
-      // ✅ CONFIRMED
-      if (body.status === "CONFIRMED") {
-        await sendWhatsApp({
-          phone: booking.client.phone,
-          message: `✅ Booking Confirmed
+    // Create email transporter
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 465),
+      secure: true,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
+    // 🔔 Send notifications only if status changed
+    if (prevBooking.status !== body.status) {
+      const baseMessage = `
 Hi ${booking.client?.fullName || ""},
-
-Your booking has been confirmed.
 
 Date: ${booking.startAt.toLocaleDateString()}
 Time: ${booking.startAt.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
+        hour: "2-digit",
+        minute: "2-digit",
+      })}
 Service: ${booking.service?.name || ""}
 
-We look forward to seeing you! Maron Fitness | Massage &Spa`,
-        });
+Maron Fitness | Massage &Spa
+`;
+
+      // ✅ CONFIRMED
+      if (body.status === "CONFIRMED") {
+        const message = `✅ Booking Confirmed
+
+Your booking has been confirmed.
+
+${baseMessage}
+
+We look forward to seeing you!`;
+
+        // WhatsApp
+        if (booking.client?.phone) {
+          await sendWhatsApp({
+            phone: booking.client.phone,
+            message,
+          });
+        }
+
+        // Email
+        if (booking.client?.email) {
+          await transporter.sendMail({
+            from: process.env.SMTP_FROM,
+            to: booking.client.email,
+            subject: "Booking Confirmed ✅",
+            text: message,
+          });
+        }
       }
 
-      // ❌ CANCELLED / REJECTED
+      // ❌ CANCELLED
       if (body.status === "CANCELLED") {
-        await sendWhatsApp({
-          phone: booking.client.phone,
-          message: `❌ Booking Update
+        const message = `❌ Booking Cancelled
 
-Hi ${booking.client?.name || ""},
+Unfortunately your booking has been cancelled.
 
-Unfortunately, your booking on ${booking.startAt.toLocaleDateString()} at ${booking.startAt.toLocaleTimeString(
-            [],
-            { hour: "2-digit", minute: "2-digit" }
-          )} has been cancelled.
+${baseMessage}
 
-Please contact us if you’d like to reschedule.`,
-        });
+Please contact us if you'd like to reschedule.`;
+
+        // WhatsApp
+        if (booking.client?.phone) {
+          await sendWhatsApp({
+            phone: booking.client.phone,
+            message,
+          });
+        }
+
+        // Email
+        if (booking.client?.email) {
+          await transporter.sendMail({
+            from: process.env.SMTP_FROM,
+            to: booking.client.email,
+            subject: "Booking Cancelled ❌",
+            text: message,
+          });
+        }
       }
+
+      // 🚫 NO_SHOW and COMPLETED do nothing
     }
 
     return Response.json({ booking });

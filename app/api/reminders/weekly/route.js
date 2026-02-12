@@ -1,51 +1,91 @@
-import { prisma } from "./../../../../lib/prisma";
-import { sendWhatsApp } from "./../../../../lib/wbiztool";
+import { prisma } from "../../../../lib/prisma";
+import { sendWhatsApp } from "../../../../lib/wbiztool";
+import nodemailer from "nodemailer";
 
 export async function GET() {
   const now = new Date();
 
-  // Start of day 7 days from now
-  const targetStart = new Date(now);
-  targetStart.setDate(now.getDate() + 7);
-  targetStart.setHours(0, 0, 0, 0);
-
-  // End of that day
-  const targetEnd = new Date(targetStart);
-  targetEnd.setHours(23, 59, 59, 999);
+  const oneHourFromNow = new Date(now.getTime() + 60 * 60 * 1000);
+  const oneHourFiveMinFromNow = new Date(now.getTime() + 65 * 60 * 1000);
 
   const bookings = await prisma.booking.findMany({
     where: {
-      startAt: { gte: targetStart, lt: targetEnd },
-      status: { notIn: ["CANCELLED"] },
+      status: "CONFIRMED",
+      reminderSent: false,
+      startAt: {
+        gte: oneHourFromNow,
+        lte: oneHourFiveMinFromNow,
+      },
+    },
+    include: {
+      client: true,
+      service: true,
     },
   });
 
-  let sent = 0;
+  // Create email transporter
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT || 465),
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  let whatsappSent = 0;
+  let emailSent = 0;
 
   for (const b of bookings) {
-    if (!b.phone) continue;
+    const message = `⏰ Booking Reminder
 
-    await sendWhatsApp({
-      phone: b.phone,
-      message: `📅 Weekly Reminder
+Hi ${b.client?.fullName || ""},
 
-Hi ${b.fullName || ""}, this is a reminder that you have a booking in 1 week.
+This is a reminder that you have a booking with Maron Fitness | Massage &Spa in 1 hour.
 
-🗓 Date: ${b.startAt.toLocaleDateString()}
-⏰ Time: ${b.startAt.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      })}
+Date: ${b.startAt.toLocaleDateString()}
+Time: ${b.startAt.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    })}
+Service: ${b.service?.name || ""}
 
-We look forward to seeing you!`,
+We look forward to seeing you!
+
+Maron Fitness | Massage &Spa`;
+
+    // 📱 WhatsApp
+    if (b.client?.phone) {
+      await sendWhatsApp({
+        phone: b.client.phone,
+        message,
+      });
+      whatsappSent++;
+    }
+
+    // 📧 Email
+    if (b.client?.email) {
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM,
+        to: b.client.email,
+        subject: "Reminder: Your Booking in 1 Hour ⏰",
+        text: message,
+      });
+      emailSent++;
+    }
+
+    // Mark reminder as sent
+    await prisma.booking.update({
+      where: { id: b.id },
+      data: { reminderSent: true },
     });
-
-    sent++;
   }
 
   return Response.json({
-    type: "weekly",
-    date: targetStart.toISOString().split("T")[0],
-    sent,
+    type: "1-hour-reminder",
+    found: bookings.length,
+    whatsappSent,
+    emailSent,
   });
 }

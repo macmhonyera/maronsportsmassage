@@ -74,7 +74,7 @@ export default function AdminLayout({ children }) {
       </header>
 
       {/* Main grows to push footer down */}
-      <main className="flex-1 mx-auto max-w-6xl px-4 py-8">
+      <main className="flex-1 mx-auto w-[80%] px-4 py-8">
         {children}
       </main>
 
