@@ -67,8 +67,7 @@ Website: https://www.maronfitness.co.zw  or simply reply to this message to sche
         <p>Hi <strong>${name}</strong>,</p>
 
         <p>
-          This is a gentle reminder of the incredible benefits that regular massage therapy brings to your daily life.
-          It’s not just a luxury it’s an essential part of your recovery and wellness routine.
+         ​This is a gentle reminder of the incredible benefits that regular massage therapy brings to your daily life. It’s not just a luxury; it’s an essential part of your recovery and wellness routine.
         </p>
 
         <h3 style="margin-top: 20px;">Why Regular Massage Matters:</h3>
@@ -82,14 +81,12 @@ Website: https://www.maronfitness.co.zw  or simply reply to this message to sche
 
         <h3 style="margin-top: 20px;">Find Your Frequency</h3>
         <p>
-          For optimal results, we recommend a session every <strong>2 to 4 weeks</strong>.
-          This helps keep your body relaxed and functioning at its peak.
-          We can always adjust this frequency to perfectly match your lifestyle and activity levels.
+        ​For optimal results, we recommend a session every 2 to 4 weeks. This helps keep your body relaxed and functioning at its peak. Of course, we can always adjust this frequency to perfectly match your specific lifestyle and activity levels.
         </p>
 
         <h3 style="margin-top: 20px;">Ready to Feel the Difference?</h3>
         <p>
-          Don't wait until you're in pain book your next session today and prioritize your well-being.
+        ​Don't wait until you're in pain to take care of yourself. Book your next session today and prioritize your well being.
         </p>
 
         <p>
@@ -97,14 +94,9 @@ Website: https://www.maronfitness.co.zw  or simply reply to this message to sche
           <a href="https://www.maronfitness.co.zw" target="_blank">
             www.maronfitness.co.zw
           </a>
+          or simply reply to this message to schedule your next visit.
         </p>
-
-        <p>or simply reply to this email/message to schedule your next visit.</p>
-
         <hr />
-        <p style="font-size: 12px; color: gray;">
-          Maron Fitness & Wellness
-        </p>
       </div>
     `;
 
