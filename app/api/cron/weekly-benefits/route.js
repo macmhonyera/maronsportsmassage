@@ -57,7 +57,7 @@ Ready to Feel the Difference?
 
 ​Don't wait until you're in pain to take care of yourself. Book your next session today and prioritize your well being.
 
-Website: https://www.maronfitness.co.zw  or simply reply to this message to schedule your next visit.`;
+ Visit our website on www.maronfitness.co.zw or simply reply to this message to schedule your next visit.`;
 
     // Email (HTML for clickable links + better layout)
     const emailHtml = `
@@ -90,11 +90,11 @@ Website: https://www.maronfitness.co.zw  or simply reply to this message to sche
         </p>
 
         <p>
-          Visit our website:
+          Visit our website on 
           <a href="https://www.maronfitness.co.zw" target="_blank">
             www.maronfitness.co.zw
           </a>
-          or simply reply to this message to schedule your next visit.
+          to schedule your next visit or contact us on +263 78 0525 557.
         </p>
         <hr />
       </div>

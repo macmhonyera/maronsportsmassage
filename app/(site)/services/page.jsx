@@ -35,7 +35,7 @@ const SERVICES = [
     tagline: "Improve circulation & overall well-being",
     price: 40,
     durationMin: 60,
-    image: "/images/tissue.jpg",
+    image: "/images/man.jpg",
     benefits: ["Full-body reset", "Boosts overall wellness", "Supports relaxation and recovery"],
   },
   {
@@ -107,7 +107,7 @@ const SPECIALS = [
 ];
 
 const ADD_ONS = [
-  { id: "foot-scrub", name: "Foot Scrub", price: 10, tagline: "Refresh tired feet" },
+  { id: "foot-scrub", name: "Foot Scrub", price: 20, tagline: "Refresh tired feet" },
   { id: "back-scrub", name: "Back Scrub", price: 15, tagline: "Smooth skin & deep cleanse" },
   { id: "quads-hamstrings", name: "Quads & Hamstrings", price: 15, tagline: "Focused recovery for legs" },
   { id: "back-neck-head", name: "Back, Neck & Head", price: 15, tagline: "Target upper-body tension" },
@@ -144,15 +144,15 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Choose your perfect session to {" "}
-              <span className="text-[#5EEAD4]">recover</span>,{" "}
-              <span className="text-white">relax</span>, and{" "}
-              <span className="text-white">reset</span>.
+              Choose Your Perfect Session to {" "}
+              <span className="text-[#5EEAD4]">Recover</span>,{" "}
+              <span className="text-white">Relax</span>, and{" "}
+              <span className="text-white">Reset</span>.
             </h1>
 
             <p className="mt-5 text-base text-slate-200 sm:text-lg">
-              From sports recovery to spa relaxation, we tailor every session to your body’s needs.
-              Book online in minutes.
+              From specialized sports recovery to restorative wellness, we tailor every session to your body’s unique 
+              requirements. Experience professional care with the convenience of instant online booking.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">

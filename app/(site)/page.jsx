@@ -122,16 +122,16 @@ export default async function HomePage() {
 
             {/* Heading */}
             <h1 className="mt-6 mx-auto max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight">
-              Modern massage therapy for{" "}
-              <span className="text-[#14B8A6]">active bodies</span> and{" "}
-              <span className="text-white">everyday life</span>.
+              Precision Bodywork for Recovery{" "}
+              <span className="text-[#14B8A6]"></span> and{" "}
+              <span className="text-white">Wellness</span>.
             </h1>
 
             {/* Paragraph */}
             <p className="mt-6 mx-auto max-w-4xl text-sm text-slate-200 sm:text-lg leading-relaxed">
-              We deliver targeted sports massage and other therapeutic treatments designed
-              to reduce pain, improve mobility, promote relaxation and restore balance whether
-              you are training hard, working long hours or simply need to reset.
+             While we specialize in high performance sports therapy, we offer a diverse range of therapeutic treatments designed 
+             for every body. From clinical pain management to deep relaxation, our sessions are tailored to resolve tension and 
+             restore your physical well being.
 
             </p>
 
@@ -193,7 +193,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
-              Built for recovery, relaxation and performance
+              Built for Recovery, Relaxation and Performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
               A modern therapy experience from booking to treatment to follow-up.
