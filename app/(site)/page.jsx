@@ -84,7 +84,7 @@ export default async function HomePage() {
     },
   ];
 
-  const serviceImages = ["/images/man.jpg", "/images/neck.jpg", "/images/tissue.jpg"];
+  const serviceImages = ["/images/man.jpg", "/images/neck.jpg", "/images/thai.jpg"];
 
   return (
     <div className="space-y-0">
@@ -122,8 +122,8 @@ export default async function HomePage() {
 
             {/* Heading */}
             <h1 className="mt-6 mx-auto max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight">
-              Precision Bodywork for Recovery{" "}
-              <span className="text-[#14B8A6]"></span> and{" "}
+              Precision Bodywork For Recovery{" "}
+              <span className="text-[#14B8A6]"></span> And{" "}
               <span className="text-white">Wellness</span>.
             </h1>
 
@@ -142,7 +142,7 @@ export default async function HomePage() {
                 className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-md transition
           hover:bg-[#0D9488] hover:shadow-lg active:scale-95"
               >
-                Book Your Session
+                Book Your Treatment
                 <svg
                   className="ml-2 h-5 w-5"
                   fill="none"
@@ -193,7 +193,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
-              Built for Recovery, Relaxation and Performance
+              Built For Recovery, Relaxation And Performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
               A modern therapy experience from booking to treatment to follow-up.

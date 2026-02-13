@@ -144,9 +144,9 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Choose Your Perfect Session to {" "}
+              Choose Your Perfect Session To {" "}
               <span className="text-[#5EEAD4]">Recover</span>,{" "}
-              <span className="text-white">Relax</span>, and{" "}
+              <span className="text-white">Relax</span>, And{" "}
               <span className="text-white">Reset</span>.
             </h1>
 
@@ -418,7 +418,7 @@ export default function ServicesPage() {
               href="/book"
               className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
             >
-              Book a Session
+              Book your Treatment
             </Link>
           </div>
         </div>

@@ -93,7 +93,7 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Built for Movement. Designed for Recovery and {" "}
+              Built For Movement. Designed For Recovery And {" "}
               <span className="text-[#5EEAD4]">Wellness</span>.
             </h1>
 
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
                            hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
               >
-                Book a Session
+                Book Your Treatment
                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -154,7 +154,7 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-                Built for Recovery. Guided by Movement.
+                Built For Recovery. Guided By Movement.
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
@@ -173,7 +173,7 @@ export default function AboutPage() {
                   className="inline-flex items-center rounded-xl bg-[#0B1224] px-6 py-3 text-sm font-semibold text-white shadow-sm transition
                              hover:bg-slate-900 hover:shadow-md active:scale-95"
                 >
-                  Book Your Session
+                  Book Your Treatment
                   <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -286,7 +286,7 @@ export default function AboutPage() {
             </div>
 
             <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-              Evidence-Informed. Personalised for Every Body.
+              Evidence-Informed. Personalised For Every Body.
             </h2>
 
             <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -347,7 +347,7 @@ export default function AboutPage() {
     </h2>
 
     <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-200">
-      Book your session today and experience the difference expert massage therapy can make whether it is recovery, relaxation, mobility or overal wellbeing.
+      Book your treatment today and experience the difference expert massage therapy can make whether it is recovery, relaxation, mobility or overal wellbeing.
     </p>
 
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
