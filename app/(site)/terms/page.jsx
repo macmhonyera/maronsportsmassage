@@ -122,7 +122,7 @@ export default function TermsPage() {
                 href="/book"
                 className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
               >
-                Book a Session
+                Book Your Treatment
               </Link>
               <Link
                 href="/contact"
