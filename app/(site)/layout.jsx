@@ -1,16 +1,30 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
+const SITE_URL = "https://maronfitness.co.zw";
+
 export const metadata = {
-  title: "Sports Massage | Recovery & Performance",
+  title: "Maron Fitness | Sports Massage, Fitness & Spa in Zimbabwe",
   description:
-    "Sports massage for recovery, mobility, and performance. Book online.",
-  metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
+    "Maron Fitness offers sports massage, wellness and spa services in Zimbabwe. Book online for recovery, relaxation and performance support.",
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "sports massage Zimbabwe",
+    "massage Harare",
+    "spa Zimbabwe",
+    "fitness massage",
+    "Maron Fitness",
+  ],
   openGraph: {
-    title: "Sports Massage | Recovery & Performance",
+    title: "Maron Fitness | Sports Massage, Fitness & Spa in Zimbabwe",
     description:
-      "Book sports massage sessions online. Mobile responsive, local, professional.",
+      "Book sports massage and spa sessions online at Maron Fitness in Zimbabwe.",
     type: "website",
+    url: SITE_URL,
+    siteName: "Maron Fitness",
   },
 };
 
