@@ -2,6 +2,7 @@ import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
+import { ADD_ON_SERVICES } from "../lib/bookables.js";
 
 if (!process.env.DATABASE_URL) {
   console.error("Missing DATABASE_URL in environment. Add it to .env and retry.");
@@ -15,7 +16,7 @@ const pool = new Pool({
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
-const SERVICES = [
+const CORE_SERVICES = [
   { id: "swedish-60", name: "Swedish Massage", description: "Relax & reduce muscle tension", durationMin: 60, priceCents: 3000 },
   { id: "deep-tissue-60", name: "Deep Tissue Massage", description: "Relieve pain & knots", durationMin: 60, priceCents: 3500 },
   { id: "full-body-60", name: "Full Body Massage", description: "Improve circulation & overall well-being", durationMin: 60, priceCents: 4000 },
@@ -27,6 +28,8 @@ const SERVICES = [
   { id: "lymphatic-drainage-60", name: "Lymphatic Drainage", description: "Boost immunity & reduce swelling", durationMin: 60, priceCents: 3000 },
   { id: "gentlemens-package", name: "Gentlemen's Package", description: "Foot Scrub + Full Body Massage + Facial Cleanse + Underarm Wax", durationMin: 60, priceCents: 5000 },
 ];
+
+const SERVICES = [...CORE_SERVICES, ...ADD_ON_SERVICES];
 
 async function main() {
   for (const s of SERVICES) {
