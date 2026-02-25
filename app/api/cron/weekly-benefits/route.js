@@ -50,33 +50,17 @@ export async function GET(req) {
     const name = client.fullName ? client.fullName : "there";
 
     // WhatsApp (plain text but nicely formatted)
-    const whatsappMessage = `Rejuvenate Your Body & Mind
+    const whatsappMessage = `Hi ${name}! Hope you're doing well.
 
-Hi ${name},
+Just checking in to see if you're due for your next relaxation or recovery treatment?
 
-​This is a gentle reminder of the incredible benefits that regular massage therapy brings to your daily life. It’s not just a luxury; it’s an essential part of your recovery and wellness routine.
+​Regular body maintenance helps keep that muscle tension away and your sleep quality high. 
 
-Why Regular Massage Matters:
+Don't wait for the pain to kick in! Keep your body performing at its peak with a treatment every 2-4 weeks.
 
-✅ Reduce Muscle Tension: Release physical stress held in your body.
-
-✅ Improve Circulation: Enhance oxygen and nutrient flow.
-
-✅ Boost Recovery & Performance: Get back to your best faster.
-
-✅ Lower Stress Levels: Calm your nervous system.
-  
-✅ Enhance Sleep Quality: Rest deeper and wake refreshed.  
-
-Find Your Frequency
-
-​For optimal results, we recommend a session every 2 to 4 weeks. This helps keep your body relaxed and functioning at its peak. Of course, we can always adjust this frequency to perfectly match your specific lifestyle and activity levels.
-
-Ready to Feel the Difference?
-
-​Don't wait until you're in pain to take care of yourself. Book your next session today and prioritize your well being.
-
- Visit our website on www.maronfitness.co.zw or simply reply to this message to schedule your next visit.`;
+​Book Now: www.maronfitness.co.zw
+Email: admin@maronfitness.co.zw
+Or just Reply to this chat to grab a slot!`;
 
     // Email (HTML for clickable links + better layout)
     const emailHtml = `

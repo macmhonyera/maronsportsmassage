@@ -5,7 +5,7 @@ const SITE_URL = "https://maronfitness.co.zw";
 const OG_IMAGE_PATH = "/og-image.jpg";
 
 export const metadata = {
-  title: "Maron Fitness | Sports Massage, Fitness & Spa in Zimbabwe",
+  title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
   description:
     "Maron Fitness offers sports massage, wellness and spa services in Zimbabwe. Book online for recovery, relaxation and performance support.",
   metadataBase: new URL(SITE_URL),
@@ -43,9 +43,9 @@ export const metadata = {
     "Maron Fitness",
   ],
   openGraph: {
-    title: "Maron Fitness | Sports Massage, Fitness & Spa in Zimbabwe",
+    title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
     description:
-      "Book sports massage and spa sessions online at Maron Fitness in Zimbabwe.",
+      "Book sports massage, deep tissue, and other therapeutic treatments at Maron Fitness in Harare, Zimbabwe.",
     type: "website",
     url: SITE_URL,
     siteName: "Maron Fitness",
@@ -60,9 +60,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maron Fitness | Sports Massage, Fitness & Spa in Zimbabwe",
+    title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
     description:
-      "Book sports massage and spa sessions online at Maron Fitness in Zimbabwe.",
+      "Book sports massage, deep tissue, and other therapeutic treatments at Maron Fitness in Harare, Zimbabwe.",
     images: [OG_IMAGE_PATH],
   },
 };
