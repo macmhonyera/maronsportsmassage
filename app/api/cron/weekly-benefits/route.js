@@ -2,7 +2,26 @@ import { prisma } from "../../../../lib/prisma";
 import { sendWhatsApp } from "../../../../lib/wbiztool";
 import nodemailer from "nodemailer";
 
-export async function GET() {
+const BIWEEKLY_ANCHOR_UTC = Date.UTC(2025, 0, 6); // Monday
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+function isBiweeklyRunDate(date) {
+  const todayUtc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+  const weeksSinceAnchor = Math.floor((todayUtc - BIWEEKLY_ANCHOR_UTC) / WEEK_MS);
+  return weeksSinceAnchor >= 0 && weeksSinceAnchor % 2 === 0;
+}
+
+export async function GET(req) {
+  const isForced = new URL(req.url).searchParams.get("force") === "1";
+
+  if (!isForced && !isBiweeklyRunDate(new Date())) {
+    return Response.json({
+      type: "biweekly-benefits-broadcast",
+      skipped: true,
+      reason: "Off week for biweekly reminders. Use ?force=1 to override.",
+    });
+  }
+
   const clients = await prisma.client.findMany({
     where: {
       whatsappOptIn: true,
@@ -125,7 +144,7 @@ Ready to Feel the Difference?
   }
 
   return Response.json({
-    type: "weekly-benefits-broadcast",
+    type: "biweekly-benefits-broadcast",
     totalClients: clients.length,
     whatsappSent,
     emailSent,

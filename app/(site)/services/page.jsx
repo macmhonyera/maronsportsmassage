@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import AddOnCarousel from "./AddOnCarousel";
 
 export const metadata = {
   title: "Services | Sports Massage",
@@ -111,6 +112,7 @@ const ADD_ONS = [
   { id: "back-scrub", name: "Back Scrub", price: 15, tagline: "Smooth skin & deep cleanse" },
   { id: "quads-hamstrings", name: "Quads & Hamstrings", price: 15, tagline: "Focused recovery for legs" },
   { id: "back-neck-head", name: "Back, Neck & Head", price: 15, tagline: "Target upper-body tension" },
+  { id: "waxing", name: "Waxing", price: 10, tagline: "Smooth skin & reduce hair" },
 ];
 
 export default function ServicesPage() {
@@ -151,7 +153,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="mt-5 text-base text-slate-200 sm:text-lg">
-              From specialized sports recovery to restorative wellness, we tailor every session to your body’s unique 
+              From specialized sports recovery to restorative wellness, we tailor every session to your body’s unique
               requirements. Experience professional care with the convenience of instant online booking.
             </p>
 
@@ -389,28 +391,33 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {ADD_ONS.map((a) => (
-              <div
-                key={a.id}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <div className="text-sm font-semibold text-slate-900">{a.name}</div>
-                    <div className="mt-1 text-sm text-slate-600">{a.tagline}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-slate-500">Add-on</div>
-                    <div className="text-lg font-semibold text-[#0F172A]">{moneyUSD(a.price)}</div>
-                  </div>
-                </div>
+          <div className="mt-10 relative">
+            {/* <div className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
+    {ADD_ONS.map((a) => (
+      <div
+        key={a.id}
+        className="min-w-[280px] sm:min-w-[320px] snap-start rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <div className="text-sm font-semibold text-slate-900">{a.name}</div>
+            <div className="mt-1 text-sm text-slate-600">{a.tagline}</div>
+          </div>
+          <div className="text-right">
+            <div className="text-xs text-slate-500">Add-on</div>
+            <div className="text-lg font-semibold text-[#0F172A]">
+              {moneyUSD(a.price)}
+            </div>
+          </div>
+        </div>
 
-                <p className="mt-4 text-xs text-slate-500">
-                  Request this add-on during booking (notes) or via WhatsApp.
-                </p>
-              </div>
-            ))}
+        <p className="mt-4 text-xs text-slate-500">
+          Request this add-on during booking (notes) or via WhatsApp.
+        </p>
+      </div>
+    ))}
+  </div> */}
+            <AddOnCarousel items={ADD_ONS} />
           </div>
 
           <div className="mt-10 text-center">
