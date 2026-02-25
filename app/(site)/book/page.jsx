@@ -10,7 +10,7 @@ function todayISO() {
 
 function buildSlots(startHH = 8, endHH = 18) {
   const slots = [];
-  for (let h = startHH; h < endHH; h++) slots.push(`${String(h).padStart(2, "0")}:00`);
+  for (let h = startHH; h < endHH; h++) slots.push(`${String(h).padStart(2, "0")}:15`);
   return slots;
 }
 
@@ -46,7 +46,8 @@ export default function BookPage() {
       const data = await res.json();
       const list = Array.isArray(data) ? data : [];
       setServices(list);
-      if (list?.[0]?.id) setServiceId(list[0].id);
+      const defaultOption = list.find((item) => item.category !== "addon") || list[0];
+      if (defaultOption?.id) setServiceId(defaultOption.id);
     })();
   }, []);
 
@@ -98,6 +99,8 @@ export default function BookPage() {
   }
 
   const selectedService = services.find((s) => s.id === serviceId);
+  const regularServices = services.filter((s) => s.category !== "addon");
+  const addOnServices = services.filter((s) => s.category === "addon");
 
   return (
     <div className="space-y-0 mt-10">
@@ -170,23 +173,39 @@ export default function BookPage() {
 
               <form onSubmit={submitBooking} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Service</label>
+                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Service or add-on</label>
                   <select
                     className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                     value={serviceId}
                     onChange={(e) => setServiceId(e.target.value)}
                     required
                   >
-                    {services.map((s) => (
-                      <option key={s.id} value={s.id}>
-                        {s.name} ({s.durationMin} min)
-                      </option>
-                    ))}
+                    {regularServices.length ? (
+                      <optgroup label="Services">
+                        {regularServices.map((s) => (
+                          <option key={s.id} value={s.id}>
+                            {s.name} ({s.durationMin} min)
+                          </option>
+                        ))}
+                      </optgroup>
+                    ) : null}
+                    {addOnServices.length ? (
+                      <optgroup label="Add-ons">
+                        {addOnServices.map((s) => (
+                          <option key={s.id} value={s.id}>
+                            {s.name} ({s.durationMin} min)
+                          </option>
+                        ))}
+                      </optgroup>
+                    ) : null}
                   </select>
 
                   {selectedService?.description ? (
                     <p className="mt-2 text-sm text-[#64748B]">{selectedService.description}</p>
                   ) : null}
+                  <p className="mt-2 text-xs text-[#64748B]">
+                    Add-ons can be booked as standalone appointments.
+                  </p>
                 </div>
 
                 <div>

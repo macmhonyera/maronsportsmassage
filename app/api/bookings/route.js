@@ -2,6 +2,7 @@ import { prisma } from "../../../lib/prisma";
 import { z } from "zod";
 import { combineLocalDateAndTime } from "../../../lib/time";
 import nodemailer from "nodemailer";
+import { getAddOnById } from "../../../lib/bookables";
 
 const BodySchema = z.object({
   dateISO: z.string().min(10),
@@ -125,14 +126,38 @@ export async function POST(req) {
       return new Response(JSON.stringify({ error: "Selected slot is already booked." }), { status: 409 });
     }
 
-    // 2) Ensure service exists
-    const service = await prisma.service.findFirst({
+    // 2) Ensure service exists (or create known add-on service on demand)
+    let service = await prisma.service.findFirst({
       where: { id: body.serviceId, isActive: true },
-      select: { id: true },
+      select: { id: true, name: true },
     });
 
     if (!service) {
-      return new Response(JSON.stringify({ error: "Invalid service selected." }), { status: 400 });
+      const addOn = getAddOnById(body.serviceId);
+
+      if (!addOn) {
+        return new Response(JSON.stringify({ error: "Invalid service selected." }), { status: 400 });
+      }
+
+      service = await prisma.service.upsert({
+        where: { id: addOn.id },
+        update: {
+          name: addOn.name,
+          description: addOn.description,
+          durationMin: addOn.durationMin,
+          priceCents: addOn.priceCents,
+          isActive: true,
+        },
+        create: {
+          id: addOn.id,
+          name: addOn.name,
+          description: addOn.description,
+          durationMin: addOn.durationMin,
+          priceCents: addOn.priceCents,
+          isActive: true,
+        },
+        select: { id: true, name: true },
+      });
     }
 
     // 3) Upsert client by phone

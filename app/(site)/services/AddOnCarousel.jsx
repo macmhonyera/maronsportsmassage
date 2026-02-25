@@ -34,7 +34,7 @@ export default function AddOnCarousel({ items }) {
             </div>
 
             <p className="mt-4 text-xs text-slate-500">
-              Request this add-on during booking (notes) or via WhatsApp.
+              Book this add-on as a standalone appointment or include it with a service.
             </p>
           </div>
         ))}

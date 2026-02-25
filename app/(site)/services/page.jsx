@@ -269,7 +269,7 @@ export default function ServicesPage() {
                   </div>
 
                   <p className="mt-3 text-xs text-slate-500">
-                    Tip: Add-ons can be requested during booking notes or via WhatsApp.
+                    Tip: Add-ons can be booked alone or alongside any service.
                   </p>
                 </div>
               </div>
@@ -412,7 +412,7 @@ export default function ServicesPage() {
         </div>
 
         <p className="mt-4 text-xs text-slate-500">
-          Request this add-on during booking (notes) or via WhatsApp.
+          Book this add-on as a standalone appointment or include it with a service.
         </p>
       </div>
     ))}

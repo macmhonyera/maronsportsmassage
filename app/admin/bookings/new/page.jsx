@@ -10,7 +10,7 @@ function todayISO() {
 function buildSlots(startHH = 8, endHH = 18) {
   const slots = [];
   for (let h = startHH; h < endHH; h++) {
-    slots.push(`${String(h).padStart(2, "0")}:00`);
+    slots.push(`${String(h).padStart(2, "0")}:15`);
   }
   return slots;
 }
@@ -62,7 +62,8 @@ export default function AdminNewBooking() {
       const t = await tRes.json();
       setServices(s);
       setTherapists(t);
-      if (s?.[0]?.id) setServiceId(s[0].id);
+      const defaultOption = s.find((item) => item.category !== "addon") || s[0];
+      if (defaultOption?.id) setServiceId(defaultOption.id);
     })();
   }, []);
 
@@ -118,6 +119,8 @@ export default function AdminNewBooking() {
 
   const disableSubmit =
     !selectedTime || !serviceId || status.type === "loading";
+  const regularServices = services.filter((s) => s.category !== "addon");
+  const addOnServices = services.filter((s) => s.category === "addon");
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 space-y-6">
@@ -223,19 +226,35 @@ export default function AdminNewBooking() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label className="block text-sm font-medium text-slate-700">
-                  Service
+                  Service or add-on
                 </label>
                 <select
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
                   value={serviceId}
                   onChange={(e) => setServiceId(e.target.value)}
                 >
-                  {services.map((s) => (
-                    <option key={s.id} value={s.id}>
-                      {s.name}
-                    </option>
-                  ))}
+                  {regularServices.length ? (
+                    <optgroup label="Services">
+                      {regularServices.map((s) => (
+                        <option key={s.id} value={s.id}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ) : null}
+                  {addOnServices.length ? (
+                    <optgroup label="Add-ons">
+                      {addOnServices.map((s) => (
+                        <option key={s.id} value={s.id}>
+                          {s.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ) : null}
                 </select>
+                <p className="mt-1 text-xs text-slate-500">
+                  Add-ons can be booked without selecting a full service.
+                </p>
               </div>
 
               <div className="sm:col-span-2">
