@@ -1,17 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { toISODate } from "../../../lib/time";
+import { BOOKING_TIME_SLOTS, isPastBookingTime } from "../../../lib/bookingSlots";
 
 function todayISO() {
   return toISODate(new Date());
-}
-
-function buildSlots(startHH = 8, endHH = 18) {
-  const slots = [];
-  for (let h = startHH; h < endHH; h++) slots.push(`${String(h).padStart(2, "0")}:15`);
-  return slots;
 }
 
 const THERAPIST_OPTIONS = [
@@ -21,7 +16,7 @@ const THERAPIST_OPTIONS = [
 ];
 
 export default function BookPage() {
-  const slots = useMemo(() => buildSlots(8, 18), []);
+  const slots = BOOKING_TIME_SLOTS;
 
   const [services, setServices] = useState([]);
   const [serviceId, setServiceId] = useState("");
@@ -39,6 +34,7 @@ export default function BookPage() {
   const [notes, setNotes] = useState("");
 
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [nowTick, setNowTick] = useState(() => Date.now());
 
   useEffect(() => {
     (async () => {
@@ -63,7 +59,19 @@ export default function BookPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateISO]);
 
+  useEffect(() => {
+    const timer = setInterval(() => setNowTick(Date.now()), 30000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (selectedTime && isPastBookingTime(dateISO, selectedTime, new Date(nowTick))) {
+      setSelectedTime("");
+    }
+  }, [dateISO, selectedTime, nowTick]);
+
   const isBooked = (time) => bookedTimes.includes(time);
+  const isPast = (time) => isPastBookingTime(dateISO, time, new Date(nowTick));
 
   async function submitBooking(e) {
     e.preventDefault();
@@ -141,23 +149,24 @@ export default function BookPage() {
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {slots.map((t) => {
                   const booked = isBooked(t);
+                  const past = isPast(t);
                   const selected = selectedTime === t;
                   return (
                     <button
                       key={t}
                       type="button"
-                      disabled={booked}
+                      disabled={booked || past}
                       onClick={() => setSelectedTime(t)}
                       className={[
                         "rounded-lg border px-3 py-2.5 text-sm font-medium transition-all",
-                        booked
+                        booked || past
                           ? "cursor-not-allowed border-slate-200 bg-slate-100 text-[#64748B]"
                           : selected
                           ? "border-[#0F172A] bg-[#0F172A] text-white shadow-md"
                           : "border-[#14B8A6] bg-white text-[#0F172A] hover:bg-[#14B8A6] hover:text-white",
                       ].join(" ")}
                     >
-                      {t} {booked ? "•" : ""}
+                      {t} {booked || past ? "•" : ""}
                     </button>
                   );
                 })}

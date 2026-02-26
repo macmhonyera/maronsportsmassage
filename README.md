@@ -72,10 +72,11 @@ Open: http://localhost:3000
   all block the calendar.
 
 ### Time slots
-The starter uses hourly time slots: 08:00 to 17:00 (last start at 17:00).
+The starter uses booking slots from 07:00 to 20:00 with a 15-minute break between appointments
+(start times progress every 75 minutes, e.g. 07:00, 08:15, 09:30, ...).
 You can change this in:
-- `app/book/page.jsx` (client)
-- `app/api/bookings/availability/route.js` (server availability logic)
+- `lib/bookingSlots.js` (shared slot generation and validation)
+- `app/api/bookings/route.js` (server booking validation)
 
 ## 7) Admin usage
 
