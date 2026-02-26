@@ -1,18 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { toISODate } from "../../../../lib/time";
+import { BOOKING_TIME_SLOTS, isPastBookingTime } from "../../../../lib/bookingSlots";
 
 function todayISO() {
   return toISODate(new Date());
-}
-
-function buildSlots(startHH = 8, endHH = 18) {
-  const slots = [];
-  for (let h = startHH; h < endHH; h++) {
-    slots.push(`${String(h).padStart(2, "0")}:15`);
-  }
-  return slots;
 }
 
 function StatusBanner({ status }) {
@@ -49,8 +42,9 @@ export default function AdminNewBooking() {
   const [whatsappOptIn, setWhatsappOptIn] = useState(false);
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [nowTick, setNowTick] = useState(() => Date.now());
 
-  const slots = useMemo(() => buildSlots(8, 18), []);
+  const slots = BOOKING_TIME_SLOTS;
 
   useEffect(() => {
     (async () => {
@@ -80,7 +74,19 @@ export default function AdminNewBooking() {
     loadAvailability(dateISO);
   }, [dateISO]);
 
+  useEffect(() => {
+    const timer = setInterval(() => setNowTick(Date.now()), 30000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (selectedTime && isPastBookingTime(dateISO, selectedTime, new Date(nowTick))) {
+      setSelectedTime("");
+    }
+  }, [dateISO, selectedTime, nowTick]);
+
   const isBooked = (time) => bookedTimes.includes(time);
+  const isPast = (time) => isPastBookingTime(dateISO, time, new Date(nowTick));
 
   async function submit(e) {
     e.preventDefault();
@@ -170,15 +176,18 @@ export default function AdminNewBooking() {
           <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">
             {slots.map((t) => {
               const booked = isBooked(t);
+              const past = isPast(t);
               const selected = selectedTime === t;
 
               const cls = [
                 "rounded-lg border px-2 py-2 text-sm font-medium transition",
                 "focus:outline-none focus:ring-2 focus:ring-slate-900",
-                booked
+                past
+                  ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-500"
+                  : booked
                   ? "border-amber-200 bg-amber-50 text-amber-900 hover:bg-amber-100"
                   : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50",
-                selected ? "border-slate-900 bg-slate-900 text-white hover:bg-slate-800" : "",
+                selected && !past ? "border-slate-900 bg-slate-900 text-white hover:bg-slate-800" : "",
                 disableSubmit && status.type === "loading" ? "opacity-70" : "",
               ].join(" ");
 
@@ -186,14 +195,19 @@ export default function AdminNewBooking() {
                 <button
                   key={t}
                   type="button"
+                  disabled={past}
                   onClick={() => setSelectedTime(t)}
                   className={cls}
-                  title={booked ? "Booked (admin may override if needed)" : "Available"}
+                  title={past ? "Past time (cannot book)" : booked ? "Booked (admin may override if needed)" : "Available"}
                 >
                   <div className="flex items-center justify-center gap-2">
                     <span>{t}</span>
                   </div>
-                  {booked ? (
+                  {past ? (
+                    <div className="mt-1 text-[11px] font-normal opacity-80">
+                      past
+                    </div>
+                  ) : booked ? (
                     <div className="mt-1 text-[11px] font-normal opacity-80">
                       booked
                     </div>

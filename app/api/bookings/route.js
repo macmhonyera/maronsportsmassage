@@ -3,6 +3,7 @@ import { z } from "zod";
 import { combineLocalDateAndTime } from "../../../lib/time";
 import nodemailer from "nodemailer";
 import { getAddOnById } from "../../../lib/bookables";
+import { isPastBookingTime, isValidBookingTime } from "../../../lib/bookingSlots";
 
 const BodySchema = z.object({
   dateISO: z.string().min(10),
@@ -110,6 +111,25 @@ export async function POST(req) {
   try {
     const json = await req.json();
     const body = BodySchema.parse(json);
+
+    if (!isValidBookingTime(body.timeHHMM)) {
+      return new Response(
+        JSON.stringify({
+          error:
+            "Invalid time slot. Please choose a valid booking time from 07:00 to 20:00.",
+        }),
+        { status: 400 }
+      );
+    }
+
+    if (isPastBookingTime(body.dateISO, body.timeHHMM)) {
+      return new Response(
+        JSON.stringify({
+          error: "Selected time has already passed. Please choose a future slot.",
+        }),
+        { status: 400 }
+      );
+    }
 
     const startAt = combineLocalDateAndTime(body.dateISO, body.timeHHMM);
 
