@@ -1,5 +1,4 @@
 import { prisma } from "../../../../lib/prisma";
-import { sendWhatsApp } from "../../../../lib/wbiztool";
 import nodemailer from "nodemailer";
 
 const BIWEEKLY_ANCHOR_UTC = Date.UTC(2025, 0, 6); // Monday
@@ -43,14 +42,16 @@ export async function GET(req) {
     },
   });
 
-  let whatsappSent = 0;
+  const whatsappSent = 0;
+  const whatsappFailed = 0;
   let emailSent = 0;
+  let emailFailed = 0;
 
   for (const client of clients) {
     const name = client.fullName ? client.fullName : "there";
 
-    // WhatsApp (plain text but nicely formatted)
-    const whatsappMessage = `Hi ${name}! Hope you're doing well.
+    // Plain-text version used as email fallback for clients that don't support HTML.
+    const plainTextMessage = `Hi ${name}! Hope you're doing well.
 
 Just checking in to see if you're due for your next relaxation or recovery treatment?
 
@@ -60,7 +61,7 @@ Don't wait for the pain to kick in! Keep your body performing at its peak with a
 
 ​Book Now: www.maronfitness.co.zw
 Email: admin@maronfitness.co.zw
-Or just Reply to this chat to grab a slot!`;
+Or just contact us to grab a slot!`;
 
     // Email (HTML for clickable links + better layout)
     const emailHtml = `
@@ -103,27 +104,22 @@ Or just Reply to this chat to grab a slot!`;
       </div>
     `;
 
-    // WhatsApp
-    if (client.phone) {
-      await sendWhatsApp({
-        phone: client.phone,
-        message: whatsappMessage,
-      });
-
-      whatsappSent++;
-    }
-
     // Email
     if (client.email) {
-      await transporter.sendMail({
-        from: process.env.SMTP_FROM,
-        to: client.email,
-        subject: "Rejuvenate Your Body & Mind",
-        text: whatsappMessage, // fallback for clients that don’t support HTML
-        html: emailHtml, // clickable links + formatting
-      });
+      try {
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM,
+          to: client.email,
+          subject: "Rejuvenate Your Body & Mind",
+          text: plainTextMessage, // fallback for clients that don't support HTML
+          html: emailHtml, // clickable links + formatting
+        });
 
-      emailSent++;
+        emailSent++;
+      } catch (error) {
+        emailFailed++;
+        console.error(`Biweekly email failed for ${client.email}:`, error?.message || error);
+      }
     }
   }
 
@@ -131,6 +127,8 @@ Or just Reply to this chat to grab a slot!`;
     type: "biweekly-benefits-broadcast",
     totalClients: clients.length,
     whatsappSent,
+    whatsappFailed,
     emailSent,
+    emailFailed,
   });
 }

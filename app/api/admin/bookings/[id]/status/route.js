@@ -1,5 +1,4 @@
 import { prisma } from "../../../../../../lib/prisma";
-import { sendWhatsApp } from "../../../../../../lib/wbiztool";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 
@@ -62,17 +61,6 @@ Please contact us if you'd like to reschedule.`;
   }
 
   if (!message) return;
-
-  if (booking.client?.phone) {
-    try {
-      await sendWhatsApp({
-        phone: booking.client.phone,
-        message,
-      });
-    } catch (err) {
-      console.error("WhatsApp notification failed:", err?.message || err);
-    }
-  }
 
   const transporter = createTransporter();
   if (booking.client?.email && transporter) {

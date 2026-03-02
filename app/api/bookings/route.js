@@ -4,6 +4,7 @@ import { combineLocalDateAndTime } from "../../../lib/time";
 import nodemailer from "nodemailer";
 import { getAddOnById } from "../../../lib/bookables";
 import { isPastBookingTime, isValidBookingTime } from "../../../lib/bookingSlots";
+import { normalizeAnyToE164, normalizeCountryDialCode, normalizeToE164 } from "../../../lib/phoneNumber.js";
 
 const BodySchema = z.object({
   dateISO: z.string().min(10),
@@ -19,7 +20,8 @@ const BodySchema = z.object({
 
   client: z.object({
     fullName: z.string().min(2),
-    phone: z.string().min(5),
+    countryCode: z.string().regex(/^\+\d{1,6}$/).optional(),
+    phone: z.string().min(4),
     email: z.string().optional().or(z.literal("")),
     whatsappOptIn: z.boolean().optional(),
   }),
@@ -180,8 +182,42 @@ export async function POST(req) {
       });
     }
 
-    // 3) Upsert client by phone
-    const phone = body.client.phone.trim();
+    // 3) Upsert client by normalized E.164 phone
+    const rawCountryCode = body.client.countryCode?.trim() || "";
+    let phone = rawCountryCode
+      ? normalizeToE164({
+          countryCode: rawCountryCode,
+          phone: body.client.phone,
+        })
+      : normalizeAnyToE164(body.client.phone);
+
+    // Backward compatibility for legacy callers that submit local numbers only.
+    if (!phone) {
+      const fallbackCountryCode = normalizeCountryDialCode(process.env.WBIZTOOL_COUNTRY_CODE);
+      if (fallbackCountryCode) {
+        phone = normalizeToE164({
+          countryCode: `+${fallbackCountryCode}`,
+          phone: body.client.phone,
+        });
+      }
+    }
+
+    if (!phone) {
+      return new Response(
+        JSON.stringify({
+          error: "Please provide a valid phone number with country code (for example +263).",
+        }),
+        { status: 400 }
+      );
+    }
+
+    const fullName = body.client.fullName.trim();
+    if (fullName.length < 2) {
+      return new Response(JSON.stringify({ error: "Client name must be at least 2 characters." }), {
+        status: 400,
+      });
+    }
+
     const email = body.client.email ? body.client.email.trim() : "";
 
     const existing = await prisma.client.findFirst({
@@ -193,14 +229,14 @@ export async function POST(req) {
       ? await prisma.client.update({
           where: { id: existing.id },
           data: {
-            fullName: body.client.fullName,
+            fullName,
             email: email || null,
             whatsappOptIn: Boolean(body.client.whatsappOptIn),
           },
         })
       : await prisma.client.create({
           data: {
-            fullName: body.client.fullName,
+            fullName,
             phone,
             email: email || null,
             whatsappOptIn: Boolean(body.client.whatsappOptIn),

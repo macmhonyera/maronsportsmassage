@@ -5,7 +5,7 @@ import Reviews from "../../components/Reviews";
 import GoogleMapEmbed from "../../components/GoogleMapEmbed";
 
 export const metadata = {
-  title: "Maron Fitness | Massage &Spa | Book Recovery & Performance Sessions",
+  title: "Maron Fitness | Massage &Spa | Elevate your Recovery & Wellness",
   description: "Book sports massage sessions online. Recovery-focused treatments.",
 };
 

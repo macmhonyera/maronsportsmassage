@@ -1,5 +1,4 @@
 import { prisma } from "../../../../lib/prisma";
-import { sendWhatsApp } from "../../../../lib/wbiztool";
 import nodemailer from "nodemailer";
 
 export async function GET() {
@@ -34,8 +33,10 @@ export async function GET() {
     },
   });
 
-  let whatsappSent = 0;
+  const whatsappSent = 0;
+  const whatsappFailed = 0;
   let emailSent = 0;
+  let emailFailed = 0;
 
   for (const b of bookings) {
     const message = `⏰ Booking Reminder
@@ -55,37 +56,40 @@ We look forward to seeing you!
 
 Maron Fitness | Massage &Spa`;
 
-    // 📱 WhatsApp
-    if (b.client?.phone) {
-      await sendWhatsApp({
-        phone: b.client.phone,
-        message,
-      });
-      whatsappSent++;
-    }
+    let sentAny = false;
 
     // 📧 Email
     if (b.client?.email) {
-      await transporter.sendMail({
-        from: process.env.SMTP_FROM,
-        to: b.client.email,
-        subject: "Reminder: Your Booking in 1 Hour ⏰",
-        text: message,
-      });
-      emailSent++;
+      try {
+        await transporter.sendMail({
+          from: process.env.SMTP_FROM,
+          to: b.client.email,
+          subject: "Reminder: Your Booking in 1 Hour ⏰",
+          text: message,
+        });
+        emailSent++;
+        sentAny = true;
+      } catch (error) {
+        emailFailed++;
+        console.error(`Email reminder failed for booking ${b.id}:`, error?.message || error);
+      }
     }
 
-    // Mark reminder as sent
-    await prisma.booking.update({
-      where: { id: b.id },
-      data: { reminderSent: true },
-    });
+    // Mark reminder as sent only when at least one channel succeeds.
+    if (sentAny) {
+      await prisma.booking.update({
+        where: { id: b.id },
+        data: { reminderSent: true },
+      });
+    }
   }
 
   return Response.json({
     type: "1-hour-reminder",
     found: bookings.length,
     whatsappSent,
+    whatsappFailed,
     emailSent,
+    emailFailed,
   });
 }

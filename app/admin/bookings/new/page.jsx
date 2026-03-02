@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { toISODate } from "../../../../lib/time";
 import { BOOKING_TIME_SLOTS, isPastBookingTime } from "../../../../lib/bookingSlots";
+import { COUNTRY_CALLING_CODES_WITH_FLAGS } from "../../../../lib/countryFlags.js";
 
 function todayISO() {
   return toISODate(new Date());
@@ -37,6 +38,7 @@ export default function AdminNewBooking() {
   const [therapistId, setTherapistId] = useState("");
 
   const [fullName, setFullName] = useState("");
+  const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [whatsappOptIn, setWhatsappOptIn] = useState(false);
@@ -106,7 +108,7 @@ export default function AdminNewBooking() {
         timeHHMM: selectedTime,
         serviceId,
         therapistId: therapistId || null,
-        client: { fullName, phone, email, whatsappOptIn },
+        client: { fullName, countryCode, phone, email, whatsappOptIn },
         notes,
         source: "whatsapp",
         force: true,
@@ -124,7 +126,7 @@ export default function AdminNewBooking() {
   }
 
   const disableSubmit =
-    !selectedTime || !serviceId || status.type === "loading";
+    !selectedTime || !serviceId || !countryCode || status.type === "loading";
   const regularServices = services.filter((s) => s.category !== "addon");
   const addOnServices = services.filter((s) => s.category === "addon");
 
@@ -302,17 +304,39 @@ export default function AdminNewBooking() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700">
-                  Client phone
-                </label>
-                <input
-                  className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  placeholder="Phone number"
-                />
+              <div className="sm:col-span-2 grid gap-3 sm:grid-cols-[10.5rem_minmax(0,1fr)]">
+                <div>
+                  <label className="block text-sm font-medium text-slate-700">
+                    Country code
+                  </label>
+                  <select
+                    className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    required
+                  >
+                    <option value="">Select code</option>
+                    {COUNTRY_CALLING_CODES_WITH_FLAGS.map((entry) => (
+                      <option key={`${entry.name}-${entry.dialCode}`} value={entry.dialCode}>
+                        {entry.flag} {entry.iso2 || "--"} ({entry.dialCode})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-700">
+                    Client phone
+                  </label>
+                  <input
+                    className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    placeholder="e.g. 775432682 (no leading 0)"
+                  />
+                  <p className="mt-1 text-xs text-slate-500">Local number only, without leading 0.</p>
+                </div>
               </div>
 
               <div className="sm:col-span-2">
