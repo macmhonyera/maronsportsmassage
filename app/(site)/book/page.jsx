@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { toISODate } from "../../../lib/time";
 import { BOOKING_TIME_SLOTS, isPastBookingTime } from "../../../lib/bookingSlots";
+import { COUNTRY_CALLING_CODES_WITH_FLAGS } from "../../../lib/countryFlags.js";
 
 function todayISO() {
   return toISODate(new Date());
@@ -28,6 +29,7 @@ export default function BookPage() {
   const [bookedTimes, setBookedTimes] = useState([]);
 
   const [fullName, setFullName] = useState("");
+  const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [whatsappOptIn, setWhatsappOptIn] = useState(true);
@@ -86,7 +88,7 @@ export default function BookPage() {
           timeHHMM: selectedTime,
           serviceId,
           therapistPreference,
-          client: { fullName, phone, email, whatsappOptIn },
+          client: { fullName, countryCode, phone, email, whatsappOptIn },
           notes,
           source: "website",
         }),
@@ -232,7 +234,7 @@ export default function BookPage() {
                   </select>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_10.5rem_minmax(0,1fr)]">
                   <div>
                     <label className="block text-sm font-semibold text-[#0F172A] mb-1">Full name</label>
                     <input
@@ -243,14 +245,31 @@ export default function BookPage() {
                     />
                   </div>
                   <div>
+                    <label className="block text-sm font-semibold text-[#0F172A] mb-1">Country code</label>
+                    <select
+                      className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+                      value={countryCode}
+                      onChange={(e) => setCountryCode(e.target.value)}
+                      required
+                    >
+                      <option value="">Select code</option>
+                      {COUNTRY_CALLING_CODES_WITH_FLAGS.map((entry) => (
+                        <option key={`${entry.name}-${entry.dialCode}`} value={entry.dialCode}>
+                          {entry.flag} {entry.iso2 || "--"} ({entry.dialCode})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
                     <label className="block text-sm font-semibold text-[#0F172A] mb-1">Phone</label>
                     <input
                       className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                       value={phone}
-                      placeholder="26377777777"
+                      placeholder="e.g. 775432682"
                       onChange={(e) => setPhone(e.target.value)}
                       required
                     />
+                    <p className="mt-1 text-xs text-[#64748B]">Local number only, without leading 0.</p>
                   </div>
                 </div>
 
@@ -298,7 +317,7 @@ export default function BookPage() {
 
                 <button
                   className="w-full rounded-lg bg-[#14B8A6] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0D9488] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
-                  disabled={!selectedTime || !serviceId || status.type === "loading"}
+                  disabled={!selectedTime || !serviceId || !countryCode || status.type === "loading"}
                 >
                   {status.type === "loading" ? "Submitting..." : "Confirm Booking Request"}
                 </button>
