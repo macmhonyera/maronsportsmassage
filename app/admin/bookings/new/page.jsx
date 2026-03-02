@@ -126,7 +126,7 @@ export default function AdminNewBooking() {
   }
 
   const disableSubmit =
-    !selectedTime || !serviceId || !countryCode || status.type === "loading";
+    !selectedTime || !serviceId || !countryCode || !email.trim() || status.type === "loading";
   const regularServices = services.filter((s) => s.category !== "addon");
   const addOnServices = services.filter((s) => s.category === "addon");
 
@@ -341,13 +341,15 @@ export default function AdminNewBooking() {
 
               <div className="sm:col-span-2">
                 <label className="block text-sm font-medium text-slate-700">
-                  Email (optional)
+                  Email
                 </label>
                 <input
+                  type="email"
                   className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@email.com"
+                  required
                 />
               </div>
 

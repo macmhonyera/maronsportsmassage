@@ -274,12 +274,13 @@ export default function BookPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Email (optional)</label>
+                  <label className="block text-sm font-semibold text-[#0F172A] mb-1">Email</label>
                   <input
                     type="email"
                     className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </div>
 
@@ -317,7 +318,7 @@ export default function BookPage() {
 
                 <button
                   className="w-full rounded-lg bg-[#14B8A6] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0D9488] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
-                  disabled={!selectedTime || !serviceId || !countryCode || status.type === "loading"}
+                  disabled={!selectedTime || !serviceId || !countryCode || !email.trim() || status.type === "loading"}
                 >
                   {status.type === "loading" ? "Submitting..." : "Confirm Booking Request"}
                 </button>
