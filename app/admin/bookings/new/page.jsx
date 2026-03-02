@@ -126,7 +126,7 @@ export default function AdminNewBooking() {
   }
 
   const disableSubmit =
-    !selectedTime || !serviceId || !countryCode || !email.trim() || status.type === "loading";
+    !selectedTime || !serviceId || !countryCode || status.type === "loading";
   const regularServices = services.filter((s) => s.category !== "addon");
   const addOnServices = services.filter((s) => s.category === "addon");
 
@@ -348,6 +348,24 @@ export default function AdminNewBooking() {
                   className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-slate-900 focus:outline-none"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onInvalid={(e) => {
+                    const input = e.currentTarget;
+                    if (input.validity.valueMissing) {
+                      input.setCustomValidity("Email is required");
+                      setStatus({ type: "error", message: "Email is required" });
+                    } else if (input.validity.typeMismatch) {
+                      input.setCustomValidity("Please enter a valid email address");
+                      setStatus({ type: "error", message: "Please enter a valid email address" });
+                    } else {
+                      input.setCustomValidity("");
+                    }
+                  }}
+                  onInput={(e) => {
+                    e.currentTarget.setCustomValidity("");
+                    if (status.type === "error") {
+                      setStatus({ type: "idle", message: "" });
+                    }
+                  }}
                   placeholder="name@email.com"
                   required
                 />

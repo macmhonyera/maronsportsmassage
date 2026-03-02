@@ -280,6 +280,24 @@ export default function BookPage() {
                     className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onInvalid={(e) => {
+                      const input = e.currentTarget;
+                      if (input.validity.valueMissing) {
+                        input.setCustomValidity("Email is required");
+                        setStatus({ type: "error", message: "Email is required" });
+                      } else if (input.validity.typeMismatch) {
+                        input.setCustomValidity("Please enter a valid email address");
+                        setStatus({ type: "error", message: "Please enter a valid email address" });
+                      } else {
+                        input.setCustomValidity("");
+                      }
+                    }}
+                    onInput={(e) => {
+                      e.currentTarget.setCustomValidity("");
+                      if (status.type === "error") {
+                        setStatus({ type: "idle", message: "" });
+                      }
+                    }}
                     required
                   />
                 </div>
@@ -318,7 +336,7 @@ export default function BookPage() {
 
                 <button
                   className="w-full rounded-lg bg-[#14B8A6] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0D9488] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
-                  disabled={!selectedTime || !serviceId || !countryCode || !email.trim() || status.type === "loading"}
+                  disabled={!selectedTime || !serviceId || !countryCode || status.type === "loading"}
                 >
                   {status.type === "loading" ? "Submitting..." : "Confirm Booking Request"}
                 </button>

@@ -22,7 +22,11 @@ const BodySchema = z.object({
     fullName: z.string().min(2),
     countryCode: z.string().regex(/^\+\d{1,6}$/).optional(),
     phone: z.string().min(4),
-    email: z.string().trim().min(1, "Email is required").email("Invalid email address"),
+    email: z
+      .string({ required_error: "Email is required" })
+      .trim()
+      .min(1, "Email is required")
+      .email("Invalid email address"),
     whatsappOptIn: z.boolean().optional(),
   }),
 });
