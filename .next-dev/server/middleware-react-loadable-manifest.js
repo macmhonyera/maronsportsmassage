@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components/WhatsAppFloat.jsx -> react-floating-whatsapp\":{\"id\":\"components/WhatsAppFloat.jsx -> react-floating-whatsapp\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_react-floating-whatsapp_dist_index_js.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"
