@@ -49,7 +49,7 @@ export default function AboutPage() {
     {
       title: "Assessment First",
       description:
-        "We begin by understanding your body, lifestyle and goals-wheteher for stress relief, recovery, mobility, or perfomance.",
+        "We begin by understanding your body, lifestyle and goals-whether for stress relief, recovery, mobility, or perfomance.",
     },
     {
       title: "Customized Treatment",
