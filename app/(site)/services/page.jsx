@@ -85,13 +85,13 @@ const SERVICES = [
     benefits: ["Releases deep tightness", "Supports circulation", "Aids recovery and mobility"],
   },
   {
-    id: "lymphatic-drainage-60",
-    name: "Lymphatic Drainage",
-    tagline: "Boost immunity & reduce swelling",
+    id: "anti-puffiness-60",
+    name: "Anti-Puffiness Treatment",
+    tagline: "Reduce puffiness, restore definition",
     price: 30,
     durationMin: 60,
     image: "/images/man.jpg",
-    benefits: ["Reduces fluid retention", "Supports immune function", "Promotes detox and recovery"],
+    benefits: ["Flushes out the water weight that hides muscle definition", "Defines the jawline, waist and ankles"],
   },
 ];
 
@@ -102,7 +102,7 @@ const SPECIALS = [
     price: 50,
     image: "/images/gent.png",
     tagline: "Best-value bundle for a full refresh",
-    includes: ["Foot Scrub", "Full Body Massage", "Facial Cleanse", "Underarm Wax"],
+    includes: ["Foot Scrub", "Full Body Massage", "Underarm Wax"],
     benefits: ["Complete head-to-toe refresh", "Great value bundle", "Perfect for events and self-care days"],
   },
 ];

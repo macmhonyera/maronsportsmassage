@@ -3,6 +3,15 @@ import Link from "next/link";
 import BookingActions from "./BookingActions";
 
 export const metadata = { title: "Bookings | Admin" };
+const PAGE_SIZE = 20;
+const ALLOWED_STATUSES = new Set([
+  "",
+  "PENDING",
+  "CONFIRMED",
+  "COMPLETED",
+  "CANCELLED",
+  "NO_SHOW",
+]);
 
 function fmt(d) {
   return new Date(d).toLocaleString(undefined, {
@@ -60,17 +69,47 @@ function statusBadge(status) {
   }
 }
 
+function firstQueryValue(value) {
+  if (Array.isArray(value)) return value[0] ?? "";
+  return typeof value === "string" ? value : "";
+}
+
+function parsePage(value) {
+  const n = Number.parseInt(firstQueryValue(value), 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
+}
+
+function buildBookingsHref({ status, page }) {
+  const params = new URLSearchParams();
+  if (status) params.set("status", status);
+  if (page > 1) params.set("page", String(page));
+  const query = params.toString();
+  return query ? `/admin/bookings?${query}` : "/admin/bookings";
+}
+
 export default async function AdminBookingsPage({ searchParams }) {
   const sp = await searchParams;
 
-  const status = sp?.status ? String(sp.status) : "";
+  const requestedStatus = firstQueryValue(sp?.status);
+  const status = ALLOWED_STATUSES.has(requestedStatus) ? requestedStatus : "";
+  const requestedPage = parsePage(sp?.page);
+  const where = status ? { status } : {};
+
+  const totalBookings = await prisma.booking.count({ where });
+  const totalPages = Math.max(1, Math.ceil(totalBookings / PAGE_SIZE));
+  const currentPage = Math.min(requestedPage, totalPages);
+  const skip = (currentPage - 1) * PAGE_SIZE;
 
   const bookings = await prisma.booking.findMany({
-    where: status ? { status } : {},
+    where,
     include: { client: true, service: true, therapist: true },
     orderBy: { startAt: "desc" },
-    take: 200,
+    skip,
+    take: PAGE_SIZE,
   });
+
+  const firstRow = totalBookings === 0 ? 0 : skip + 1;
+  const lastRow = totalBookings === 0 ? 0 : skip + bookings.length;
 
   return (
     <div className="w-full px-6 py-8 space-y-6">
@@ -87,7 +126,7 @@ export default async function AdminBookingsPage({ searchParams }) {
         ].map((tab) => (
           <Link
             key={tab.label}
-            href={`/admin/bookings${tab.value ? `?status=${tab.value}` : ""}`}
+            href={buildBookingsHref({ status: tab.value, page: 1 })}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition ${
               status === tab.value
                 ? "bg-slate-900 text-white"
@@ -153,6 +192,45 @@ export default async function AdminBookingsPage({ searchParams }) {
               )}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* PAGINATION */}
+      <div className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-slate-600">
+          Showing {firstRow}-{lastRow} of {totalBookings}
+        </p>
+
+        <div className="flex items-center gap-2">
+          {currentPage > 1 ? (
+            <Link
+              href={buildBookingsHref({ status, page: currentPage - 1 })}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+            >
+              Previous
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-400">
+              Previous
+            </span>
+          )}
+
+          <span className="text-sm text-slate-600">
+            Page {currentPage} of {totalPages}
+          </span>
+
+          {currentPage < totalPages ? (
+            <Link
+              href={buildBookingsHref({ status, page: currentPage + 1 })}
+              className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+            >
+              Next
+            </Link>
+          ) : (
+            <span className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-400">
+              Next
+            </span>
+          )}
         </div>
       </div>
     </div>
