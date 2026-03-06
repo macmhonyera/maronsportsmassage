@@ -4,6 +4,7 @@
       "path": "/api/reminders/weekly",
       "schedule": "*/5 * * * *"
     },
+    
     {
       "path": "/api/cron/weekly-benefits",
       "schedule": "0 9 * * 1"
