@@ -1,40 +1,40 @@
 {
   "pages": {
+    "/api/bookings/availability/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/bookings/availability/route.js"
+    ],
+    "/api/bookings/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/bookings/route.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(site)/layout": [
+    "/admin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/layout.js"
+      "static/chunks/app/admin/layout.js"
     ],
-    "/(site)/page": [
+    "/admin/bookings/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/page.js"
+      "static/chunks/app/admin/bookings/page.js"
     ],
-    "/(site)/book/layout": [
+    "/api/admin/bookings/[id]/status/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/book/layout.js"
+      "static/chunks/app/api/admin/bookings/[id]/status/route.js"
     ],
-    "/(site)/book/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/book/page.js"
-    ],
-    "/api/public/services/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/public/services/route.js"
-    ],
-    "/api/bookings/availability/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/bookings/availability/route.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

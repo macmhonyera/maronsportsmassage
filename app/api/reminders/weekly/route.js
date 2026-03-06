@@ -1,5 +1,6 @@
 import { prisma } from "../../../../lib/prisma";
 import nodemailer from "nodemailer";
+import { sendWhatsApp } from "../../../../lib/wbiztool";
 
 export async function GET() {
   const now = new Date();
@@ -33,8 +34,8 @@ export async function GET() {
     },
   });
 
-  const whatsappSent = 0;
-  const whatsappFailed = 0;
+  let whatsappSent = 0;
+  let whatsappFailed = 0;
   let emailSent = 0;
   let emailFailed = 0;
 
@@ -57,6 +58,21 @@ We look forward to seeing you!
 Maron Fitness | Massage &Spa`;
 
     let sentAny = false;
+
+    // WhatsApp reminder
+    if (b.client?.phone) {
+      try {
+        await sendWhatsApp({
+          phone: b.client.phone,
+          message,
+        });
+        whatsappSent++;
+        sentAny = true;
+      } catch (error) {
+        whatsappFailed++;
+        console.error(`WhatsApp reminder failed for booking ${b.id}:`, error?.message || error);
+      }
+    }
 
     // 📧 Email
     if (b.client?.email) {

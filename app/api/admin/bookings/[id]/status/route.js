@@ -1,6 +1,7 @@
 import { prisma } from "../../../../../../lib/prisma";
 import { z } from "zod";
 import nodemailer from "nodemailer";
+import { sendWhatsApp } from "../../../../../../lib/wbiztool";
 
 const BodySchema = z.object({
   status: z.enum(["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]),
@@ -61,6 +62,17 @@ Please contact us if you'd like to reschedule.`;
   }
 
   if (!message) return;
+
+  if (booking.client?.phone) {
+    try {
+      await sendWhatsApp({
+        phone: booking.client.phone,
+        message,
+      });
+    } catch (err) {
+      console.error("WhatsApp notification failed:", err?.message || err);
+    }
+  }
 
   const transporter = createTransporter();
   if (booking.client?.email && transporter) {

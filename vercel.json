@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/reminders/weekly",
-      "schedule": "0 7 * * *"
+      "schedule": "*/5 * * * *"
     },
     {
       "path": "/api/cron/weekly-benefits",

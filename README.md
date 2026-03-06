@@ -39,7 +39,7 @@ Then edit `.env`:
 - Optional:
   - `NEXT_PUBLIC_GOOGLE_MAPS_EMBED_QUERY`
   - `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` (for reviews)
-  - Twilio WhatsApp variables (if you want WhatsApp sending)
+  - WbizTool WhatsApp variables (if you want WhatsApp sending)
 
 ## 4) Create database + run migrations
 
@@ -103,17 +103,20 @@ If not set, the site shows a friendly placeholder.
 
 ## 10) WhatsApp integration (optional)
 
-This starter includes a Twilio WhatsApp endpoint:
+This starter includes a WbizTool WhatsApp endpoint:
 
 - `POST /api/whatsapp/send`
 - Body:
-  - `to`: `"whatsapp:+27XXXXXXXXX"`
-  - `body`: `"Your message"`
+  - `phone`: `"+27XXXXXXXXX"` (or local phone + `countryCode`)
+  - `countryCode`: `"27"` (optional if phone already includes `+` country code)
+  - `message`: `"Your message"`
+  - Legacy keys are also supported: `to` + `body`
 
 Set env:
-- `TWILIO_ACCOUNT_SID`
-- `TWILIO_AUTH_TOKEN`
-- `TWILIO_WHATSAPP_FROM`
+- `WBIZTOOL_CLIENT_ID`
+- `WBIZTOOL_API_KEY`
+- `WBIZTOOL_WHATSAPP_CLIENT_ID`
+- `WBIZTOOL_COUNTRY_CODE`
 
 Note: Real “reminders” to past clients typically require WhatsApp templates and opt-in compliance.
 

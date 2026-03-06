@@ -1,5 +1,6 @@
 import { prisma } from "../../../../lib/prisma";
 import nodemailer from "nodemailer";
+import { sendWhatsApp } from "../../../../lib/wbiztool";
 
 const BIWEEKLY_ANCHOR_UTC = Date.UTC(2025, 0, 6); // Monday
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
@@ -42,8 +43,8 @@ export async function GET(req) {
     },
   });
 
-  const whatsappSent = 0;
-  const whatsappFailed = 0;
+  let whatsappSent = 0;
+  let whatsappFailed = 0;
   let emailSent = 0;
   let emailFailed = 0;
 
@@ -103,6 +104,20 @@ Or just contact us to grab a slot!`;
         <hr />
       </div>
     `;
+
+    // WhatsApp
+    if (client.phone) {
+      try {
+        await sendWhatsApp({
+          phone: client.phone,
+          message: plainTextMessage,
+        });
+        whatsappSent++;
+      } catch (error) {
+        whatsappFailed++;
+        console.error(`Biweekly WhatsApp failed for ${client.phone}:`, error?.message || error);
+      }
+    }
 
     // Email
     if (client.email) {

@@ -1,7 +1,8 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/public/services/route": "app/api/public/services/route.js",
+  "/api/bookings/route": "app/api/bookings/route.js",
   "/api/bookings/availability/route": "app/api/bookings/availability/route.js",
-  "/(site)/page": "app/(site)/page.js",
-  "/(site)/book/page": "app/(site)/book/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/admin/bookings/[id]/status/route": "app/api/admin/bookings/[id]/status/route.js",
+  "/admin/bookings/page": "app/admin/bookings/page.js"
 }
