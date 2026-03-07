@@ -129,6 +129,11 @@ Note: Real “reminders” to past clients typically require WhatsApp templates 
 4. Add a hosted Postgres DATABASE_URL (Neon/Supabase/etc.)
 5. Deploy
 
+#### Vercel Cron note (Hobby plan)
+- Vercel Hobby does not allow high-frequency cron schedules such as `*/5 * * * *`.
+- This repo keeps only a weekly Vercel cron in `vercel.json` so deployment works on Hobby.
+- If you need the 5-minute reminder endpoint (`GET /api/reminders/weekly`), trigger it from an external scheduler (for example GitHub Actions, cron-job.org, or UptimeRobot) instead of Vercel Cron on Hobby.
+
 ### Option B: VPS + Nginx
 1. Build:
    ```bash
