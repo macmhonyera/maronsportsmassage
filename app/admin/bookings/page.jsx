@@ -23,6 +23,19 @@ function fmt(d) {
   });
 }
 
+function formatTherapistPreference(value) {
+  switch (String(value ?? "").toLowerCase()) {
+    case "male":
+      return "Male Therapist";
+    case "female":
+      return "Female Therapist";
+    case "any":
+      return "Anyone Available";
+    default:
+      return "Not specified";
+  }
+}
+
 function statusBadge(status) {
   const base =
     "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset";
@@ -147,6 +160,7 @@ export default async function AdminBookingsPage({ searchParams }) {
                 <th className="px-5 py-3">Date / Time</th>
                 <th className="px-5 py-3">Client</th>
                 <th className="px-5 py-3">Service</th>
+                <th className="px-5 py-3">Preferred Therapist</th>
                 <th className="px-5 py-3">Status</th>
                 <th className="px-5 py-3 text-center">Actions</th>
               </tr>
@@ -173,6 +187,15 @@ export default async function AdminBookingsPage({ searchParams }) {
                       {b.service?.name || "-"}
                     </td>
 
+                    <td className="px-5 py-4 text-slate-700">
+                      <div>{formatTherapistPreference(b.therapistPreference)}</div>
+                      {b.therapist?.name ? (
+                        <div className="text-xs text-slate-500">
+                          Assigned: {b.therapist.name}
+                        </div>
+                      ) : null}
+                    </td>
+
                     <td className="px-5 py-4">{statusBadge(b.status)}</td>
 
                     <td className="px-5 py-4 text-center">
@@ -183,7 +206,7 @@ export default async function AdminBookingsPage({ searchParams }) {
               ) : (
                 <tr>
                   <td
-                    colSpan={5}
+                    colSpan={6}
                     className="px-5 py-10 text-center text-slate-600"
                   >
                     No bookings found.
