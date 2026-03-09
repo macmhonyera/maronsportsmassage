@@ -42,6 +42,19 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function formatTherapistPreference(value) {
+  switch (String(value ?? "").toLowerCase()) {
+    case "male":
+      return "Male Therapist";
+    case "female":
+      return "Female Therapist";
+    case "any":
+      return "Anyone Available";
+    default:
+      return "Not specified";
+  }
+}
+
 async function sendAdminNewBookingEmail(booking) {
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
@@ -74,6 +87,7 @@ async function sendAdminNewBookingEmail(booking) {
   const clientPhone = booking.client?.phone || "N/A";
   const clientEmail = booking.client?.email || "N/A";
   const serviceName = booking.service?.name || "N/A";
+  const therapistPreference = formatTherapistPreference(booking.therapistPreference);
   const source = booking.source || "website";
   const notes = booking.notes?.trim() ? booking.notes.trim() : "None";
   const subject = `New booking: ${clientName} - ${serviceName}`;
@@ -84,6 +98,7 @@ Client: ${clientName}
 Phone: ${clientPhone}
 Email: ${clientEmail}
 Service: ${serviceName}
+Preferred therapist: ${therapistPreference}
 Date & time: ${bookingTime}
 Source: ${source}
 Status: ${booking.status}
@@ -97,6 +112,7 @@ Notes: ${notes}`;
       <p><strong>Phone:</strong> ${escapeHtml(clientPhone)}</p>
       <p><strong>Email:</strong> ${escapeHtml(clientEmail)}</p>
       <p><strong>Service:</strong> ${escapeHtml(serviceName)}</p>
+      <p><strong>Preferred therapist:</strong> ${escapeHtml(therapistPreference)}</p>
       <p><strong>Date &amp; time:</strong> ${escapeHtml(bookingTime)}</p>
       <p><strong>Source:</strong> ${escapeHtml(source)}</p>
       <p><strong>Status:</strong> ${escapeHtml(booking.status)}</p>

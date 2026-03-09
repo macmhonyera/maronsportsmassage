@@ -1,7 +1,6 @@
 {
   "crons": [
-    {
-      "path": "/api/cron/weekly-benefits",
+    {      "path": "/api/cron/weekly-benefits",
       "schedule": "0 9 * * 1"
     }
   ]
