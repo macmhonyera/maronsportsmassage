@@ -1,4 +1,5 @@
 import { prisma } from "../../../../../../lib/prisma";
+import { getAdminSession } from "../../../../../../lib/auth";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 import { sendWhatsApp } from "../../../../../../lib/wbiztool";
@@ -90,6 +91,14 @@ Please contact us if you'd like to reschedule.`;
 }
 
 export async function POST(req, ctx) {
+  const session = await getAdminSession();
+
+  if (!session) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+    });
+  }
+
   try {
     const { params } = ctx || {};
     const p = await params;
