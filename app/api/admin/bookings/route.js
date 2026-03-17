@@ -1,24 +1,32 @@
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "../../../../lib/prisma";
+import { getAdminSession } from "../../../../lib/auth";
 import {
+  AdminBookingBodySchema,
   BookingRequestError,
-  PublicBookingBodySchema,
   buildBookingWriteData,
   sendAdminNewBookingEmail,
-} from "../../../lib/bookingMutations";
+} from "../../../../lib/bookingMutations";
 
 export async function POST(req) {
+  const session = await getAdminSession();
+
+  if (!session) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+    });
+  }
+
   try {
     const json = await req.json();
-    const body = PublicBookingBodySchema.parse(json);
+    const body = AdminBookingBodySchema.parse(json);
 
     const bookingData = await buildBookingWriteData(body);
 
     const booking = await prisma.booking.create({
       data: {
         ...bookingData,
-        source: body.source || "website",
+        source: "admin",
         status: "PENDING",
-        therapistId: null,
       },
       include: { client: true, service: true, therapist: true },
     });

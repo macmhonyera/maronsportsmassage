@@ -16,6 +16,7 @@ function fmtHHMM(date) {
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const dateISO = searchParams.get("date");
+  const excludeBookingId = searchParams.get("excludeBookingId");
 
   if (!dateISO) {
     return new Response(JSON.stringify({ error: "Missing date" }), {
@@ -37,6 +38,7 @@ export async function GET(req) {
     where: {
       startAt: { gte: dayStart, lt: dayEnd },
       status: { notIn: ["CANCELLED"] },
+      ...(excludeBookingId ? { id: { not: excludeBookingId } } : {}),
     },
     select: {
       startAt: true,

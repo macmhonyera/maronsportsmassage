@@ -36,10 +36,19 @@ export default function BookingActions({ id, status }) {
     }
   }
 
-  let actions = [];
+  let actions = [
+    {
+      label: "Edit Booking",
+      action: () => {
+        setOpen(false);
+        router.push(`/admin/bookings/${id}/edit`);
+      },
+    },
+  ];
 
   if (status === "PENDING") {
     actions = [
+      ...actions,
       { label: "Approve", action: () => setStatus("CONFIRMED") },
       {
         label: "Decline",
@@ -53,6 +62,7 @@ export default function BookingActions({ id, status }) {
 
   if (status === "CONFIRMED") {
     actions = [
+      ...actions,
       {
         label: "Mark Completed",
         action: () => {
@@ -77,6 +87,7 @@ export default function BookingActions({ id, status }) {
 
   if (status === "NO_SHOW") {
     actions = [
+      ...actions,
       {
         label: "Confirm Again",
         action: () => {
@@ -139,10 +150,6 @@ export default function BookingActions({ id, status }) {
       window.removeEventListener("scroll", updatePosition, true);
     };
   }, [open, actions.length]);
-
-  if (actions.length === 0) {
-    return <span className="text-xs text-slate-400">—</span>;
-  }
 
   return (
     <div className="relative inline-block text-left">
