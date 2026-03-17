@@ -295,7 +295,10 @@ export default function BookingForm({
         return;
       }
 
-      setStatus({ type: "success", message: "Booking created successfully." });
+      setStatus({
+        type: "success",
+        message: "Booking created and approved successfully.",
+      });
       await loadAvailability(dateISO);
     } catch (err) {
       setStatus({
@@ -321,7 +324,7 @@ export default function BookingForm({
           <p className="mt-1 text-sm text-slate-600">
             {isEditing
               ? "Update the appointment details and save your corrections."
-              : "Create bookings received via WhatsApp, calls, or walk-ins."}
+              : "Create and approve bookings received via WhatsApp, calls, or walk-ins."}
           </p>
         </div>
 

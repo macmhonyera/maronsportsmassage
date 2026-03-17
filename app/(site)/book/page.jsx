@@ -215,7 +215,8 @@ export default function BookPage() {
                     <p className="mt-2 text-sm text-[#64748B]">{selectedService.description}</p>
                   ) : null}
                   <p className="mt-2 text-xs text-[#64748B]">
-                    Add-ons can be booked as standalone appointments.
+                    Add-ons can be booked as standalone appointments. If you are booking a
+                    service and want add-ons too, please mention them in the notes field below.
                   </p>
                 </div>
 
@@ -322,7 +323,12 @@ export default function BookPage() {
                     rows={3}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
+                    placeholder="If you want any add-ons with your service, please list them here."
                   />
+                  <p className="mt-2 text-xs text-[#64748B]">
+                    Booking a main service and want add-ons as well? Write the add-ons you want in
+                    this notes field.
+                  </p>
                 </div>
 
                 <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">

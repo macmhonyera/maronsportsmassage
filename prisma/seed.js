@@ -19,7 +19,7 @@ const prisma = new PrismaClient({ adapter });
 const CORE_SERVICES = [
   { id: "swedish-60", name: "Swedish Massage", description: "Relax & reduce muscle tension", durationMin: 60, priceCents: 3000 },
   { id: "deep-tissue-60", name: "Deep Tissue Massage", description: "Relieve pain & knots", durationMin: 60, priceCents: 3500 },
-  { id: "full-body-60", name: "Full Body Massage", description: "Improve circulation & overall well-being", durationMin: 60, priceCents: 4000 },
+  // { id: "full-body-60", name: "Full Body Massage", description: "Improve circulation & overall well-being", durationMin: 60, priceCents: 4000 },
   { id: "sports-60", name: "Sports Massage", description: "Enhance performance & reduce muscle soreness", durationMin: 60, priceCents: 4000 },
   { id: "thai-60", name: "Thai Massage", description: "Improve flexibility & balance", durationMin: 60, priceCents: 4000 },
   { id: "aromatherapy-60", name: "Aromatherapy Massage", description: "Promote relaxation & emotional balance", durationMin: 60, priceCents: 3000 },

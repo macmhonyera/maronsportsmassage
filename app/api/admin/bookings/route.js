@@ -5,6 +5,7 @@ import {
   BookingRequestError,
   buildBookingWriteData,
   sendAdminNewBookingEmail,
+  sendClientBookingApprovedEmail,
 } from "../../../../lib/bookingMutations";
 
 export async function POST(req) {
@@ -26,7 +27,7 @@ export async function POST(req) {
       data: {
         ...bookingData,
         source: "admin",
-        status: "PENDING",
+        status: "CONFIRMED",
       },
       include: { client: true, service: true, therapist: true },
     });
@@ -35,6 +36,12 @@ export async function POST(req) {
       await sendAdminNewBookingEmail(booking);
     } catch (emailError) {
       console.error("Failed to send admin booking notification:", emailError);
+    }
+
+    try {
+      await sendClientBookingApprovedEmail(booking);
+    } catch (emailError) {
+      console.error("Failed to send client booking confirmation:", emailError);
     }
 
     return Response.json({ booking });
