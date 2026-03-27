@@ -4,6 +4,7 @@ import {
   PublicBookingBodySchema,
   buildBookingWriteData,
   sendAdminNewBookingEmail,
+  sendClientBookingPendingEmail,
 } from "../../../lib/bookingMutations";
 
 export async function POST(req) {
@@ -27,6 +28,12 @@ export async function POST(req) {
       await sendAdminNewBookingEmail(booking);
     } catch (emailError) {
       console.error("Failed to send admin booking notification:", emailError);
+    }
+
+    try {
+      await sendClientBookingPendingEmail(booking);
+    } catch (emailError) {
+      console.error("Failed to send client booking confirmation:", emailError);
     }
 
     return Response.json({ booking });

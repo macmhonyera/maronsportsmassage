@@ -10,15 +10,25 @@ const BodySchema = z.object({
 
 function createTransporter() {
   const host = process.env.SMTP_HOST;
+  const port = Number(process.env.SMTP_PORT || 465);
   const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
+  const pass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
+  const from = process.env.SMTP_FROM || user;
 
-  if (!host || !user || !pass) return null;
+  if (!host || !user || !pass) {
+    console.warn("Status email skipped due to missing SMTP config.", {
+      hasSmtpHost: Boolean(host),
+      hasSmtpUser: Boolean(user),
+      hasSmtpPass: Boolean(pass),
+      hasSmtpFrom: Boolean(from),
+    });
+    return null;
+  }
 
   return nodemailer.createTransport({
     host,
-    port: Number(process.env.SMTP_PORT || 465),
-    secure: true,
+    port,
+    secure: port === 465,
     auth: { user, pass },
   });
 }
@@ -78,9 +88,14 @@ Please contact us if you'd like to reschedule.`;
   const transporter = createTransporter();
   if (booking.client?.email && transporter) {
     try {
+      const replyTo =
+        process.env.BOOKING_REPLY_TO ||
+        process.env.ADMIN_EMAIL ||
+        "admin@maronfitness.co.zw";
       await transporter.sendMail({
         from: process.env.SMTP_FROM || process.env.SMTP_USER,
         to: booking.client.email,
+        replyTo,
         subject: emailSubject,
         text: message,
       });

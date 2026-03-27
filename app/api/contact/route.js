@@ -19,7 +19,7 @@ export async function POST(req) {
     const smtpHost = process.env.SMTP_HOST;
     const smtpPort = process.env.SMTP_PORT;
     const smtpUser = process.env.SMTP_USER;
-    const smtpPass = process.env.SMTP_PASSWORD;
+    const smtpPass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD;
     const smtpFrom = process.env.SMTP_FROM || smtpUser;
 
     // If email is not configured, return an error
