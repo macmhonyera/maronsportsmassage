@@ -1,15 +1,5 @@
 {
   "pages": {
-    "/api/bookings/availability/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/bookings/availability/route.js"
-    ],
-    "/api/bookings/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/bookings/route.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -21,15 +11,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/admin/layout.js"
     ],
+    "/admin/bookings/new/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/bookings/new/page.js"
+    ],
+    "/api/public/services/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/public/services/route.js"
+    ],
+    "/api/public/therapists/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/public/therapists/route.js"
+    ],
+    "/api/bookings/availability/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/bookings/availability/route.js"
+    ],
+    "/api/admin/bookings/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/admin/bookings/route.js"
+    ],
     "/admin/bookings/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/admin/bookings/page.js"
-    ],
-    "/api/admin/bookings/[id]/status/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/admin/bookings/[id]/status/route.js"
     ]
   }
 }

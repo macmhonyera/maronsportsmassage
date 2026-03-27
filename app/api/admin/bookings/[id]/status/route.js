@@ -37,10 +37,11 @@ async function sendStatusNotifications(booking, nextStatus) {
   const baseMessage = `
 Hi ${booking.client?.fullName || ""},
 
-Date: ${booking.startAt.toLocaleDateString()}
-Time: ${booking.startAt.toLocaleTimeString([], {
+Date: ${booking.startAt.toLocaleDateString("en-ZW", { timeZone: "Africa/Harare" })}
+Time: ${booking.startAt.toLocaleTimeString("en-ZW", {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Africa/Harare",
   })}
 Service: ${booking.service?.name || ""}
 
