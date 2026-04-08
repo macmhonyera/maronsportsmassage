@@ -2,16 +2,9 @@ import { notFound } from "next/navigation";
 import BookingForm from "../../BookingForm";
 import { prisma } from "../../../../../lib/prisma";
 import { splitE164 } from "../../../../../lib/phoneNumber.js";
-import { toISODate } from "../../../../../lib/time";
+import { toISODateHarare, toHHMMHarare } from "../../../../../lib/time";
 
 export const metadata = { title: "Edit Booking | Admin" };
-
-function toHHMM(value) {
-  const date = new Date(value);
-  return `${String(date.getHours()).padStart(2, "0")}:${String(
-    date.getMinutes()
-  ).padStart(2, "0")}`;
-}
 
 export default async function AdminEditBookingPage({ params }) {
   const p = await params;
@@ -41,8 +34,8 @@ export default async function AdminEditBookingPage({ params }) {
       mode="edit"
       bookingId={booking.id}
       initialValues={{
-        dateISO: toISODate(new Date(booking.startAt)),
-        timeHHMM: toHHMM(booking.startAt),
+        dateISO: toISODateHarare(booking.startAt),
+        timeHHMM: toHHMMHarare(booking.startAt),
         serviceId: booking.serviceId,
         therapistPreference: booking.therapistPreference || "any",
         therapistId: booking.therapistId || "",

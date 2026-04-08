@@ -7,10 +7,12 @@ function parseISODate(dateISO) {
 }
 
 function fmtHHMM(date) {
-  const d = new Date(date);
-  return `${String(d.getHours()).padStart(2, "0")}:${String(
-    d.getMinutes()
-  ).padStart(2, "0")}`;
+  return new Date(date).toLocaleTimeString("en-ZA", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: "Africa/Harare",
+  });
 }
 
 export async function GET(req) {

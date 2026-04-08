@@ -46,10 +46,11 @@ Hi ${b.client?.fullName || ""},
 
 This is a reminder that you have a booking with Maron Fitness | Massage &Spa in 1 hour.
 
-Date: ${b.startAt.toLocaleDateString()}
-Time: ${b.startAt.toLocaleTimeString([], {
+Date: ${b.startAt.toLocaleDateString("en-ZW", { timeZone: "Africa/Harare" })}
+Time: ${b.startAt.toLocaleTimeString("en-ZW", {
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "Africa/Harare",
     })}
 Service: ${b.service?.name || ""}
 
