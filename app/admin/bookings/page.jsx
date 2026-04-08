@@ -14,12 +14,13 @@ const ALLOWED_STATUSES = new Set([
 ]);
 
 function fmt(d) {
-  return new Date(d).toLocaleString(undefined, {
+  return new Date(d).toLocaleString("en-ZA", {
     year: "numeric",
     month: "short",
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Africa/Harare",
   });
 }
 
