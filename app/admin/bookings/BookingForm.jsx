@@ -13,6 +13,7 @@ import {
   buildServiceGroups,
   findGroupForServiceName,
   priceLabel,
+  serviceAllowsAddOns,
 } from "../../../lib/serviceGroups.js";
 
 function todayISO() {
@@ -213,6 +214,12 @@ export default function BookingForm({
     setter(current.includes(value) ? current.filter((v) => v !== value) : [...current, value]);
   }
 
+  const addOnsEnabled = serviceAllowsAddOns(serviceName);
+
+  useEffect(() => {
+    if (!addOnsEnabled && addOns.length > 0) setAddOns([]);
+  }, [addOnsEnabled, addOns.length]);
+
   function canAdvance() {
     if (step === 1) return Boolean(serviceName);
     if (step === 2) return Boolean(durationMin && serviceId);
@@ -224,15 +231,20 @@ export default function BookingForm({
 
   function goNext() {
     if (!canAdvance()) return;
-    if (step < STEPS.length) setStep(step + 1);
+    let next = step + 1;
+    if (next === 4 && !addOnsEnabled) next = 5;
+    if (next <= STEPS.length) setStep(next);
   }
 
   function goBack() {
-    if (step > 1) setStep(step - 1);
+    let prev = step - 1;
+    if (prev === 4 && !addOnsEnabled) prev = 3;
+    if (prev >= 1) setStep(prev);
   }
 
   function jumpToStep(target) {
     if (target < 1 || target > STEPS.length) return;
+    if (target === 4 && !addOnsEnabled) return; // step is skipped for this service
     if (isEditing) {
       setStep(target);
       return;
@@ -330,7 +342,12 @@ export default function BookingForm({
         </div>
       </div>
 
-      <ProgressBar step={step} onJump={jumpToStep} isEditing={isEditing} />
+      <ProgressBar
+        step={step}
+        onJump={jumpToStep}
+        isEditing={isEditing}
+        skippedStepIds={addOnsEnabled ? [] : [4]}
+      />
 
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
         {step === 1 && (
@@ -453,13 +470,15 @@ export default function BookingForm({
   );
 }
 
-function ProgressBar({ step, onJump, isEditing }) {
+function ProgressBar({ step, onJump, isEditing, skippedStepIds = [] }) {
+  const skipped = new Set(skippedStepIds);
   return (
     <div className="flex items-center justify-between gap-1 sm:gap-2">
       {STEPS.map((s, idx) => {
+        const isSkipped = skipped.has(s.id);
         const isActive = step === s.id;
         const isDone = step > s.id;
-        const isClickable = isEditing || isDone || isActive;
+        const isClickable = !isSkipped && (isEditing || isDone || isActive);
         return (
           <div key={s.id} className="flex flex-1 items-center gap-1 sm:gap-2">
             <button
@@ -469,17 +488,26 @@ function ProgressBar({ step, onJump, isEditing }) {
               className={[
                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-colors",
                 isClickable ? "cursor-pointer" : "cursor-not-allowed",
-                isActive
+                isSkipped
+                  ? "bg-slate-100 text-slate-300 line-through"
+                  : isActive
                   ? "bg-slate-900 text-white ring-2 ring-slate-900/20"
                   : isDone
                   ? "bg-slate-900 text-white"
                   : "bg-slate-100 text-slate-500",
               ].join(" ")}
-              aria-label={`Step ${s.id}: ${s.label}`}
+              aria-label={`Step ${s.id}: ${s.label}${isSkipped ? " (skipped)" : ""}`}
             >
-              {isDone ? "✓" : s.id}
+              {isSkipped ? "—" : isDone ? "✓" : s.id}
             </button>
-            <div className="hidden text-xs font-medium text-slate-900 md:block">{s.label}</div>
+            <div
+              className={[
+                "hidden text-xs font-medium md:block",
+                isSkipped ? "text-slate-300 line-through" : "text-slate-900",
+              ].join(" ")}
+            >
+              {s.label}
+            </div>
             {idx < STEPS.length - 1 && (
               <div
                 className={[
@@ -541,7 +569,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                     <span className="text-base font-semibold text-slate-900">{g.title}</span>
                     {g.styles && (
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
-                        Choose style
+                        Choose modality
                       </span>
                     )}
                   </div>

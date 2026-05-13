@@ -9,28 +9,30 @@ export const metadata = {
   description: "Book sports massage sessions online. Recovery-focused treatments.",
 };
 
-function randInt(n) {
-  return Math.floor(Math.random() * n);
-}
-
 const SERVICES = [
   {
     id: "sports",
     name: "Sports Massage",
     description:
       "Targeted deep-tissue massage designed to improve performance, reduce soreness, and speed up recovery.",
+    durationLabel: "30 / 60 / 90 min",
+    image: "/images/thai.jpg",
   },
   {
     id: "full-body",
     name: "Full Body Massage",
     description:
-      "Comprehensive muscular therapy — choose Swedish for relaxation or Deep Tissue for chronic tightness.",
+      "Comprehensive muscular therapy — select Swedish for relaxation or Deep Tissue for chronic tightness.",
+    durationLabel: "30 / 60 / 90 min",
+    image: "/images/man.jpg",
   },
   {
     id: "stretch",
     name: "Assisted Stretching",
     description:
       "Guided stretching to improve flexibility, joint range of motion, and post-workout recovery.",
+    durationLabel: "30 min only",
+    image: "/images/neck.jpg",
   },
 ];
 
@@ -52,8 +54,6 @@ export default async function HomePage() {
     },
   ];
 
-  const serviceImages = ["/images/man.jpg", "/images/neck.jpg", "/images/thai.jpg"];
-
   return (
     <div className="space-y-0">
       {/* HERO */}
@@ -61,7 +61,7 @@ export default async function HomePage() {
         {/* Background */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero.jpg"
+            src="/images/man.jpg"
             alt="Athlete recovery and therapy"
             fill
             className="object-cover"
@@ -201,14 +201,14 @@ export default async function HomePage() {
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {services.map((service, index) => (
+            {services.map((service) => (
               <div
                 key={service.id}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
                   <Image
-                    src={serviceImages[(index + randInt(serviceImages.length)) % serviceImages.length]}
+                    src={service.image}
                     alt={service.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -216,7 +216,7 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
 
                   <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    30 / 60 / 90 min
+                    {service.durationLabel}
                   </div>
                 </div>
 
@@ -272,7 +272,7 @@ export default async function HomePage() {
       {/* LOCATION */}
       <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0">
-          <Image src="/images/img2.jpg" alt="Sports recovery location" fill className="object-cover" priority={false} />
+          <Image src="/images/pain.jpg" alt="Sports recovery location" fill className="object-cover" priority={false} />
           <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-white/40" />
         </div>
 

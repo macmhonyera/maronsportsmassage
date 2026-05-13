@@ -12,6 +12,7 @@ import {
   THERAPIST_OPTIONS,
   buildServiceGroups,
   priceLabel,
+  serviceAllowsAddOns,
 } from "../../../lib/serviceGroups.js";
 
 function todayISO() {
@@ -94,6 +95,13 @@ export default function BookPage() {
     setter(current.includes(value) ? current.filter((v) => v !== value) : [...current, value]);
   }
 
+  const addOnsEnabled = serviceAllowsAddOns(serviceName);
+
+  // Drop any selected add-ons when switching to a service that doesn't support them.
+  useEffect(() => {
+    if (!addOnsEnabled && addOns.length > 0) setAddOns([]);
+  }, [addOnsEnabled, addOns.length]);
+
   function canAdvance() {
     if (step === 1) return Boolean(serviceName);
     if (step === 2) return Boolean(durationMin && serviceId);
@@ -105,11 +113,15 @@ export default function BookPage() {
 
   function goNext() {
     if (!canAdvance()) return;
-    if (step < STEPS.length) setStep(step + 1);
+    let next = step + 1;
+    if (next === 4 && !addOnsEnabled) next = 5;
+    if (next <= STEPS.length) setStep(next);
   }
 
   function goBack() {
-    if (step > 1) setStep(step - 1);
+    let prev = step - 1;
+    if (prev === 4 && !addOnsEnabled) prev = 3;
+    if (prev >= 1) setStep(prev);
   }
 
   async function submitBooking(e) {
@@ -177,7 +189,7 @@ export default function BookPage() {
 
       <section className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-3xl px-4">
-          <ProgressBar step={step} />
+          <ProgressBar step={step} skippedStepIds={addOnsEnabled ? [] : [4]} />
 
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
             {step === 1 && (
@@ -300,10 +312,12 @@ export default function BookPage() {
   );
 }
 
-function ProgressBar({ step }) {
+function ProgressBar({ step, skippedStepIds = [] }) {
+  const skipped = new Set(skippedStepIds);
   return (
     <div className="flex items-center justify-between gap-1 sm:gap-2">
       {STEPS.map((s, idx) => {
+        const isSkipped = skipped.has(s.id);
         const isActive = step === s.id;
         const isDone = step > s.id;
         return (
@@ -311,16 +325,26 @@ function ProgressBar({ step }) {
             <div
               className={[
                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-colors",
-                isActive
+                isSkipped
+                  ? "bg-slate-100 text-slate-300 line-through"
+                  : isActive
                   ? "bg-[#14B8A6] text-white"
                   : isDone
                   ? "bg-[#0F172A] text-white"
                   : "bg-slate-100 text-[#64748B]",
               ].join(" ")}
+              aria-label={isSkipped ? `${s.label} (skipped)` : s.label}
             >
-              {isDone ? "✓" : s.id}
+              {isSkipped ? "—" : isDone ? "✓" : s.id}
             </div>
-            <div className="hidden text-xs font-medium text-[#0F172A] md:block">{s.label}</div>
+            <div
+              className={[
+                "hidden text-xs font-medium md:block",
+                isSkipped ? "text-slate-300 line-through" : "text-[#0F172A]",
+              ].join(" ")}
+            >
+              {s.label}
+            </div>
             {idx < STEPS.length - 1 && (
               <div
                 className={[
@@ -382,7 +406,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                     <span className="text-base font-semibold text-[#0F172A]">{g.title}</span>
                     {g.styles && (
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
-                        Choose style
+                        Choose modality
                       </span>
                     )}
                   </div>

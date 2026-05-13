@@ -317,7 +317,7 @@ export default function AboutPage() {
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
-      src="/images/img2.jpg"
+      src="/images/pain.jpg"
       alt="Athlete performance and recovery"
       fill
       className="object-cover"
