@@ -13,61 +13,29 @@ function randInt(n) {
   return Math.floor(Math.random() * n);
 }
 
-function centsToZAR(cents) {
-  return `R ${(cents / 100).toFixed(0)}`;
-}
-
-/**
- * HARD-CODED SERVICES
- * - Keep this list in sync with your /services page and booking dropdown
- * - The homepage shows only the first 3 (sorted by durationMin)
- */
 const SERVICES = [
   {
-    id: "sports-60",
+    id: "sports",
     name: "Sports Massage",
     description:
       "Targeted deep-tissue massage designed to improve performance, reduce soreness, and speed up recovery.",
-    durationMin: 60,
-    priceCents: 65000,
   },
   {
-    id: "relax-60",
-    name: "Relaxation Massage",
+    id: "full-body",
+    name: "Full Body Massage",
     description:
-      "A calming full-body massage to reduce stress, improve circulation, and promote total relaxation.",
-    durationMin: 60,
-    priceCents: 60000,
+      "Comprehensive muscular therapy — choose Swedish for relaxation or Deep Tissue for chronic tightness.",
   },
   {
-    id: "recovery-75",
-    name: "Recovery Massage",
-    description:
-      "A balanced blend of therapeutic and relaxation techniques ideal for fitness enthusiasts.",
-    durationMin: 75,
-    priceCents: 70000,
-  },
-  {
-    id: "deep-90",
-    name: "Deep Tissue Massage",
-    description:
-      "Intensive muscle therapy to release chronic tension and restore mobility.",
-    durationMin: 90,
-    priceCents: 80000,
-  },
-  {
-    id: "stretch-45",
-    name: "Assisted Stretch Therapy",
+    id: "stretch",
+    name: "Assisted Stretching",
     description:
       "Guided stretching to improve flexibility, joint range of motion, and post-workout recovery.",
-    durationMin: 45,
-    priceCents: 55000,
   },
 ];
 
 export default async function HomePage() {
-  // Ensure consistent ordering, then take 3 for homepage
-  const services = [...SERVICES].sort((a, b) => a.durationMin - b.durationMin).slice(0, 3);
+  const services = SERVICES;
 
   const features = [
     {
@@ -248,7 +216,7 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
 
                   <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    {service.durationMin} min
+                    30 / 60 / 90 min
                   </div>
                 </div>
 

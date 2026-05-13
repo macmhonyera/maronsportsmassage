@@ -1,6 +1,7 @@
 import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
 import BookingActions from "./BookingActions";
+import { FOCUS_AREA_LABELS, ADD_ON_LABELS } from "../../../lib/bookables.js";
 
 export const metadata = { title: "Bookings | Admin" };
 const PAGE_SIZE = 20;
@@ -185,7 +186,36 @@ export default async function AdminBookingsPage({ searchParams }) {
                     </td>
 
                     <td className="px-5 py-4 text-slate-700">
-                      {b.service?.name || "-"}
+                      <div className="font-medium text-slate-900">
+                        {b.service?.name || "—"}
+                        {b.service?.durationMin ? (
+                          <span className="text-slate-500"> · {b.service.durationMin} min</span>
+                        ) : null}
+                      </div>
+                      {Array.isArray(b.focusAreas) && b.focusAreas.length ? (
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {b.focusAreas.map((id) => (
+                            <span
+                              key={id}
+                              className="inline-flex rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-700"
+                            >
+                              {FOCUS_AREA_LABELS[id] || id}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
+                      {Array.isArray(b.addOns) && b.addOns.length ? (
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {b.addOns.map((id) => (
+                            <span
+                              key={id}
+                              className="inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 ring-1 ring-emerald-200"
+                            >
+                              + {ADD_ON_LABELS[id] || id}
+                            </span>
+                          ))}
+                        </div>
+                      ) : null}
                     </td>
 
                     <td className="px-5 py-4 text-slate-700">

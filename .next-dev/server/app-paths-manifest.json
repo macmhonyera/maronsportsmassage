@@ -1,6 +1,10 @@
 {
-  "/icon.png/route": "app/icon.png/route.js",
+  "/api/public/services/route": "app/api/public/services/route.js",
+  "/api/public/therapists/route": "app/api/public/therapists/route.js",
+  "/api/bookings/availability/route": "app/api/bookings/availability/route.js",
   "/(site)/page": "app/(site)/page.js",
-  "/(site)/contact/page": "app/(site)/contact/page.js",
-  "/(site)/book/page": "app/(site)/book/page.js"
+  "/admin/page": "app/admin/page.js",
+  "/admin/bookings/new/page": "app/admin/bookings/new/page.js",
+  "/admin/bookings/page": "app/admin/bookings/page.js",
+  "/admin/bookings/[id]/edit/page": "app/admin/bookings/[id]/edit/page.js"
 }

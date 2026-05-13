@@ -3,6 +3,7 @@ import { getAdminSession } from "../../../../../../lib/auth";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 import { sendWhatsApp } from "../../../../../../lib/wbiztool";
+import { formatFocusAreas, formatAddOns } from "../../../../../../lib/bookingMutations";
 
 const BodySchema = z.object({
   status: z.enum(["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]),
@@ -34,6 +35,14 @@ function createTransporter() {
 }
 
 async function sendStatusNotifications(booking, nextStatus) {
+  const serviceName = booking.service?.name || "";
+  const durationMin = booking.service?.durationMin;
+  const serviceLine = durationMin ? `${serviceName} (${durationMin} min)` : serviceName;
+  const focusAreas = formatFocusAreas(booking.focusAreas);
+  const addOns = formatAddOns(booking.addOns);
+  const focusLine = focusAreas !== "None" ? `Focus areas: ${focusAreas}\n` : "";
+  const addOnLine = addOns !== "None" ? `Add-ons: ${addOns}\n` : "";
+
   const baseMessage = `
 Hi ${booking.client?.fullName || ""},
 
@@ -43,8 +52,8 @@ Time: ${booking.startAt.toLocaleTimeString("en-ZW", {
     minute: "2-digit",
     timeZone: "Africa/Harare",
   })}
-Service: ${booking.service?.name || ""}
-
+Service: ${serviceLine}
+${focusLine}${addOnLine}
 Maron Fitness | Massage &Spa
 `;
 
