@@ -10,17 +10,17 @@ export default function AdminLayout({ children }) {
     <div className="min-h-screen flex flex-col bg-slate-50">
       {/* Top admin bar */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-3 sm:h-16 sm:px-4">
           {/* Left: logo + admin label */}
-          <div className="flex items-center gap-4">
-            <Link href="/admin" className="flex items-center gap-3">
-              <div className="relative h-10 w-[180px]">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+            <Link href="/admin" className="flex shrink-0 items-center gap-2">
+              <div className="relative h-8 w-[140px] sm:h-10 sm:w-[180px]">
                 <Image
                   src="/logo/logo3.png"
                   alt="Maron Sports Massage"
                   fill
                   priority
-                  sizes="180px"
+                  sizes="(min-width: 640px) 180px, 140px"
                   className="object-contain"
                 />
               </div>
@@ -32,7 +32,7 @@ export default function AdminLayout({ children }) {
             </div>
           </div>
 
-          {/* Center: admin nav */}
+          {/* Center: admin nav (desktop) */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link
               href="/admin"
@@ -55,10 +55,10 @@ export default function AdminLayout({ children }) {
           </nav>
 
           {/* Right: actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Link
               href="/"
-              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50"
+              className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-900 hover:bg-slate-50 sm:px-3 sm:py-2 sm:text-sm"
             >
               View site
             </Link>
@@ -71,10 +71,34 @@ export default function AdminLayout({ children }) {
             </Link>
           </div>
         </div>
+
+        {/* Mobile nav (visible only below md) */}
+        <nav className="border-t border-slate-100 md:hidden">
+          <div className="flex gap-1 overflow-x-auto px-3 py-2 text-sm font-medium">
+            <Link
+              href="/admin"
+              className="shrink-0 rounded-lg px-3 py-1.5 text-slate-700 hover:bg-slate-100"
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/admin/bookings"
+              className="shrink-0 rounded-lg px-3 py-1.5 text-slate-700 hover:bg-slate-100"
+            >
+              Bookings
+            </Link>
+            <Link
+              href="/admin/bookings/new"
+              className="shrink-0 rounded-lg bg-[#14B8A6] px-3 py-1.5 text-white shadow-sm hover:bg-[#0D9488]"
+            >
+              + Add
+            </Link>
+          </div>
+        </nav>
       </header>
 
       {/* Main grows to push footer down */}
-      <main className="flex-1 mx-auto w-[80%] px-4 py-8">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-3 py-5 sm:px-4 sm:py-8">
         {children}
       </main>
 
