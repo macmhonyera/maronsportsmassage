@@ -22,10 +22,11 @@ const FULL_LADDER_SERVICES = [
 ];
 
 // USD cents. 30 min = $20 (all), 90 min = $50 (all). 60 min varies per service.
+// Swedish + Deep Tissue (Full Body Massage styles) both priced at $40 for 60 min.
 const PRICE_60 = {
   sports: 4000,
-  "deep-tissue": 3500,
-  swedish: 3000,
+  "deep-tissue": 4000,
+  swedish: 4000,
 };
 
 const ACTIVE_SERVICES = [
