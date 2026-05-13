@@ -1,6 +1,7 @@
 import { prisma } from "../../../../lib/prisma";
 import nodemailer from "nodemailer";
 import { sendWhatsApp } from "../../../../lib/wbiztool";
+import { formatFocusAreas, formatAddOns } from "../../../../lib/bookingMutations";
 
 export async function GET() {
   const now = new Date();
@@ -40,6 +41,14 @@ export async function GET() {
   let emailFailed = 0;
 
   for (const b of bookings) {
+    const serviceName = b.service?.name || "";
+    const durationMin = b.service?.durationMin;
+    const serviceLine = durationMin ? `${serviceName} (${durationMin} min)` : serviceName;
+    const focusAreas = formatFocusAreas(b.focusAreas);
+    const addOns = formatAddOns(b.addOns);
+    const focusLine = focusAreas !== "None" ? `Focus areas: ${focusAreas}\n` : "";
+    const addOnLine = addOns !== "None" ? `Add-ons: ${addOns}\n` : "";
+
     const message = `⏰ Booking Reminder
 
 Hi ${b.client?.fullName || ""},
@@ -52,8 +61,8 @@ Time: ${b.startAt.toLocaleTimeString("en-ZW", {
       minute: "2-digit",
       timeZone: "Africa/Harare",
     })}
-Service: ${b.service?.name || ""}
-
+Service: ${serviceLine}
+${focusLine}${addOnLine}
 We look forward to seeing you!
 
 Maron Fitness | Massage &Spa`;

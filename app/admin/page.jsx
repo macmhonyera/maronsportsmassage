@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { prisma } from "../../lib/prisma";
 
-export const metadata = { title: "Admin | Maron Fitness Massage &Spa" };
+export const metadata = { title: "Admin | Maron Fitness | Massage &Spa" };
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 

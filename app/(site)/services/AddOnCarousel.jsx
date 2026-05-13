@@ -28,13 +28,13 @@ export default function AddOnCarousel({ items }) {
               <div className="text-right">
                 <div className="text-xs text-slate-500">Add-on</div>
                 <div className="text-lg font-semibold text-[#0F172A]">
-                  {moneyUSD(a.price)}
+                  {a.price > 0 ? moneyUSD(a.price) : "Free"}
                 </div>
               </div>
             </div>
 
             <p className="mt-4 text-xs text-slate-500">
-              Book this add-on as a standalone appointment or include it with a service.
+              Free with any session — add it on at the booking step.
             </p>
           </div>
         ))}

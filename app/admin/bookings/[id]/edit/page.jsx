@@ -37,6 +37,7 @@ export default async function AdminEditBookingPage({ params }) {
         dateISO: toISODateHarare(booking.startAt),
         timeHHMM: toHHMMHarare(booking.startAt),
         serviceId: booking.serviceId,
+        serviceName: booking.service?.name || "",
         therapistPreference: booking.therapistPreference || "any",
         therapistId: booking.therapistId || "",
         fullName: booking.client?.fullName || "",
@@ -45,6 +46,8 @@ export default async function AdminEditBookingPage({ params }) {
         email: booking.client?.email || "",
         whatsappOptIn: Boolean(booking.client?.whatsappOptIn),
         notes: booking.notes || "",
+        focusAreas: Array.isArray(booking.focusAreas) ? booking.focusAreas : [],
+        addOns: Array.isArray(booking.addOns) ? booking.addOns : [],
         bookingStatus: booking.status,
       }}
       initialOptions={{
