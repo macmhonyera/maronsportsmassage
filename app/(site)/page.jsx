@@ -19,18 +19,21 @@ const SERVICES = [
     name: "Sports Massage",
     description:
       "Targeted deep-tissue massage designed to improve performance, reduce soreness, and speed up recovery.",
+    durationLabel: "30 / 60 / 90 min",
   },
   {
     id: "full-body",
     name: "Full Body Massage",
     description:
-      "Comprehensive muscular therapy — choose Swedish for relaxation or Deep Tissue for chronic tightness.",
+      "Comprehensive muscular therapy — select Swedish for relaxation or Deep Tissue for chronic tightness.",
+    durationLabel: "30 / 60 / 90 min",
   },
   {
     id: "stretch",
     name: "Assisted Stretching",
     description:
       "Guided stretching to improve flexibility, joint range of motion, and post-workout recovery.",
+    durationLabel: "30 min only",
   },
 ];
 
@@ -216,7 +219,7 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
 
                   <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-                    30 / 60 / 90 min
+                    {service.durationLabel}
                   </div>
                 </div>
 

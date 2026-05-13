@@ -16,6 +16,7 @@ const SERVICES = [
     name: "Sports Massage",
     tagline: "Enhance performance & reduce soreness",
     fromPrice: 20,
+    durationLabel: "30 / 60 / 90 min",
     image: "/images/spo.png",
     benefits: ["Speeds up recovery", "Reduces muscle soreness", "Improves performance readiness"],
   },
@@ -24,6 +25,7 @@ const SERVICES = [
     name: "Full Body Massage",
     tagline: "Comprehensive Muscular Therapy",
     fromPrice: 20,
+    durationLabel: "30 / 60 / 90 min",
     image: "/images/man.jpg",
     benefits: ["Full-body reset", "Boosts overall wellness", "Supports relaxation and recovery"],
     styles: [
@@ -36,6 +38,7 @@ const SERVICES = [
     name: "Assisted Stretching",
     tagline: "Guided stretching for mobility & flexibility",
     fromPrice: 20,
+    durationLabel: "30 min only",
     image: "/images/img2.jpg",
     benefits: ["Improves flexibility", "Releases tight muscles", "Supports posture and balance"],
   },
@@ -149,7 +152,7 @@ export default function ServicesPage() {
                     <svg className="h-3.5 w-3.5 text-[#0D9488]" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .2.08.39.22.53l3 3a.75.75 0 1 0 1.06-1.06l-2.78-2.78V5Z" clipRule="evenodd" />
                     </svg>
-                    30 / 60 / 90 min
+                    {s.durationLabel}
                   </div>
                 </div>
 
