@@ -19,7 +19,7 @@ export default function ThankYouPage() {
           Booking received
         </h1>
         <p className="mt-4 text-base text-slate-600 sm:text-lg">
-          Thanks for booking with Maron Fitness. We've received your request and will confirm it shortly via email and WhatsApp.
+          Thanks for booking with Maron Fitness. We&apos;ve received your request and will confirm it shortly via email and WhatsApp.
         </p>
 
         <div className="mx-auto mt-8 max-w-md rounded-2xl border border-slate-200 bg-slate-50 p-5 text-left text-sm text-slate-700">
@@ -31,11 +31,11 @@ export default function ThankYouPage() {
             </li>
             <li className="flex items-start gap-2.5">
               <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#14B8A6]" />
-              <span>You'll get a confirmation email once your booking is approved.</span>
+              <span>You&apos;ll get a confirmation email once your booking is approved.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#14B8A6]" />
-              <span>We'll send a reminder one hour before your session.</span>
+              <span>We&apos;ll send a reminder one hour before your session.</span>
             </li>
           </ul>
         </div>

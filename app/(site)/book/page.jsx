@@ -473,7 +473,7 @@ function StepFocusAreas({ value, onToggle }) {
     <div>
       <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Where would you like us to focus?</h2>
       <p className="mt-1 text-sm text-[#64748B]">
-        Tell us your problem areas so your therapist is ready before you arrive. Skip if you'd rather decide on the day.
+        Tell us your problem areas so your therapist is ready before you arrive. Skip if you&apos;d rather decide on the day.
       </p>
 
       <div className="mt-6 space-y-6">
@@ -512,7 +512,7 @@ function StepAddOns({ value, onToggle }) {
     <div>
       <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Optional extras</h2>
       <p className="mt-1 text-sm text-[#64748B]">
-        Add these to your session at no extra cost. Skip if you don't want either.
+        Add these to your session at no extra cost. Skip if you don&apos;t want either.
       </p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
