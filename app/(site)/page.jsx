@@ -55,7 +55,7 @@ export default async function HomePage() {
     },
   ];
 
-  const serviceImages = ["/images/man.jpg", "/images/neck.jpg", "/images/thai.jpg"];
+  const serviceImages = ["/images/man.jpg", "/images/spo.png", "/images/thai.jpg"];
 
   return (
     <div className="space-y-0">
