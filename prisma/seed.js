@@ -42,12 +42,12 @@ const ACTIVE_SERVICES = [
     durationMin: 30,
     priceCents: 2000,
   },
-  // Gentlemen's Package — fixed 60-min premium bundle.
+  // Gentlemen's Package — fixed 90-min premium bundle.
   {
     id: "gentlemens-package",
     name: "Gentlemen's Package",
     description: "Foot Scrub, Full Body Massage, and Underarm Wax in a single curated session.",
-    durationMin: 60,
+    durationMin: 90,
     priceCents: 5000,
   },
 ];
