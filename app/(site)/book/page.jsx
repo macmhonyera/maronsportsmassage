@@ -164,8 +164,8 @@ export default function BookPage() {
   }
 
   return (
-    <div className="space-y-0 mt-10">
-      <section className="relative overflow-hidden bg-[#0F172A] py-12 md:py-16">
+    <div className="space-y-0">
+      <section className="relative overflow-hidden bg-[#0F172A] pt-28 pb-10 sm:pt-32 sm:pb-12 md:pt-36 md:pb-16">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"

@@ -90,7 +90,7 @@ export default function TermsPage() {
   return (
     <div className="space-y-0">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1224] py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#0B1224] pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-36 md:pb-24">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/70 via-[#0B1224]/90 to-[#0B1224]" />
           <div
