@@ -44,6 +44,19 @@ const SERVICES = [
   },
 ];
 
+const SPECIALS = [
+  {
+    id: "gentlemens-package",
+    name: "Gentlemen’s Package",
+    tagline: "Best-value bundle for a full refresh",
+    price: 50,
+    durationLabel: "60 min",
+    image: "/images/gent.png",
+    includes: ["Foot Scrub", "Full Body Massage", "Underarm Wax"],
+    benefits: ["Complete head-to-toe refresh", "Great value bundle", "Perfect for events and self-care days"],
+  },
+];
+
 const ADD_ONS = [
   { id: "cupping", name: "Cupping", price: 0, tagline: "Release tension & improve circulation" },
   { id: "hotstones", name: "Hot Stones", price: 0, tagline: "Melt stress & soothe muscles" },
@@ -229,6 +242,117 @@ export default function ServicesPage() {
             <span>
               <span className="font-semibold">Bonus:</span> Cupping and Hot Stones are free add-ons you can include at the booking step.
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* SPECIALS */}
+      <section id="specials" className="bg-slate-50 py-12 md:py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-amber-800">
+              <svg className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M10 1.5a.75.75 0 0 1 .68.43l1.94 4.06 4.47.62a.75.75 0 0 1 .42 1.28l-3.24 3.13.79 4.43a.75.75 0 0 1-1.1.78L10 14.05l-3.96 2.18a.75.75 0 0 1-1.1-.78l.78-4.43L2.5 7.89a.75.75 0 0 1 .42-1.28l4.47-.62L9.32 1.93A.75.75 0 0 1 10 1.5Z" />
+              </svg>
+              Curated bundle
+            </span>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
+              Specials
+            </h2>
+            <p className="mt-3 text-base text-slate-600 md:text-lg">
+              A premium package designed for a complete refresh.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {SPECIALS.map((sp) => (
+              <article
+                key={sp.id}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl hover:ring-amber-200/40 md:col-span-2 lg:col-span-1"
+              >
+                <div
+                  className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-40"
+                  style={{ background: "rgba(251,191,36,0.35)" }}
+                />
+
+                <div className="relative h-44 w-full overflow-hidden bg-slate-100 sm:h-48">
+                  <Image
+                    src={sp.image}
+                    alt={sp.name}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
+                  <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-amber-950 shadow-sm">
+                    Special
+                  </div>
+                </div>
+
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-lg font-semibold tracking-tight text-[#0F172A] sm:text-xl">
+                      {sp.name}
+                    </h3>
+                    <div className="text-right shrink-0">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                        Package
+                      </div>
+                      <div className="mt-0.5 text-xl font-bold text-[#0F172A] sm:text-2xl">
+                        {moneyUSD(sp.price)}
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{sp.tagline}</p>
+                  <p className="mt-1 text-xs font-medium text-slate-500">{sp.durationLabel}</p>
+
+                  <div className="my-4 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-xl bg-slate-50 p-3.5 ring-1 ring-slate-200/60">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                        Includes
+                      </div>
+                      <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                        {sp.includes.map((i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-amber-500" />
+                            <span>{i}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-xl bg-white p-3.5 ring-1 ring-slate-200/60">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                        Benefits
+                      </div>
+                      <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                        {sp.benefits.map((b) => (
+                          <li key={b} className="flex items-start gap-2">
+                            <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#14B8A6]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clipRule="evenodd" />
+                            </svg>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-5">
+                    <Link
+                      href="/book"
+                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 py-3 text-sm font-semibold text-amber-950 shadow-sm transition-all hover:bg-amber-400 hover:shadow-md"
+                    >
+                      Book this package
+                      <svg className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
