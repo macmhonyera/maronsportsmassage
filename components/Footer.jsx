@@ -20,7 +20,7 @@ export default function Footer() {
           <p className="mt-4 text-sm text-slate-300">
             <span className="font-medium text-white">Phone:</span> +263 78 0525 557
             <br />
-            <span className="font-medium text-white">Address:</span> 116 Fife Ave, Harare
+            <span className="font-medium text-white">Address:</span> 264 Herbet Chitepo Avenue, Harare
           </p>
         </div>
 
