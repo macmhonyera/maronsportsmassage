@@ -17,7 +17,7 @@ const SERVICES = [
     tagline: "Enhance performance & reduce soreness",
     fromPrice: 20,
     durationLabel: "30 / 60 / 90 min",
-    image: "/images/spo.png",
+    image: "/images/thai.jpg",
     benefits: ["Speeds up recovery", "Reduces muscle soreness", "Improves performance readiness"],
   },
   {
@@ -39,7 +39,7 @@ const SERVICES = [
     tagline: "Guided stretching for mobility & flexibility",
     fromPrice: 20,
     durationLabel: "30 min only",
-    image: "/images/img2.jpg",
+    image: "/images/neck.jpg",
     benefits: ["Improves flexibility", "Releases tight muscles", "Supports posture and balance"],
   },
 ];
