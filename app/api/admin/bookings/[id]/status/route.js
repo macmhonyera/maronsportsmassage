@@ -4,6 +4,7 @@ import { z } from "zod";
 import nodemailer from "nodemailer";
 import { sendWhatsApp } from "../../../../../../lib/wbiztool";
 import { formatFocusAreas, formatAddOns } from "../../../../../../lib/bookingMutations";
+import { displayServiceName } from "../../../../../../lib/serviceGroups.js";
 
 const BodySchema = z.object({
   status: z.enum(["PENDING", "CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]),
@@ -35,7 +36,7 @@ function createTransporter() {
 }
 
 async function sendStatusNotifications(booking, nextStatus) {
-  const serviceName = booking.service?.name || "";
+  const serviceName = displayServiceName(booking.service?.name) || "";
   const durationMin = booking.service?.durationMin;
   const serviceLine = durationMin ? `${serviceName} (${durationMin} min)` : serviceName;
   const focusAreas = formatFocusAreas(booking.focusAreas);

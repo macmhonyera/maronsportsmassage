@@ -2,6 +2,7 @@ import { prisma } from "../../../../lib/prisma";
 import nodemailer from "nodemailer";
 import { sendWhatsApp } from "../../../../lib/wbiztool";
 import { formatFocusAreas, formatAddOns } from "../../../../lib/bookingMutations";
+import { displayServiceName } from "../../../../lib/serviceGroups.js";
 
 export async function GET() {
   const now = new Date();
@@ -41,7 +42,7 @@ export async function GET() {
   let emailFailed = 0;
 
   for (const b of bookings) {
-    const serviceName = b.service?.name || "";
+    const serviceName = displayServiceName(b.service?.name) || "";
     const durationMin = b.service?.durationMin;
     const serviceLine = durationMin ? `${serviceName} (${durationMin} min)` : serviceName;
     const focusAreas = formatFocusAreas(b.focusAreas);

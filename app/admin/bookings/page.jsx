@@ -2,6 +2,7 @@ import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
 import BookingActions from "./BookingActions";
 import { FOCUS_AREA_LABELS, ADD_ON_LABELS } from "../../../lib/bookables.js";
+import { displayServiceName } from "../../../lib/serviceGroups.js";
 
 export const metadata = { title: "Bookings | Admin" };
 const PAGE_SIZE = 20;
@@ -189,7 +190,7 @@ export default async function AdminBookingsPage({ searchParams }) {
                 </div>
                 <div className="text-slate-600">
                   <span className="font-medium text-slate-900">Service:</span>{" "}
-                  {b.service?.name || "—"}
+                  {displayServiceName(b.service?.name) || "—"}
                   {b.service?.durationMin ? (
                     <span className="text-slate-500"> · {b.service.durationMin} min</span>
                   ) : null}
@@ -267,7 +268,7 @@ export default async function AdminBookingsPage({ searchParams }) {
 
                     <td className="px-4 py-4 text-slate-700 lg:px-5">
                       <div className="font-medium text-slate-900">
-                        {b.service?.name || "—"}
+                        {displayServiceName(b.service?.name) || "—"}
                         {b.service?.durationMin ? (
                           <span className="text-slate-500"> · {b.service.durationMin} min</span>
                         ) : null}
