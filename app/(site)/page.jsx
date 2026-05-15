@@ -22,7 +22,7 @@ const SERVICES = [
     id: "full-body",
     name: "Full Body Massage",
     description:
-      "Comprehensive muscular therapy — select Swedish for relaxation or Deep Tissue for chronic tightness.",
+      "Comprehensive muscular therapy — choose Restorative for relaxation or Structural for chronic tightness.",
     durationLabel: "30 / 60 / 90 min",
     image: "/images/man.jpg",
   },
@@ -138,7 +138,7 @@ export default async function HomePage() {
             {/* Stats */}
             <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-4xl mx-auto">
               {[
-                { k: "60–90 min", v: "Sessions" },
+                { k: "30–90 min", v: "Sessions" },
                 { k: "In-Studio & Home", v: "Available" },
                 { k: "Online", v: "Booking" },
                 { k: "WhatsApp", v: "Support" },

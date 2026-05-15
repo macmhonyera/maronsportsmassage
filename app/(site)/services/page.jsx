@@ -29,8 +29,8 @@ const SERVICES = [
     image: "/images/man.jpg",
     benefits: ["Full-body reset", "Boosts overall wellness", "Supports relaxation and recovery"],
     styles: [
-      { name: "Swedish", description: "Long, flowing strokes to relax and reduce tension." },
-      { name: "Deep Tissue", description: "Firm pressure to release chronic knots and pain." },
+      { name: "Structural", description: "Firm, deep pressure to release chronic tension." },
+      { name: "Restorative", description: "Long, soothing strokes to relax and ease tension." },
     ],
   },
   {
@@ -206,7 +206,7 @@ export default function ServicesPage() {
                         <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                           <path d="M10 1.5a.75.75 0 0 1 .68.43l1.94 4.06 4.47.62a.75.75 0 0 1 .42 1.28l-3.24 3.13.79 4.43a.75.75 0 0 1-1.1.78L10 14.05l-3.96 2.18a.75.75 0 0 1-1.1-.78l.78-4.43L2.5 7.89a.75.75 0 0 1 .42-1.28l4.47-.62L9.32 1.93A.75.75 0 0 1 10 1.5Z" />
                         </svg>
-                        Specialized Modalities
+                        Intensity
                       </div>
                       <div className="mt-2 space-y-2">
                         {s.styles.map((st) => (

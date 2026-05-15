@@ -54,7 +54,7 @@ export default function AboutPage() {
     {
       title: "Customized Treatment",
       description:
-        "Each session is tailored to your needs — deep tissue, Swedish, assisted stretching or sports-focused techniques — ensuring you get the right care every time.",
+        "Each session is tailored to your needs — structural, restorative, assisted stretching or sports-focused techniques — ensuring you get the right care every time.",
     },
     {
       title: "Continuous Support",

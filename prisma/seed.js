@@ -17,12 +17,12 @@ const prisma = new PrismaClient({ adapter });
 
 const FULL_LADDER_SERVICES = [
   { slug: "sports", name: "Sports Massage", description: "Targeted release for performance, recovery, and soreness." },
-  { slug: "deep-tissue", name: "Deep Tissue", description: "Firm pressure to relieve chronic knots and deep pain." },
-  { slug: "swedish", name: "Swedish", description: "Long flowing strokes to relax and reduce muscle tension." },
+  { slug: "deep-tissue", name: "Structural", description: "Firm, deep pressure to release chronic tension and restore structural balance." },
+  { slug: "swedish", name: "Restorative", description: "Long, soothing strokes to restore calm and ease muscle tension." },
 ];
 
 // USD cents. 30 min = $20 (all), 90 min = $50 (all). 60 min varies per service.
-// Swedish + Deep Tissue (Full Body Massage styles) both priced at $40 for 60 min.
+// Structural + Restorative (Full Body Massage intensities) both priced at $40 for 60 min.
 const PRICE_60 = {
   sports: 4000,
   "deep-tissue": 4000,

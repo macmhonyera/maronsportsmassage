@@ -569,7 +569,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                     <span className="text-base font-semibold text-slate-900">{g.title}</span>
                     {g.styles && (
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
-                        Choose modality
+                        Choose Intensity
                       </span>
                     )}
                   </div>
