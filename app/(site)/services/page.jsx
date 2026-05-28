@@ -80,7 +80,7 @@ export default function ServicesPage() {
             className="absolute inset-0 opacity-80"
             style={{
               background:
-                "radial-gradient(900px 360px at 70% 15%, rgba(15,94,97,0.25) 0%, rgba(151, 248, 237, 0) 60%)",
+                "radial-gradient(900px 360px at 70% 15%, rgba(14,165,168,0.25) 0%, rgba(151, 248, 237, 0) 60%)",
             }}
           />
         </div>
@@ -88,13 +88,13 @@ export default function ServicesPage() {
         <div className="relative mx-auto max-w-7xl px-4 pt-16 pb-10 md:pt-20 md:pb-14">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+              <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
               Recovery • Spa Wellness • Performance
             </div>
 
             <h1 className="reveal mt-6 font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Choose Your Perfect Session To {" "}
-              <span className="text-[#D4B673]">Recover</span>,{" "}
+              <span className="text-[#F4C868]">Recover</span>,{" "}
               <span className="text-white">Relax</span>, And{" "}
               <span className="text-white">Reset</span>.
             </h1>
@@ -107,7 +107,7 @@ export default function ServicesPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0EA5A8] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0B7E80] hover:shadow-xl active:scale-95"
               >
                 Book Now
                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,11 +144,11 @@ export default function ServicesPage() {
             {SERVICES.map((s) => (
               <article
                 key={s.id}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#0F5E61]/40 hover:shadow-xl hover:ring-[#0F5E61]/10"
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#0EA5A8]/40 hover:shadow-xl hover:ring-[#0EA5A8]/10"
               >
                 <div
                   className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-40"
-                  style={{ background: "rgba(15,94,97,0.35)" }}
+                  style={{ background: "rgba(14,165,168,0.35)" }}
                 />
 
                 {/* Image */}
@@ -162,7 +162,7 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
 
                   <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#0F1F2E] shadow-sm backdrop-blur">
-                    <svg className="h-3.5 w-3.5 text-[#0A4548]" viewBox="0 0 20 20" fill="currentColor">
+                    <svg className="h-3.5 w-3.5 text-[#0B7E80]" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .2.08.39.22.53l3 3a.75.75 0 1 0 1.06-1.06l-2.78-2.78V5Z" clipRule="evenodd" />
                     </svg>
                     {s.durationLabel}
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                   <ul className="space-y-2 text-sm text-slate-700">
                     {s.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2.5">
-                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#0F5E61]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#0EA5A8]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clipRule="evenodd" />
                         </svg>
                         <span>{b}</span>
@@ -201,8 +201,8 @@ export default function ServicesPage() {
                   </ul>
 
                   {s.styles && (
-                    <div className="mt-4 rounded-xl bg-gradient-to-br from-[#0F5E61]/[0.07] to-transparent p-3.5 ring-1 ring-[#0F5E61]/15">
-                      <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0A4548]">
+                    <div className="mt-4 rounded-xl bg-gradient-to-br from-[#0EA5A8]/[0.07] to-transparent p-3.5 ring-1 ring-[#0EA5A8]/15">
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0B7E80]">
                         <svg className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                           <path d="M10 1.5a.75.75 0 0 1 .68.43l1.94 4.06 4.47.62a.75.75 0 0 1 .42 1.28l-3.24 3.13.79 4.43a.75.75 0 0 1-1.1.78L10 14.05l-3.96 2.18a.75.75 0 0 1-1.1-.78l.78-4.43L2.5 7.89a.75.75 0 0 1 .42-1.28l4.47-.62L9.32 1.93A.75.75 0 0 1 10 1.5Z" />
                         </svg>
@@ -222,7 +222,7 @@ export default function ServicesPage() {
                   <div className="mt-auto pt-5">
                     <Link
                       href="/book"
-                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0F5E61] px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#0A4548] hover:shadow-md hover:shadow-[#0F5E61]/20"
+                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0EA5A8] px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#0B7E80] hover:shadow-md hover:shadow-[#0EA5A8]/20"
                     >
                       Book this session
                       <svg className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -235,8 +235,8 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <div className="mx-auto mt-6 flex max-w-3xl items-center justify-center gap-3 rounded-2xl border border-[#0F5E61]/20 bg-[#0F5E61]/[0.04] px-5 py-3 text-sm text-[#0F1F2E]">
-            <svg className="h-5 w-5 shrink-0 text-[#0A4548]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <div className="mx-auto mt-6 flex max-w-3xl items-center justify-center gap-3 rounded-2xl border border-[#0EA5A8]/20 bg-[#0EA5A8]/[0.04] px-5 py-3 text-sm text-[#0F1F2E]">
+            <svg className="h-5 w-5 shrink-0 text-[#0B7E80]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path d="M10 1.5a.75.75 0 0 1 .68.43l1.94 4.06 4.47.62a.75.75 0 0 1 .42 1.28l-3.24 3.13.79 4.43a.75.75 0 0 1-1.1.78L10 14.05l-3.96 2.18a.75.75 0 0 1-1.1-.78l.78-4.43L2.5 7.89a.75.75 0 0 1 .42-1.28l4.47-.62L9.32 1.93A.75.75 0 0 1 10 1.5Z" />
             </svg>
             <span>
@@ -250,7 +250,7 @@ export default function ServicesPage() {
       <section id="specials" className="bg-slate-50 py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#D4B673] bg-[#FBF5E8] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#8B6A1F]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#F4C868] bg-[#FBF5E8] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#8B6A1F]">
               <svg className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path d="M10 1.5a.75.75 0 0 1 .68.43l1.94 4.06 4.47.62a.75.75 0 0 1 .42 1.28l-3.24 3.13.79 4.43a.75.75 0 0 1-1.1.78L10 14.05l-3.96 2.18a.75.75 0 0 1-1.1-.78l.78-4.43L2.5 7.89a.75.75 0 0 1 .42-1.28l4.47-.62L9.32 1.93A.75.75 0 0 1 10 1.5Z" />
               </svg>
@@ -268,11 +268,11 @@ export default function ServicesPage() {
             {SPECIALS.map((sp) => (
               <article
                 key={sp.id}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#D4B673] hover:shadow-xl hover:ring-[#D4B673]/40 md:col-span-2 lg:col-span-1"
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#F4C868] hover:shadow-xl hover:ring-[#F4C868]/40 md:col-span-2 lg:col-span-1"
               >
                 <div
                   className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-0 blur-3xl transition-opacity duration-300 group-hover:opacity-40"
-                  style={{ background: "rgba(201,169,95,0.35)" }}
+                  style={{ background: "rgba(232,188,88,0.35)" }}
                 />
 
                 <div className="relative h-44 w-full overflow-hidden bg-slate-100 sm:h-48">
@@ -283,7 +283,7 @@ export default function ServicesPage() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-slate-900/10 to-transparent" />
-                  <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-[#C9A95F] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#1A1308] shadow-sm">
+                  <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 rounded-full bg-[#E8BC58] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#1A1308] shadow-sm">
                     Special
                   </div>
                 </div>
@@ -316,7 +316,7 @@ export default function ServicesPage() {
                       <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                         {sp.includes.map((i) => (
                           <li key={i} className="flex items-start gap-2">
-                            <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#C9A95F]" />
+                            <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#E8BC58]" />
                             <span>{i}</span>
                           </li>
                         ))}
@@ -329,7 +329,7 @@ export default function ServicesPage() {
                       <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                         {sp.benefits.map((b) => (
                           <li key={b} className="flex items-start gap-2">
-                            <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#0F5E61]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#0EA5A8]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                               <path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clipRule="evenodd" />
                             </svg>
                             <span>{b}</span>
@@ -342,7 +342,7 @@ export default function ServicesPage() {
                   <div className="mt-auto pt-5">
                     <Link
                       href="/book"
-                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C9A95F] px-4 py-3 text-sm font-semibold text-[#1A1308] shadow-sm transition-all hover:bg-[#B8954C] hover:shadow-md"
+                      className="group/btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#E8BC58] px-4 py-3 text-sm font-semibold text-[#1A1308] shadow-sm transition-all hover:bg-[#CFA449] hover:shadow-md"
                     >
                       Book this package
                       <svg className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -361,7 +361,7 @@ export default function ServicesPage() {
       <section id="addons" className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-12 md:py-16">
         <div
           className="pointer-events-none absolute left-1/2 top-0 h-96 w-[60rem] -translate-x-1/2 opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, rgba(15,94,97,0.25), transparent)" }}
+          style={{ background: "radial-gradient(closest-side, rgba(14,165,168,0.25), transparent)" }}
         />
 
         <div className="relative mx-auto max-w-5xl px-4">
@@ -384,15 +384,15 @@ export default function ServicesPage() {
             {ADD_ONS.map((a) => (
               <article
                 key={a.id}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#0F5E61]/40 hover:shadow-xl hover:ring-[#0F5E61]/10"
+                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-900/[0.02] transition-all duration-300 hover:-translate-y-1 hover:border-[#0EA5A8]/40 hover:shadow-xl hover:ring-[#0EA5A8]/10"
               >
                 <div
                   className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
-                  style={{ background: "rgba(15,94,97,0.4)" }}
+                  style={{ background: "rgba(14,165,168,0.4)" }}
                 />
 
                 <div className="relative flex items-start justify-between gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0F5E61]/15 to-[#0F5E61]/5 text-[#0A4548] ring-1 ring-[#0F5E61]/15">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0EA5A8]/15 to-[#0EA5A8]/5 text-[#0B7E80] ring-1 ring-[#0EA5A8]/15">
                     {a.id === "cupping" ? (
                       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M5 7h14l-1.2 9a3 3 0 0 1-3 2.6H9.2a3 3 0 0 1-3-2.6L5 7Z" />
@@ -422,7 +422,7 @@ export default function ServicesPage() {
                 <div className="relative my-4 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
                 <div className="relative flex items-center gap-2 text-xs font-medium text-slate-500">
-                  <svg className="h-4 w-4 text-[#0F5E61]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <svg className="h-4 w-4 text-[#0EA5A8]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.7-9.3a1 1 0 0 0-1.4-1.4L9 10.58l-1.3-1.3a1 1 0 0 0-1.4 1.42l2 2a1 1 0 0 0 1.4 0l4-4Z" clipRule="evenodd" />
                   </svg>
                   Included with any session
@@ -434,7 +434,7 @@ export default function ServicesPage() {
           <div className="mt-8 text-center">
             <Link
               href="/book"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F5E61] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#0F5E61]/20 transition-all hover:bg-[#0A4548] hover:shadow-xl hover:shadow-[#0F5E61]/30 active:scale-95"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0EA5A8] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#0EA5A8]/20 transition-all hover:bg-[#0B7E80] hover:shadow-xl hover:shadow-[#0EA5A8]/30 active:scale-95"
             >
               Book your treatment
               <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -451,7 +451,7 @@ export default function ServicesPage() {
           <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
             <div
               className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl"
-              style={{ background: "rgba(15,94,97,0.25)" }}
+              style={{ background: "rgba(14,165,168,0.25)" }}
             />
             <div className="grid gap-8 md:grid-cols-2 md:items-center">
               <div>
@@ -467,7 +467,7 @@ export default function ServicesPage() {
               <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
                 <Link
                   href="/book"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
+                  className="inline-flex items-center justify-center rounded-xl bg-[#0EA5A8] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0B7E80] hover:shadow-xl active:scale-95"
                 >
                   Book Now
                 </Link>

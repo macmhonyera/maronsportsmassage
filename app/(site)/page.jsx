@@ -74,7 +74,7 @@ export default async function HomePage() {
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(900px 420px at 50% 20%, rgba(15,94,97,0.18) 0%, rgba(255,255,255,0) 65%)",
+                "radial-gradient(900px 420px at 50% 20%, rgba(14,165,168,0.18) 0%, rgba(255,255,255,0) 65%)",
             }}
           />
         </div>
@@ -84,14 +84,14 @@ export default async function HomePage() {
           <div className="mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm mx-auto">
-              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+              <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
               Recovery • Performance • Relaxation
             </div>
 
             {/* Heading */}
             <h1 className="reveal mt-6 mx-auto max-w-5xl font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Precision Bodywork For Recovery{" "}
-              <span className="text-[#0F5E61]"></span> And{" "}
+              <span className="text-[#0EA5A8]"></span> And{" "}
               <span className="text-white">Wellness</span>.
             </h1>
 
@@ -107,8 +107,8 @@ export default async function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/book"
-                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-md transition
-          hover:bg-[#0A4548] hover:shadow-lg active:scale-95"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#0EA5A8] px-7 py-4 text-sm font-semibold text-white shadow-md transition
+          hover:bg-[#0B7E80] hover:shadow-lg active:scale-95"
               >
                 Book Your Treatment
                 <svg
@@ -177,13 +177,13 @@ export default async function HomePage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-semibold text-slate-900">{feature.title}</div>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548]">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0EA5A8]/10 text-[#0B7E80]">
                     ✓
                   </span>
                 </div>
 
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{feature.description}</p>
-                <div className="mt-5 h-1 w-12 rounded-full bg-[#0F5E61]/40 transition-all group-hover:w-16" />
+                <div className="mt-5 h-1 w-12 rounded-full bg-[#0EA5A8]/40 transition-all group-hover:w-16" />
               </div>
             ))}
           </div>
@@ -230,7 +230,7 @@ export default async function HomePage() {
                   <div className="mt-5 flex flex-col sm:flex-row items-center gap-3">
                     <Link
                       href="/book"
-                      className="inline-flex w-full items-center justify-center rounded-xl bg-[#0F5E61] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0A4548] hover:shadow-md"
+                      className="inline-flex w-full items-center justify-center rounded-xl bg-[#0EA5A8] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0B7E80] hover:shadow-md"
                     >
                       Book Now
                     </Link>
@@ -249,7 +249,7 @@ export default async function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center text-sm font-semibold text-[#0A4548] hover:text-[#0B766E] hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
+              className="inline-flex items-center text-sm font-semibold text-[#0B7E80] hover:text-[#0B766E] hover:underline decoration-[#0EA5A8] decoration-2 underline-offset-4"
             >
               View All Services
               <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

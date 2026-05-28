@@ -39,7 +39,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-slate-300 transition-colors hover:text-[#D4B673] hover:underline underline-offset-4"
+                  className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
                 >
                   {item.label}
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
                 href={whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#D4B673] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 WhatsApp
               </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                 href={instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#D4B673] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 Instagram
               </a>
@@ -79,7 +79,7 @@ export default function Footer() {
                 href={facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#D4B673] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 Facebook
               </a>

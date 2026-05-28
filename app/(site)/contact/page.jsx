@@ -66,7 +66,7 @@ export default function ContactPage() {
                     href={process.env.NEXT_PUBLIC_WHATSAPP_LINK || "https://wa.me/"}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-lg bg-[#0F5E61] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0A4548] hover:shadow-lg"
+                    className="inline-flex items-center justify-center rounded-lg bg-[#0EA5A8] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0B7E80] hover:shadow-lg"
                   >
                     💬 WhatsApp us
                   </a>

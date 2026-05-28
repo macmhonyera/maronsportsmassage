@@ -66,7 +66,7 @@ export default function Navbar() {
                   <span
                     className={[
                       "absolute left-3 right-3 -bottom-[6px] h-[3px] rounded-full transition-all",
-                      active ? "bg-[#0F5E61]" : "bg-transparent",
+                      active ? "bg-[#0EA5A8]" : "bg-transparent",
                     ].join(" ")}
                   />
                 </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
           <div className="ml-auto flex items-center">
             <Link
               href="/book"
-              className="whitespace-nowrap rounded-lg bg-[#0F5E61]/90 px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0A4548] hover:shadow-lg active:scale-95"
+              className="whitespace-nowrap rounded-lg bg-[#0EA5A8]/90 px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0B7E80] hover:shadow-lg active:scale-95"
             >
               Book Now
             </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
                     className={[
                       "rounded-lg px-3 py-2 transition-all",
                       active
-                        ? "bg-[#0F5E61]/10 text-slate-900"
+                        ? "bg-[#0EA5A8]/10 text-slate-900"
                         : "text-slate-700 hover:text-slate-900 hover:bg-white/50",
                     ].join(" ")}
                   >

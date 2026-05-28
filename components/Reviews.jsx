@@ -51,7 +51,7 @@ export default function Reviews() {
       {/* Link to Google */}
       <div className="mt-6 text-center">
         <a
-          className="inline-flex items-center text-[#0F5E61] font-semibold hover:text-[#0A4548] hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
+          className="inline-flex items-center text-[#0EA5A8] font-semibold hover:text-[#0B7E80] hover:underline decoration-[#0EA5A8] decoration-2 underline-offset-4"
           target="_blank"
           rel="noreferrer"
           href={googleReviewsUrl}

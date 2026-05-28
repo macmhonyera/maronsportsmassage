@@ -27,7 +27,7 @@ export default function AdminLayout({ children }) {
             </Link>
 
             <div className="hidden sm:flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0F5E61]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0EA5A8]" />
               <span className="text-sm font-semibold text-slate-900">Admin</span>
             </div>
           </div>
@@ -36,19 +36,19 @@ export default function AdminLayout({ children }) {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link
               href="/admin"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0EA5A8] decoration-2 underline-offset-4"
             >
               Dashboard
             </Link>
             <Link
               href="/admin/bookings"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0EA5A8] decoration-2 underline-offset-4"
             >
               Bookings
             </Link>
             <Link
               href="/admin/bookings/new"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0EA5A8] decoration-2 underline-offset-4"
             >
               Add booking
             </Link>
@@ -65,7 +65,7 @@ export default function AdminLayout({ children }) {
 
             <Link
               href="/admin/bookings/new"
-              className="hidden sm:inline-flex rounded-lg bg-[#0F5E61] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0A4548] active:scale-95"
+              className="hidden sm:inline-flex rounded-lg bg-[#0EA5A8] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0B7E80] active:scale-95"
             >
               + New
             </Link>
@@ -89,7 +89,7 @@ export default function AdminLayout({ children }) {
             </Link>
             <Link
               href="/admin/bookings/new"
-              className="shrink-0 rounded-lg bg-[#0F5E61] px-3 py-1.5 text-white shadow-sm hover:bg-[#0A4548]"
+              className="shrink-0 rounded-lg bg-[#0EA5A8] px-3 py-1.5 text-white shadow-sm hover:bg-[#0B7E80]"
             >
               + Add
             </Link>

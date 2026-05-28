@@ -80,7 +80,7 @@ export default function AboutPage() {
             className="absolute inset-0 opacity-60"
             style={{
               background:
-                "radial-gradient(900px 320px at 70% 10%, rgba(15,94,97,0.22) 0%, rgba(15,94,97,0) 65%)",
+                "radial-gradient(900px 320px at 70% 10%, rgba(14,165,168,0.22) 0%, rgba(14,165,168,0) 65%)",
             }}
           />
         </div>
@@ -88,13 +88,13 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-4 pt-28 pb-16 md:pt-36 md:pb-24">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+              <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
               About Maron&apos;s Muscle Studio
             </div>
 
             <h1 className="reveal font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Built For Movement. Designed For Recovery And {" "}
-              <span className="text-[#D4B673]">Wellness</span>.
+              <span className="text-[#F4C868]">Wellness</span>.
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
@@ -105,8 +105,8 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
-                           hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0EA5A8] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
+                           hover:bg-[#0B7E80] hover:shadow-xl active:scale-95"
               >
                 Book Your Treatment
                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ export default function AboutPage() {
 
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900">
-                <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+                <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
                 Our Story
               </div>
 
@@ -200,7 +200,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0F5E61]/40"
+                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0EA5A8]/40"
               >
                 <div className="flex items-center justify-between">
                   <div className="text-base font-semibold text-slate-900">
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* classy icon tile */}
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0EA5A8]/10 text-[#0B7E80] ring-1 ring-inset ring-[#0EA5A8]/20">
                     ✓
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                   {value.description}
                 </p>
 
-                <div className="mt-5 h-1 w-12 rounded-full bg-[#0F5E61]/30 transition-all group-hover:w-16" />
+                <div className="mt-5 h-1 w-12 rounded-full bg-[#0EA5A8]/30 transition-all group-hover:w-16" />
               </div>
             ))}
           </div>
@@ -230,7 +230,7 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="order-2 lg:order-1">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900">
-                <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+                <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
                 What You Get
               </div>
 
@@ -250,7 +250,7 @@ export default function AboutPage() {
                     className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
+                      <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0EA5A8]/10 text-[#0B7E80] ring-1 ring-inset ring-[#0EA5A8]/20">
                         ✓
                       </span>
                       <div>
@@ -281,7 +281,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+              <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
               Our Approach
             </div>
 
@@ -296,10 +296,10 @@ export default function AboutPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-md"
                 >
                   <div className="mb-4 flex items-center justify-between">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0EA5A8]/10 text-[#0B7E80] ring-1 ring-inset ring-[#0EA5A8]/20">
                       {idx + 1}
                     </span>
-                    <div className="h-1 w-12 rounded-full bg-[#0F5E61]/30" />
+                    <div className="h-1 w-12 rounded-full bg-[#0EA5A8]/30" />
                   </div>
 
                   <h3 className="text-xl font-semibold text-slate-900 mb-3">
@@ -330,7 +330,7 @@ export default function AboutPage() {
       className="absolute inset-0"
       style={{
         background:
-          "radial-gradient(900px 360px at 50% 20%, rgba(15,94,97,0.25) 0%, rgba(15,94,97,0) 60%)",
+          "radial-gradient(900px 360px at 50% 20%, rgba(14,165,168,0.25) 0%, rgba(14,165,168,0) 60%)",
       }}
     />
   </div>
@@ -338,7 +338,7 @@ export default function AboutPage() {
   {/* Content */}
   <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
     <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
-      <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+      <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
       Start Your Recovery
     </div>
 
@@ -353,8 +353,8 @@ export default function AboutPage() {
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <Link
         href="/book"
-        className="inline-flex items-center rounded-xl bg-[#0F5E61] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300
-                   hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
+        className="inline-flex items-center rounded-xl bg-[#0EA5A8] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300
+                   hover:bg-[#0B7E80] hover:shadow-xl active:scale-95"
       >
         Book Now
         <svg

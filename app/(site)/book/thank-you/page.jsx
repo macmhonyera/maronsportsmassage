@@ -26,15 +26,15 @@ export default function ThankYouPage() {
           <div className="font-semibold text-[#0F1F2E]">What happens next</div>
           <ul className="mt-3 space-y-2">
             <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F5E61]" />
+              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0EA5A8]" />
               <span>Our team will review your request and confirm your slot.</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F5E61]" />
+              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0EA5A8]" />
               <span>You&apos;ll get a confirmation email once your booking is approved.</span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F5E61]" />
+              <span className="mt-1.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#0EA5A8]" />
               <span>We&apos;ll send a reminder one hour before your session.</span>
             </li>
           </ul>
@@ -43,7 +43,7 @@ export default function ThankYouPage() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F5E61] px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#0A4548] hover:shadow-lg"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0EA5A8] px-7 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#0B7E80] hover:shadow-lg"
           >
             Back to home
           </Link>
@@ -57,7 +57,7 @@ export default function ThankYouPage() {
 
         <p className="mt-8 text-xs text-slate-500">
           Need to change something? Reach us on{" "}
-          <a href="/contact" className="font-semibold text-[#0F5E61] hover:underline">
+          <a href="/contact" className="font-semibold text-[#0EA5A8] hover:underline">
             our contact page
           </a>
           .

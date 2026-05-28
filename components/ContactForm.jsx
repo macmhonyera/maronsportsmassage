@@ -54,7 +54,7 @@ export default function ContactForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <label htmlFor="name" className="block text-sm font-semibold text-[#0F1F2E] mb-1">
-              Name <span className="text-[#0F5E61]">*</span>
+              Name <span className="text-[#0EA5A8]">*</span>
             </label>
             <input
               type="text"
@@ -63,13 +63,13 @@ export default function ContactForm() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0F5E61] focus:outline-none focus:ring-2 focus:ring-[#0F5E61]/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
               placeholder="Your full name"
             />
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold text-[#0F1F2E] mb-1">
-              Email <span className="text-[#0F5E61]">*</span>
+              Email <span className="text-[#0EA5A8]">*</span>
             </label>
             <input
               type="email"
@@ -78,7 +78,7 @@ export default function ContactForm() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0F5E61] focus:outline-none focus:ring-2 focus:ring-[#0F5E61]/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
               placeholder="your.email@example.com"
             />
           </div>
@@ -94,14 +94,14 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0F5E61] focus:outline-none focus:ring-2 focus:ring-[#0F5E61]/20"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
             placeholder="+273 00 000 0000"
           />
         </div>
 
         <div>
           <label htmlFor="subject" className="block text-sm font-semibold text-[#0F1F2E] mb-1">
-            Subject <span className="text-[#0F5E61]">*</span>
+            Subject <span className="text-[#0EA5A8]">*</span>
           </label>
           <input
             type="text"
@@ -110,14 +110,14 @@ export default function ContactForm() {
             required
             value={formData.subject}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0F5E61] focus:outline-none focus:ring-2 focus:ring-[#0F5E61]/20"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
             placeholder="What is this regarding?"
           />
         </div>
 
         <div>
           <label htmlFor="message" className="block text-sm font-semibold text-[#0F1F2E] mb-1">
-            Message <span className="text-[#0F5E61]">*</span>
+            Message <span className="text-[#0EA5A8]">*</span>
           </label>
           <textarea
             id="message"
@@ -126,7 +126,7 @@ export default function ContactForm() {
             rows={5}
             value={formData.message}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0F5E61] focus:outline-none focus:ring-2 focus:ring-[#0F5E61]/20 resize-none"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20 resize-none"
             placeholder="Tell us how we can help you..."
           />
         </div>
@@ -148,7 +148,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-lg bg-[#0F5E61] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0A4548] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full rounded-lg bg-[#0EA5A8] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0B7E80] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
