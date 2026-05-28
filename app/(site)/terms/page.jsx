@@ -109,7 +109,7 @@ export default function TermsPage() {
               Policies • Terms • Studio Guidelines
             </div>
 
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="reveal mt-6 font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Terms & Conditions
             </h1>
 

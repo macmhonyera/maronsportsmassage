@@ -92,7 +92,7 @@ export default function ServicesPage() {
               Recovery • Spa Wellness • Performance
             </div>
 
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="reveal mt-6 font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Choose Your Perfect Session To {" "}
               <span className="text-[#D4B673]">Recover</span>,{" "}
               <span className="text-white">Relax</span>, And{" "}
@@ -132,7 +132,7 @@ export default function ServicesPage() {
       <section id="services" className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">
+            <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] md:text-5xl">
               Services
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
@@ -256,7 +256,7 @@ export default function ServicesPage() {
               </svg>
               Curated bundle
             </span>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">
+            <h2 className="mt-4 font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] md:text-5xl">
               Specials
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
@@ -372,7 +372,7 @@ export default function ServicesPage() {
               </svg>
               Always free
             </span>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">
+            <h2 className="mt-4 font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] md:text-5xl">
               Free Add-ons
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">

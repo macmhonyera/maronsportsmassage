@@ -15,7 +15,7 @@ export default function ThankYouPage() {
           </svg>
         </div>
 
-        <h1 className="mt-8 text-3xl font-bold tracking-tight text-[#0F1F2E] sm:text-4xl">
+        <h1 className="reveal mt-8 font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] sm:text-5xl md:text-6xl leading-[1.05]">
           Booking received
         </h1>
         <p className="mt-4 text-base text-slate-600 sm:text-lg">

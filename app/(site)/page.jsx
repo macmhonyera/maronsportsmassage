@@ -89,7 +89,7 @@ export default async function HomePage() {
             </div>
 
             {/* Heading */}
-            <h1 className="mt-6 mx-auto max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight">
+            <h1 className="reveal mt-6 mx-auto max-w-5xl font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Precision Bodywork For Recovery{" "}
               <span className="text-[#0F5E61]"></span> And{" "}
               <span className="text-white">Wellness</span>.
@@ -160,7 +160,7 @@ export default async function HomePage() {
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">
+            <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] md:text-5xl">
               Built For Recovery, Relaxation And Performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
@@ -194,7 +194,7 @@ export default async function HomePage() {
       <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-[1600px] px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">Our Services</h2>
+            <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0F1F2E] md:text-5xl">Our Services</h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
               A preview of our most popular treatments. Explore more on the services page.
             </p>

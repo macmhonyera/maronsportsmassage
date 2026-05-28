@@ -177,7 +177,7 @@ export default function BookPage() {
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h1 className="reveal font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Book Online
             </h1>
             <p className="mt-3 text-base text-slate-200 sm:text-lg">

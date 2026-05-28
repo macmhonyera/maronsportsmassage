@@ -23,7 +23,7 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">Contact Us</h1>
+            <h1 className="reveal font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">Contact Us</h1>
             <p className="mt-4 text-lg text-slate-200 sm:text-xl">Get in touch with us. We&apos;re here to help!</p>
           </div>
         </div>

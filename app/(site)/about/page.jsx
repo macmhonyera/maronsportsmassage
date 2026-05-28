@@ -92,7 +92,7 @@ export default function AboutPage() {
               About Maron&apos;s Muscle Studio
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+            <h1 className="reveal font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Built For Movement. Designed For Recovery And {" "}
               <span className="text-[#D4B673]">Wellness</span>.
             </h1>
@@ -153,7 +153,7 @@ export default function AboutPage() {
                 Our Story
               </div>
 
-              <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
+              <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0A1825] md:text-6xl">
                 Built For Recovery. Guided By Movement.
               </h2>
 
@@ -188,7 +188,7 @@ export default function AboutPage() {
       <section className="bg-slate-50 py-10 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
+            <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0A1825] md:text-6xl">
               Our Core Values
             </h2>
             <p className="mt-4 text-lg text-slate-600">
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 What You Get
               </div>
 
-              <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
+              <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0A1825] md:text-6xl">
                 Why Choose Maron&apos;s Muscle Studio?
               </h2>
 
@@ -285,7 +285,7 @@ export default function AboutPage() {
               Our Approach
             </div>
 
-            <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
+            <h2 className="font-serif text-4xl font-normal tracking-tight text-[#0A1825] md:text-6xl">
               Evidence-Informed. Personalised For Every Body.
             </h2>
 
@@ -342,7 +342,7 @@ export default function AboutPage() {
       Start Your Recovery
     </div>
 
-    <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
+    <h2 className="mt-6 font-serif text-4xl font-normal tracking-tight text-white md:text-5xl lg:text-6xl">
       Ready to feel your best?
     </h2>
 
