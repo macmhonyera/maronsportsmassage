@@ -2,9 +2,9 @@ const SITE_URL = "https://maronfitness.co.zw";
 const OG_IMAGE_PATH = "/og-image.jpg";
 
 export const metadata = {
-  title: "Book a Massage | Maron Fitness Zimbabwe",
+  title: "Book a Massage | Maron's Muscle Studio Zimbabwe",
   description:
-    "Book your sports massage, wellness or spa session online at Maron Fitness in Zimbabwe.",
+    "Book your sports massage, wellness or spa session online at Maron's Muscle Studio in Zimbabwe.",
   keywords: [
     "book massage Zimbabwe",
     "book massage Harare",
@@ -13,32 +13,32 @@ export const metadata = {
     "sports massage booking",
     "spa booking Zimbabwe",
     "wellness booking Harare",
-    "Maron Fitness booking",
+    "Maron's Muscle Studio booking",
   ],
   alternates: {
     canonical: "/book",
   },
   openGraph: {
-    title: "Book a Massage | Maron Fitness Zimbabwe",
+    title: "Book a Massage | Maron's Muscle Studio Zimbabwe",
     description:
-      "Reserve your massage session online with Maron Fitness in Zimbabwe.",
+      "Reserve your massage session online with Maron's Muscle Studio in Zimbabwe.",
     type: "website",
     url: `${SITE_URL}/book`,
-    siteName: "Maron Fitness",
+    siteName: "Maron's Muscle Studio",
     images: [
       {
         url: OG_IMAGE_PATH,
         width: 1200,
         height: 630,
-        alt: "Book your massage session at Maron Fitness",
+        alt: "Book your massage session at Maron's Muscle Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Book a Massage | Maron Fitness Zimbabwe",
+    title: "Book a Massage | Maron's Muscle Studio Zimbabwe",
     description:
-      "Reserve your massage session online with Maron Fitness in Zimbabwe.",
+      "Reserve your massage session online with Maron's Muscle Studio in Zimbabwe.",
     images: [OG_IMAGE_PATH],
   },
 };

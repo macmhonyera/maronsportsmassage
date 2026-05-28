@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Admin | Maron Fitness Massage &Spa",
+  title: "Admin | Maron's Muscle Studio",
 };
 
 export default function AdminLayout({ children }) {
@@ -16,8 +16,8 @@ export default function AdminLayout({ children }) {
             <Link href="/admin" className="flex shrink-0 items-center gap-2">
               <div className="relative h-8 w-[140px] sm:h-10 sm:w-[180px]">
                 <Image
-                  src="/logo/logo3.png"
-                  alt="Maron Sports Massage"
+                  src="/logo/newlogo.png"
+                  alt="Maron's Muscle Studio"
                   fill
                   priority
                   sizes="(min-width: 640px) 180px, 140px"
@@ -27,7 +27,7 @@ export default function AdminLayout({ children }) {
             </Link>
 
             <div className="hidden sm:flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#14B8A6]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0F5E61]" />
               <span className="text-sm font-semibold text-slate-900">Admin</span>
             </div>
           </div>
@@ -36,19 +36,19 @@ export default function AdminLayout({ children }) {
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link
               href="/admin"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
             >
               Dashboard
             </Link>
             <Link
               href="/admin/bookings"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
             >
               Bookings
             </Link>
             <Link
               href="/admin/bookings/new"
-              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
+              className="text-slate-600 hover:text-slate-900 hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
             >
               Add booking
             </Link>
@@ -65,7 +65,7 @@ export default function AdminLayout({ children }) {
 
             <Link
               href="/admin/bookings/new"
-              className="hidden sm:inline-flex rounded-lg bg-[#14B8A6] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0D9488] active:scale-95"
+              className="hidden sm:inline-flex rounded-lg bg-[#0F5E61] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0A4548] active:scale-95"
             >
               + New
             </Link>
@@ -89,7 +89,7 @@ export default function AdminLayout({ children }) {
             </Link>
             <Link
               href="/admin/bookings/new"
-              className="shrink-0 rounded-lg bg-[#14B8A6] px-3 py-1.5 text-white shadow-sm hover:bg-[#0D9488]"
+              className="shrink-0 rounded-lg bg-[#0F5E61] px-3 py-1.5 text-white shadow-sm hover:bg-[#0A4548]"
             >
               + Add
             </Link>
@@ -105,7 +105,7 @@ export default function AdminLayout({ children }) {
       {/* Footer sticks to bottom */}
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-4 text-xs text-slate-500">
-          © {new Date().getFullYear()} Maron Fitness Massage &Spa — Admin
+          © {new Date().getFullYear()} Maron&apos;s Muscle Studio — Admin
         </div>
       </footer>
     </div>

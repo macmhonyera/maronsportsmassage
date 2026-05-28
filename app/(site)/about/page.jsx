@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About | Maron Fitnes  Massage &Spa",
+  title: "About | Maron's Muscle Studio",
   description: "Learn about our mission, approach, and therapist standards.",
 };
 
@@ -66,21 +66,21 @@ export default function AboutPage() {
   return (
     <div className="space-y-0">
       {/* HERO (match home page style) */}
-      <section className="relative overflow-hidden bg-[#0B1224]">
+      <section className="relative overflow-hidden bg-[#0A1825]">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=2400&q=80"
-            alt="About Maron Sports Massage"
+            alt="About Maron's Muscle Studio"
             fill
             className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/35 via-[#0B1224]/70 to-[#0B1224]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1825]/35 via-[#0A1825]/70 to-[#0A1825]" />
           <div
             className="absolute inset-0 opacity-60"
             style={{
               background:
-                "radial-gradient(900px 320px at 70% 10%, rgba(20,184,166,0.22) 0%, rgba(20,184,166,0) 65%)",
+                "radial-gradient(900px 320px at 70% 10%, rgba(15,94,97,0.22) 0%, rgba(15,94,97,0) 65%)",
             }}
           />
         </div>
@@ -88,13 +88,13 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-4 pt-28 pb-16 md:pt-36 md:pb-24">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
-              About Maron Fitness | Massage &Spa
+              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
+              About Maron&apos;s Muscle Studio
             </div>
 
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
               Built For Movement. Designed For Recovery And {" "}
-              <span className="text-[#5EEAD4]">Wellness</span>.
+              <span className="text-[#D4B673]">Wellness</span>.
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base text-slate-200 sm:text-lg">
@@ -105,8 +105,8 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
-                           hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-lg transition
+                           hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
               >
                 Book Your Treatment
                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,7 +125,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="h-10 bg-gradient-to-b from-[#0B1224] to-white" />
+        <div className="h-10 bg-gradient-to-b from-[#0A1825] to-white" />
       </section>
 
       {/* STORY (same layout, modern card + label) */}
@@ -149,11 +149,11 @@ export default function AboutPage() {
 
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900">
-                <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+                <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
                 Our Story
               </div>
 
-              <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
+              <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
                 Built For Recovery. Guided By Movement.
               </h2>
 
@@ -170,7 +170,7 @@ export default function AboutPage() {
               <div className="mt-8">
                 <Link
                   href="/book"
-                  className="inline-flex items-center rounded-xl bg-[#0B1224] px-6 py-3 text-sm font-semibold text-white shadow-sm transition
+                  className="inline-flex items-center rounded-xl bg-[#0A1825] px-6 py-3 text-sm font-semibold text-white shadow-sm transition
                              hover:bg-slate-900 hover:shadow-md active:scale-95"
                 >
                   Book Your Treatment
@@ -188,7 +188,7 @@ export default function AboutPage() {
       <section className="bg-slate-50 py-10 md:py-24">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
+            <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
               Our Core Values
             </h2>
             <p className="mt-4 text-lg text-slate-600">
@@ -200,7 +200,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#14B8A6]/40"
+                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0F5E61]/40"
               >
                 <div className="flex items-center justify-between">
                   <div className="text-base font-semibold text-slate-900">
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* classy icon tile */}
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#14B8A6]/10 text-[#0D9488] ring-1 ring-inset ring-[#14B8A6]/20">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
                     ✓
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                   {value.description}
                 </p>
 
-                <div className="mt-5 h-1 w-12 rounded-full bg-[#14B8A6]/30 transition-all group-hover:w-16" />
+                <div className="mt-5 h-1 w-12 rounded-full bg-[#0F5E61]/30 transition-all group-hover:w-16" />
               </div>
             ))}
           </div>
@@ -230,12 +230,12 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="order-2 lg:order-1">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900">
-                <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+                <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
                 What You Get
               </div>
 
-              <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
-                Why Choose Maron Fitness | Massage &Spa?
+              <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
+                Why Choose Maron&apos;s Muscle Studio?
               </h2>
 
               <p className="mt-6 text-lg leading-relaxed text-slate-700">
@@ -250,7 +250,7 @@ export default function AboutPage() {
                     className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#14B8A6]/10 text-[#0D9488] ring-1 ring-inset ring-[#14B8A6]/20">
+                      <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
                         ✓
                       </span>
                       <div>
@@ -281,11 +281,11 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-900 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
               Our Approach
             </div>
 
-            <h2 className="text-4xl font-semibold tracking-tight text-[#0B1224] md:text-5xl">
+            <h2 className="text-4xl font-semibold tracking-tight text-[#0A1825] md:text-5xl">
               Evidence-Informed. Personalised For Every Body.
             </h2>
 
@@ -296,10 +296,10 @@ export default function AboutPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-md"
                 >
                   <div className="mb-4 flex items-center justify-between">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#14B8A6]/10 text-[#0D9488] ring-1 ring-inset ring-[#14B8A6]/20">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548] ring-1 ring-inset ring-[#0F5E61]/20">
                       {idx + 1}
                     </span>
-                    <div className="h-1 w-12 rounded-full bg-[#14B8A6]/30" />
+                    <div className="h-1 w-12 rounded-full bg-[#0F5E61]/30" />
                   </div>
 
                   <h3 className="text-xl font-semibold text-slate-900 mb-3">
@@ -325,12 +325,12 @@ export default function AboutPage() {
     />
 
     {/* Contrast overlays (do NOT reduce image opacity) */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/40 via-[#0B1224]/65 to-[#0B1224]/80" />
+    <div className="absolute inset-0 bg-gradient-to-b from-[#0A1825]/40 via-[#0A1825]/65 to-[#0A1825]/80" />
     <div
       className="absolute inset-0"
       style={{
         background:
-          "radial-gradient(900px 360px at 50% 20%, rgba(20,184,166,0.25) 0%, rgba(20,184,166,0) 60%)",
+          "radial-gradient(900px 360px at 50% 20%, rgba(15,94,97,0.25) 0%, rgba(15,94,97,0) 60%)",
       }}
     />
   </div>
@@ -338,7 +338,7 @@ export default function AboutPage() {
   {/* Content */}
   <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
     <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
-      <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+      <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
       Start Your Recovery
     </div>
 
@@ -353,8 +353,8 @@ export default function AboutPage() {
     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <Link
         href="/book"
-        className="inline-flex items-center rounded-xl bg-[#14B8A6] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300
-                   hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
+        className="inline-flex items-center rounded-xl bg-[#0F5E61] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300
+                   hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
       >
         Book Now
         <svg
@@ -382,7 +382,7 @@ export default function AboutPage() {
     </div>
   </div>
 </section>
-<div className="h-10 bg-gradient-to-b from-[#0B1224] to-white" />
+<div className="h-10 bg-gradient-to-b from-[#0A1825] to-white" />
 
     </div>
   );

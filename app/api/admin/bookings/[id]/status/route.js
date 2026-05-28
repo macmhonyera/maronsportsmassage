@@ -55,7 +55,7 @@ Time: ${booking.startAt.toLocaleTimeString("en-ZW", {
   })}
 Service: ${serviceLine}
 ${focusLine}${addOnLine}
-Maron Fitness | Massage &Spa
+Maron's Muscle Studio
 `;
 
   let message = "";

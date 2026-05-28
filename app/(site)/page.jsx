@@ -5,7 +5,7 @@ import Reviews from "../../components/Reviews";
 import GoogleMapEmbed from "../../components/GoogleMapEmbed";
 
 export const metadata = {
-  title: "Maron Fitness | Massage &Spa | Elevate your Recovery & Wellness",
+  title: "Maron's Muscle Studio | Elevate your Recovery & Wellness",
   description: "Book sports massage sessions online. Recovery-focused treatments.",
 };
 
@@ -57,7 +57,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-0">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1224]/80">
+      <section className="relative overflow-hidden bg-[#0A1825]/80">
         {/* Background */}
         <div className="absolute inset-0">
           <Image
@@ -68,13 +68,13 @@ export default async function HomePage() {
             priority
           />
 
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/60 via-[#0B1224]/85 to-[#0B1224]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1825]/60 via-[#0A1825]/85 to-[#0A1825]" />
 
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(900px 420px at 50% 20%, rgba(20,184,166,0.18) 0%, rgba(255,255,255,0) 65%)",
+                "radial-gradient(900px 420px at 50% 20%, rgba(15,94,97,0.18) 0%, rgba(255,255,255,0) 65%)",
             }}
           />
         </div>
@@ -84,14 +84,14 @@ export default async function HomePage() {
           <div className="mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm mx-auto">
-              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
               Recovery • Performance • Relaxation
             </div>
 
             {/* Heading */}
             <h1 className="mt-6 mx-auto max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight">
               Precision Bodywork For Recovery{" "}
-              <span className="text-[#14B8A6]"></span> And{" "}
+              <span className="text-[#0F5E61]"></span> And{" "}
               <span className="text-white">Wellness</span>.
             </h1>
 
@@ -107,8 +107,8 @@ export default async function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/book"
-                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-md transition
-          hover:bg-[#0D9488] hover:shadow-lg active:scale-95"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-md transition
+          hover:bg-[#0A4548] hover:shadow-lg active:scale-95"
               >
                 Book Your Treatment
                 <svg
@@ -160,7 +160,7 @@ export default async function HomePage() {
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">
               Built For Recovery, Relaxation And Performance
             </h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
@@ -177,13 +177,13 @@ export default async function HomePage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-semibold text-slate-900">{feature.title}</div>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#14B8A6]/10 text-[#0D9488]">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#0F5E61]/10 text-[#0A4548]">
                     ✓
                   </span>
                 </div>
 
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{feature.description}</p>
-                <div className="mt-5 h-1 w-12 rounded-full bg-[#14B8A6]/40 transition-all group-hover:w-16" />
+                <div className="mt-5 h-1 w-12 rounded-full bg-[#0F5E61]/40 transition-all group-hover:w-16" />
               </div>
             ))}
           </div>
@@ -194,7 +194,7 @@ export default async function HomePage() {
       <section className="bg-slate-50 py-14 md:py-20">
         <div className="mx-auto max-w-[1600px] px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] md:text-4xl">Our Services</h2>
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0F1F2E] md:text-4xl">Our Services</h2>
             <p className="mt-3 text-base text-slate-600 md:text-lg">
               A preview of our most popular treatments. Explore more on the services page.
             </p>
@@ -222,7 +222,7 @@ export default async function HomePage() {
 
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-xl font-semibold text-[#0F172A]">{service.name}</h3>
+                    <h3 className="text-xl font-semibold text-[#0F1F2E]">{service.name}</h3>
                   </div>
 
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
@@ -230,7 +230,7 @@ export default async function HomePage() {
                   <div className="mt-5 flex flex-col sm:flex-row items-center gap-3">
                     <Link
                       href="/book"
-                      className="inline-flex w-full items-center justify-center rounded-xl bg-[#14B8A6] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0D9488] hover:shadow-md"
+                      className="inline-flex w-full items-center justify-center rounded-xl bg-[#0F5E61] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0A4548] hover:shadow-md"
                     >
                       Book Now
                     </Link>
@@ -249,7 +249,7 @@ export default async function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center text-sm font-semibold text-[#0D9488] hover:text-[#0B766E] hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
+              className="inline-flex items-center text-sm font-semibold text-[#0A4548] hover:text-[#0B766E] hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
             >
               View All Services
               <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

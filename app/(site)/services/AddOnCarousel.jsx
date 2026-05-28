@@ -27,7 +27,7 @@ export default function AddOnCarousel({ items }) {
               </div>
               <div className="text-right">
                 <div className="text-xs text-slate-500">Add-on</div>
-                <div className="text-lg font-semibold text-[#0F172A]">
+                <div className="text-lg font-semibold text-[#0F1F2E]">
                   {a.price > 0 ? moneyUSD(a.price) : "Free"}
                 </div>
               </div>

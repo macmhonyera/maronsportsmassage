@@ -14,7 +14,7 @@ export default function WhatsAppFloat() {
   return (
     <FloatingWhatsApp
       phoneNumber="263780525557"
-      accountName="Maron Fitness | Massage &Spa"
+      accountName="Maron's Muscle Studio"
       chatMessage="Hello! 👋 How can we help you?"
       placeholder="Type your message..."
       allowEsc

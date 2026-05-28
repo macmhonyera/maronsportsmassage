@@ -17,7 +17,7 @@ export default function Reviews() {
         <div className="flex items-center gap-2">
           <div className="text-right">
             {/* Optional: manually set rating if you want */}
-            <div className="text-3xl font-bold text-[#0F172A]">5.0</div>
+            <div className="text-3xl font-bold text-[#0F1F2E]">5.0</div>
             <div className="text-xs text-[#64748B]">out of 5.0</div>
           </div>
           <div className="text-2xl">⭐</div>
@@ -51,7 +51,7 @@ export default function Reviews() {
       {/* Link to Google */}
       <div className="mt-6 text-center">
         <a
-          className="inline-flex items-center text-[#14B8A6] font-semibold hover:text-[#0D9488] hover:underline decoration-[#14B8A6] decoration-2 underline-offset-4"
+          className="inline-flex items-center text-[#0F5E61] font-semibold hover:text-[#0A4548] hover:underline decoration-[#0F5E61] decoration-2 underline-offset-4"
           target="_blank"
           rel="noreferrer"
           href={googleReviewsUrl}

@@ -90,14 +90,14 @@ export default function TermsPage() {
   return (
     <div className="space-y-0">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#0B1224] pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-36 md:pb-24">
+      <section className="relative overflow-hidden bg-[#0A1825] pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-36 md:pb-24">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1224]/70 via-[#0B1224]/90 to-[#0B1224]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1825]/70 via-[#0A1825]/90 to-[#0A1825]" />
           <div
             className="absolute inset-0 opacity-80"
             style={{
               background:
-                "radial-gradient(900px 360px at 70% 15%, rgba(20,184,166,0.22) 0%, rgba(151, 248, 237, 0) 60%)",
+                "radial-gradient(900px 360px at 70% 15%, rgba(15,94,97,0.22) 0%, rgba(151, 248, 237, 0) 60%)",
             }}
           />
         </div>
@@ -105,7 +105,7 @@ export default function TermsPage() {
         <div className="relative mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+              <span className="h-2 w-2 rounded-full bg-[#0F5E61]" />
               Policies • Terms • Studio Guidelines
             </div>
 
@@ -120,7 +120,7 @@ export default function TermsPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center rounded-xl bg-[#14B8A6] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0D9488] hover:shadow-xl active:scale-95"
+                className="inline-flex items-center justify-center rounded-xl bg-[#0F5E61] px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-[#0A4548] hover:shadow-xl active:scale-95"
               >
                 Book Your Treatment
               </Link>
@@ -152,11 +152,11 @@ export default function TermsPage() {
                   key={s.title}
                   className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
                 >
-                  <h2 className="text-lg font-bold text-[#0F172A]">{s.title}</h2>
+                  <h2 className="text-lg font-bold text-[#0F1F2E]">{s.title}</h2>
                   <ul className="mt-3 space-y-2 text-sm text-slate-600">
                     {s.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="mt-2 inline-block h-2 w-2 rounded-full bg-[#14B8A6]" />
+                        <span className="mt-2 inline-block h-2 w-2 rounded-full bg-[#0F5E61]" />
                         <span>{item}</span>
                       </li>
                     ))}
