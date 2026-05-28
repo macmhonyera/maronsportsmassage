@@ -165,7 +165,7 @@ export default function BookPage() {
 
   return (
     <div className="space-y-0">
-      <section className="relative overflow-hidden bg-[#0F172A] pt-28 pb-10 sm:pt-32 sm:pb-12 md:pt-36 md:pb-16">
+      <section className="relative overflow-hidden bg-[#0F1F2E] pt-28 pb-10 sm:pt-32 sm:pb-12 md:pt-36 md:pb-16">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
@@ -177,7 +177,7 @@ export default function BookPage() {
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h1 className="reveal font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl leading-[1.05]">
               Book Online
             </h1>
             <p className="mt-3 text-base text-slate-200 sm:text-lg">
@@ -284,7 +284,7 @@ export default function BookPage() {
                   type="button"
                   onClick={goBack}
                   disabled={step === 1}
-                  className="rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-[#0F172A] transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-[#0F1F2E] transition-all hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   ← Back
                 </button>
@@ -295,7 +295,7 @@ export default function BookPage() {
                   type="button"
                   onClick={goNext}
                   disabled={!canAdvance()}
-                  className="rounded-lg bg-[#14B8A6] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#0D9488] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-lg bg-[#0EA5A8] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#0B7E80] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {step === 3 && focusAreas.length === 0
                     ? "Skip →"
@@ -328,9 +328,9 @@ function ProgressBar({ step, skippedStepIds = [] }) {
                 isSkipped
                   ? "bg-slate-100 text-slate-300 line-through"
                   : isActive
-                  ? "bg-[#14B8A6] text-white"
+                  ? "bg-[#0EA5A8] text-white"
                   : isDone
-                  ? "bg-[#0F172A] text-white"
+                  ? "bg-[#0F1F2E] text-white"
                   : "bg-slate-100 text-[#64748B]",
               ].join(" ")}
               aria-label={isSkipped ? `${s.label} (skipped)` : s.label}
@@ -340,7 +340,7 @@ function ProgressBar({ step, skippedStepIds = [] }) {
             <div
               className={[
                 "hidden text-xs font-medium md:block",
-                isSkipped ? "text-slate-300 line-through" : "text-[#0F172A]",
+                isSkipped ? "text-slate-300 line-through" : "text-[#0F1F2E]",
               ].join(" ")}
             >
               {s.label}
@@ -349,7 +349,7 @@ function ProgressBar({ step, skippedStepIds = [] }) {
               <div
                 className={[
                   "h-0.5 flex-1 rounded-full",
-                  isDone ? "bg-[#0F172A]" : "bg-slate-200",
+                  isDone ? "bg-[#0F1F2E]" : "bg-slate-200",
                 ].join(" ")}
               />
             )}
@@ -363,7 +363,7 @@ function ProgressBar({ step, skippedStepIds = [] }) {
 function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSelectStyle }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Choose your service</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Choose your service</h2>
       <p className="mt-1 text-sm text-[#64748B]">Pick the treatment style that fits what you need today.</p>
 
       <div className="mt-6 grid gap-3">
@@ -383,17 +383,17 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                 className={[
                   "flex w-full items-start gap-4 rounded-xl border-2 px-5 py-4 text-left transition-all",
                   isOpen
-                    ? "border-[#14B8A6] bg-[#14B8A6]/5"
-                    : "border-slate-200 bg-white hover:border-[#14B8A6]/40",
+                    ? "border-[#0EA5A8] bg-[#0EA5A8]/5"
+                    : "border-slate-200 bg-white hover:border-[#0EA5A8]/40",
                 ].join(" ")}
               >
                 <div
                   className={[
                     "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2",
                     isDirectSelected || (g.styles && serviceName)
-                      ? "border-[#14B8A6] bg-[#14B8A6]"
+                      ? "border-[#0EA5A8] bg-[#0EA5A8]"
                       : isOpen
-                      ? "border-[#14B8A6] bg-white"
+                      ? "border-[#0EA5A8] bg-white"
                       : "border-slate-300 bg-white",
                   ].join(" ")}
                 >
@@ -403,7 +403,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-semibold text-[#0F172A]">{g.title}</span>
+                    <span className="text-base font-semibold text-[#0F1F2E]">{g.title}</span>
                     {g.styles && (
                       <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
                         Choose Intensity
@@ -417,7 +417,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
               </button>
 
               {g.styles && isOpen && (
-                <div className="mt-3 ml-4 grid gap-2 border-l-2 border-[#14B8A6]/30 pl-4 sm:grid-cols-2">
+                <div className="mt-3 ml-4 grid gap-2 border-l-2 border-[#0EA5A8]/30 pl-4 sm:grid-cols-2">
                   {g.styles.map((s) => {
                     const styleSelected = serviceName === s.serviceName;
                     return (
@@ -428,20 +428,20 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
                         className={[
                           "flex items-start gap-3 rounded-xl border-2 px-4 py-3 text-left transition-all",
                           styleSelected
-                            ? "border-[#14B8A6] bg-[#14B8A6]/5"
-                            : "border-slate-200 bg-white hover:border-[#14B8A6]/40",
+                            ? "border-[#0EA5A8] bg-[#0EA5A8]/5"
+                            : "border-slate-200 bg-white hover:border-[#0EA5A8]/40",
                         ].join(" ")}
                       >
                         <div
                           className={[
                             "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2",
-                            styleSelected ? "border-[#14B8A6] bg-[#14B8A6]" : "border-slate-300 bg-white",
+                            styleSelected ? "border-[#0EA5A8] bg-[#0EA5A8]" : "border-slate-300 bg-white",
                           ].join(" ")}
                         >
                           {styleSelected && <div className="h-1.5 w-1.5 rounded-full bg-white" />}
                         </div>
                         <div className="flex-1">
-                          <div className="text-sm font-semibold text-[#0F172A]">{s.name}</div>
+                          <div className="text-sm font-semibold text-[#0F1F2E]">{s.name}</div>
                           {s.description && (
                             <div className="mt-0.5 text-xs text-[#64748B]">{s.description}</div>
                           )}
@@ -462,7 +462,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
 function StepDuration({ label, durations, value, onChange }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Choose your session length</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Choose your session length</h2>
       <p className="mt-1 text-sm text-[#64748B]">
         {label ? `Pricing for ${label}` : "Pricing"}
       </p>
@@ -478,12 +478,12 @@ function StepDuration({ label, durations, value, onChange }) {
               className={[
                 "flex flex-col items-center justify-center rounded-xl border-2 px-4 py-6 transition-all",
                 selected
-                  ? "border-[#14B8A6] bg-[#14B8A6]/5"
-                  : "border-slate-200 bg-white hover:border-[#14B8A6]/40",
+                  ? "border-[#0EA5A8] bg-[#0EA5A8]/5"
+                  : "border-slate-200 bg-white hover:border-[#0EA5A8]/40",
               ].join(" ")}
             >
-              <div className="text-lg font-bold text-[#0F172A]">{d.durationMin} min</div>
-              <div className="mt-1 text-2xl font-bold text-[#14B8A6]">{priceLabel(d.priceCents)}</div>
+              <div className="text-lg font-bold text-[#0F1F2E]">{d.durationMin} min</div>
+              <div className="mt-1 text-2xl font-bold text-[#0EA5A8]">{priceLabel(d.priceCents)}</div>
             </button>
           );
         })}
@@ -495,7 +495,7 @@ function StepDuration({ label, durations, value, onChange }) {
 function StepFocusAreas({ value, onToggle }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Where would you like us to focus?</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Where would you like us to focus?</h2>
       <p className="mt-1 text-sm text-[#64748B]">
         Tell us your problem areas so your therapist is ready before you arrive. Skip if you&apos;d rather decide on the day.
       </p>
@@ -503,7 +503,7 @@ function StepFocusAreas({ value, onToggle }) {
       <div className="mt-6 space-y-6">
         {FOCUS_AREA_GROUPS.map((group) => (
           <div key={group.id}>
-            <div className="text-sm font-semibold text-[#0F172A]">{group.label}</div>
+            <div className="text-sm font-semibold text-[#0F1F2E]">{group.label}</div>
             <div className="mt-2 flex flex-wrap gap-2">
               {group.areas.map((area) => {
                 const selected = value.includes(area.id);
@@ -515,8 +515,8 @@ function StepFocusAreas({ value, onToggle }) {
                     className={[
                       "rounded-full border-2 px-4 py-2 text-sm font-medium transition-all",
                       selected
-                        ? "border-[#14B8A6] bg-[#14B8A6] text-white"
-                        : "border-slate-200 bg-white text-[#0F172A] hover:border-[#14B8A6]/40",
+                        ? "border-[#0EA5A8] bg-[#0EA5A8] text-white"
+                        : "border-slate-200 bg-white text-[#0F1F2E] hover:border-[#0EA5A8]/40",
                     ].join(" ")}
                   >
                     {area.label}
@@ -534,7 +534,7 @@ function StepFocusAreas({ value, onToggle }) {
 function StepAddOns({ value, onToggle }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Optional extras</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Optional extras</h2>
       <p className="mt-1 text-sm text-[#64748B]">
         Add these to your session at no extra cost. Skip if you don&apos;t want either.
       </p>
@@ -550,14 +550,14 @@ function StepAddOns({ value, onToggle }) {
               className={[
                 "flex items-start gap-3 rounded-xl border-2 px-5 py-4 text-left transition-all",
                 selected
-                  ? "border-[#14B8A6] bg-[#14B8A6]/5"
-                  : "border-slate-200 bg-white hover:border-[#14B8A6]/40",
+                  ? "border-[#0EA5A8] bg-[#0EA5A8]/5"
+                  : "border-slate-200 bg-white hover:border-[#0EA5A8]/40",
               ].join(" ")}
             >
               <div
                 className={[
                   "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2",
-                  selected ? "border-[#14B8A6] bg-[#14B8A6]" : "border-slate-300 bg-white",
+                  selected ? "border-[#0EA5A8] bg-[#0EA5A8]" : "border-slate-300 bg-white",
                 ].join(" ")}
               >
                 {selected && (
@@ -568,7 +568,7 @@ function StepAddOns({ value, onToggle }) {
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-semibold text-[#0F172A]">{a.name}</span>
+                  <span className="text-base font-semibold text-[#0F1F2E]">{a.name}</span>
                   <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
                     Free
                   </span>
@@ -586,14 +586,14 @@ function StepAddOns({ value, onToggle }) {
 function StepDateTime({ dateISO, onDateChange, slots, selectedTime, onSelectTime, isBooked, isPast }) {
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Pick a date and time</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Pick a date and time</h2>
       <p className="mt-1 text-sm text-[#64748B]">Greyed-out slots are already booked or in the past.</p>
 
       <div className="mt-6">
-        <label className="block text-sm font-semibold text-[#0F172A] mb-2">Date</label>
+        <label className="block text-sm font-semibold text-[#0F1F2E] mb-2">Date</label>
         <input
           type="date"
-          className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+          className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
           value={dateISO}
           min={todayISO()}
           onChange={(e) => onDateChange(e.target.value)}
@@ -601,7 +601,7 @@ function StepDateTime({ dateISO, onDateChange, slots, selectedTime, onSelectTime
       </div>
 
       <div className="mt-6">
-        <label className="block text-sm font-semibold text-[#0F172A] mb-2">Available time slots</label>
+        <label className="block text-sm font-semibold text-[#0F1F2E] mb-2">Available time slots</label>
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
           {slots.map((t) => {
             const booked = isBooked(t);
@@ -618,8 +618,8 @@ function StepDateTime({ dateISO, onDateChange, slots, selectedTime, onSelectTime
                   booked || past
                     ? "cursor-not-allowed border-slate-200 bg-slate-100 text-[#64748B]"
                     : selected
-                    ? "border-[#0F172A] bg-[#0F172A] text-white shadow-md"
-                    : "border-[#14B8A6] bg-white text-[#0F172A] hover:bg-[#14B8A6] hover:text-white",
+                    ? "border-[#0F1F2E] bg-[#0F1F2E] text-white shadow-md"
+                    : "border-[#0EA5A8] bg-white text-[#0F1F2E] hover:bg-[#0EA5A8] hover:text-white",
                 ].join(" ")}
               >
                 {t}
@@ -668,25 +668,25 @@ function StepDetails({
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#0F172A] sm:text-2xl">Your details</h2>
+      <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Your details</h2>
       <p className="mt-1 text-sm text-[#64748B]">Last step — we just need a way to reach you.</p>
 
       <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
-        <div className="font-semibold text-[#0F172A]">Your booking</div>
+        <div className="font-semibold text-[#0F1F2E]">Your booking</div>
         <ul className="mt-2 space-y-1 text-[#64748B]">
           <li>
-            <span className="font-medium text-[#0F172A]">Service:</span> {summary.serviceName || "—"}{" "}
+            <span className="font-medium text-[#0F1F2E]">Service:</span> {summary.serviceName || "—"}{" "}
             {summary.durationMin ? `· ${summary.durationMin} min` : ""}{" "}
             {summary.priceCents != null ? `· ${priceLabel(summary.priceCents)}` : ""}
           </li>
           <li>
-            <span className="font-medium text-[#0F172A]">Focus areas:</span> {focusList}
+            <span className="font-medium text-[#0F1F2E]">Focus areas:</span> {focusList}
           </li>
           <li>
-            <span className="font-medium text-[#0F172A]">Add-ons:</span> {addOnList}
+            <span className="font-medium text-[#0F1F2E]">Add-ons:</span> {addOnList}
           </li>
           <li>
-            <span className="font-medium text-[#0F172A]">When:</span> {summary.dateISO}{" "}
+            <span className="font-medium text-[#0F1F2E]">When:</span> {summary.dateISO}{" "}
             {summary.selectedTime || "(choose a time)"}
           </li>
         </ul>
@@ -694,9 +694,9 @@ function StepDetails({
 
       <form onSubmit={onSubmit} className="mt-6 space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-[#0F172A] mb-1">Therapist preference</label>
+          <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">Therapist preference</label>
           <select
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
             value={therapistPreference}
             onChange={(e) => onTherapistChange(e.target.value)}
           >
@@ -710,18 +710,18 @@ function StepDetails({
 
         <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_10.5rem_minmax(0,1fr)]">
           <div>
-            <label className="block text-sm font-semibold text-[#0F172A] mb-1">Full name</label>
+            <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">Full name</label>
             <input
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
               value={fullName}
               onChange={(e) => onFullName(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-[#0F172A] mb-1">Country code</label>
+            <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">Country code</label>
             <select
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
               value={countryCode}
               onChange={(e) => onCountryCode(e.target.value)}
               required
@@ -735,9 +735,9 @@ function StepDetails({
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-[#0F172A] mb-1">Phone</label>
+            <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">Phone</label>
             <input
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
               value={phone}
               placeholder="e.g. 775432682"
               onChange={(e) => onPhone(e.target.value)}
@@ -748,10 +748,10 @@ function StepDetails({
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-[#0F172A] mb-1">Email</label>
+          <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">Email</label>
           <input
             type="email"
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20"
             value={email}
             onChange={(e) => onEmail(e.target.value)}
             required
@@ -764,7 +764,7 @@ function StepDetails({
             type="checkbox"
             checked={whatsappOptIn}
             onChange={(e) => onWhatsappOptIn(e.target.checked)}
-            className="mt-1 h-4 w-4 rounded border-slate-300 text-[#14B8A6] focus:ring-[#14B8A6]"
+            className="mt-1 h-4 w-4 rounded border-slate-300 text-[#0EA5A8] focus:ring-[#0EA5A8]"
           />
           <label htmlFor="optin" className="text-sm text-[#64748B]">
             I agree to receive WhatsApp reminders (optional)
@@ -772,11 +772,11 @@ function StepDetails({
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-[#0F172A] mb-1">
+          <label className="block text-sm font-semibold text-[#0F1F2E] mb-1">
             Anything else we should know? (optional)
           </label>
           <textarea
-            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F172A] focus:border-[#14B8A6] focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/20 resize-none"
+            className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-[#0F1F2E] focus:border-[#0EA5A8] focus:outline-none focus:ring-2 focus:ring-[#0EA5A8]/20 resize-none"
             rows={3}
             value={notes}
             onChange={(e) => onNotes(e.target.value)}
@@ -786,7 +786,7 @@ function StepDetails({
 
         <button
           type="submit"
-          className="w-full rounded-lg bg-[#14B8A6] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0D9488] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full rounded-lg bg-[#0EA5A8] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#0B7E80] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
           disabled={!countryCode || status.type === "loading"}
         >
           {status.type === "loading" ? "Submitting..." : "Confirm Booking Request"}
@@ -807,7 +807,7 @@ function StepDetails({
 
         <p className="text-xs text-[#64748B]">
           By booking, you agree to the{" "}
-          <a href="/terms" className="text-[#14B8A6] font-semibold hover:underline">
+          <a href="/terms" className="text-[#0EA5A8] font-semibold hover:underline">
             terms and conditions
           </a>
           .

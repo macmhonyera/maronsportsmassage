@@ -20,19 +20,19 @@ export default function TherapistCard({ therapist }) {
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-[#0B1F3A] text-6xl font-bold text-white">
+            <div className="flex h-full w-full items-center justify-center bg-[#0F1F2E] text-6xl font-bold text-white">
               {therapist.name.charAt(0)}
             </div>
           )}
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="text-2xl font-semibold text-[#0B1F3A]">{therapist.name}</h3>
+          <h3 className="text-2xl font-semibold text-[#0F1F2E]">{therapist.name}</h3>
           {therapist.specialties && (
             <div className="mt-2 flex flex-wrap gap-2">
               {therapist.specialties.split(",").map((specialty, idx) => (
                 <span
                   key={idx}
-                  className="inline-block rounded-full bg-[#CBD5E1]/50 px-3 py-1 text-sm font-medium text-[#0B1F3A]"
+                  className="inline-block rounded-full bg-[#CBD5E1]/50 px-3 py-1 text-sm font-medium text-[#0F1F2E]"
                 >
                   {specialty.trim()}
                 </span>

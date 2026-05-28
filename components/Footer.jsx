@@ -6,12 +6,12 @@ export default function Footer() {
   const facebook = process.env.NEXT_PUBLIC_FACEBOOK_LINK || "https://www.facebook.com/profile.php?id=61577595272486#";
 
   return (
-    <footer className="border-t border-white/10 bg-[#0F172A]/80 backdrop-blur-md">
+    <footer className="border-t border-white/10 bg-[#0F1F2E]/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl grid gap-10 px-4 py-12 md:grid-cols-3">
         {/* Brand */}
         <div>
           <div className="text-xl font-semibold tracking-tight text-white">
-            Maron Fitness | Massage &Spa
+            Maron&apos;s Muscle Studio
           </div>
           <p className="mt-3 text-sm leading-relaxed text-slate-300">
             Personalised massage therapy for recovery, relaxation, and wellbeing.
@@ -39,7 +39,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-slate-300 transition-colors hover:text-[#5EEAD4] hover:underline underline-offset-4"
+                  className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
                 >
                   {item.label}
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
                 href={whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#5EEAD4] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 WhatsApp
               </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                 href={instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#5EEAD4] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 Instagram
               </a>
@@ -79,7 +79,7 @@ export default function Footer() {
                 href={facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 transition-colors hover:text-[#5EEAD4] hover:underline underline-offset-4"
+                className="text-slate-300 transition-colors hover:text-[#F4C868] hover:underline underline-offset-4"
               >
                 Facebook
               </a>
@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 bg-[#0F172A]/70">
+      <div className="border-t border-white/10 bg-[#0F1F2E]/70">
         <div className="mx-auto max-w-7xl px-4 py-4 text-center text-xs text-slate-400">
           © {new Date().getFullYear()} Sports Massage. All rights reserved.
         </div>

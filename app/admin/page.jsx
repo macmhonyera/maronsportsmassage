@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { prisma } from "../../lib/prisma";
 
-export const metadata = { title: "Admin | Maron Fitness | Massage &Spa" };
+export const metadata = { title: "Admin | Maron's Muscle Studio" };
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -21,7 +21,7 @@ function StatCard({ label, value, hint }) {
       {/* subtle accent glow */}
       <div
         className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-20 blur-2xl"
-        style={{ background: "rgba(20,184,166,0.35)" }}
+        style={{ background: "rgba(14,165,168,0.35)" }}
       />
       <div className="relative">
         <div className="text-sm font-medium text-slate-600">{label}</div>
@@ -45,16 +45,16 @@ function ActionCard({ href, title, description, icon }) {
                  focus:outline-none focus:ring-2 focus:ring-slate-900"
     >
       {/* left accent bar */}
-      <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-[#14B8A6] to-[#0B1224]" />
+      <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-[#0EA5A8] to-[#0A1825]" />
 
       {/* soft highlight */}
       <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#14B8A6]/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0EA5A8]/10 via-transparent to-transparent" />
       </div>
 
       <div className="relative flex items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0B1224] text-white shadow-sm">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0A1825] text-white shadow-sm">
             <span className="text-lg">{icon}</span>
           </div>
 
@@ -109,7 +109,7 @@ export default async function AdminHome() {
           className="absolute -top-24 left-1/2 h-72 w-[900px] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(20,184,166,0.35), rgba(20,184,166,0))",
+              "radial-gradient(closest-side, rgba(14,165,168,0.35), rgba(14,165,168,0))",
           }}
         />
       </div>
@@ -119,7 +119,7 @@ export default async function AdminHome() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-[#14B8A6]" />
+              <span className="h-2 w-2 rounded-full bg-[#0EA5A8]" />
               Admin Overview
             </div>
 
@@ -128,7 +128,7 @@ export default async function AdminHome() {
             </h1>
             <p className="mt-2 max-w-2xl text-slate-600">
               Manage bookings, create manual entries, and monitor activity across
-              Maron Fitness Massage &Spa.
+              Maron&apos;s Muscle Studio.
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export default async function AdminHome() {
             </Link>
             <Link
               href="/admin/bookings/new"
-              className="rounded-xl bg-[#14B8A6] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0D9488] active:scale-95"
+              className="rounded-xl bg-[#0EA5A8] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#0B7E80] active:scale-95"
             >
               + New booking
             </Link>

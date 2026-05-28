@@ -5,9 +5,9 @@ const SITE_URL = "https://maronfitness.co.zw";
 const OG_IMAGE_PATH = "/og-image.jpg";
 
 export const metadata = {
-  title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
+  title: "Maron's Muscle Studio | Sports Massage & Deep Tissue Harare",
   description:
-    "Maron Fitness offers sports massage, wellness and spa services in Zimbabwe. Book online for recovery, relaxation and performance support.",
+    "Maron's Muscle Studio offers sports massage, wellness and spa services in Zimbabwe. Book online for recovery, relaxation and performance support.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
@@ -40,29 +40,29 @@ export const metadata = {
     "best massage in Harare",
     "massage booking Zimbabwe",
     "book massage online",
-    "Maron Fitness",
+    "Maron's Muscle Studio",
   ],
   openGraph: {
-    title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
+    title: "Maron's Muscle Studio | Sports Massage & Deep Tissue Harare",
     description:
-      "Book sports massage, deep tissue, and other therapeutic treatments at Maron Fitness in Harare, Zimbabwe.",
+      "Book sports massage, deep tissue, and other therapeutic treatments at Maron's Muscle Studio in Harare, Zimbabwe.",
     type: "website",
     url: SITE_URL,
-    siteName: "Maron Fitness",
+    siteName: "Maron's Muscle Studio",
     images: [
       {
         url: OG_IMAGE_PATH,
         width: 1200,
         height: 630,
-        alt: "Maron Fitness sports massage and wellness",
+        alt: "Maron's Muscle Studio sports massage and wellness",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maron Fitness | Sports Massage & Deep Tissue Harare",
+    title: "Maron's Muscle Studio | Sports Massage & Deep Tissue Harare",
     description:
-      "Book sports massage, deep tissue, and other therapeutic treatments at Maron Fitness in Harare, Zimbabwe.",
+      "Book sports massage, deep tissue, and other therapeutic treatments at Maron's Muscle Studio in Harare, Zimbabwe.",
     images: [OG_IMAGE_PATH],
   },
 };

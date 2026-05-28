@@ -54,7 +54,7 @@ export async function GET() {
 
 Hi ${b.client?.fullName || ""},
 
-This is a reminder that you have a booking with Maron Fitness | Massage &Spa in 1 hour.
+This is a reminder that you have a booking with Maron's Muscle Studio in 1 hour.
 
 Date: ${b.startAt.toLocaleDateString("en-ZW", { timeZone: "Africa/Harare" })}
 Time: ${b.startAt.toLocaleTimeString("en-ZW", {
@@ -66,7 +66,7 @@ Service: ${serviceLine}
 ${focusLine}${addOnLine}
 We look forward to seeing you!
 
-Maron Fitness | Massage &Spa`;
+Maron's Muscle Studio`;
 
     let sentAny = false;
 

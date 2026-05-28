@@ -8,7 +8,7 @@ export default function GoogleMapEmbed() {
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Maron Fitness | Massage & Spa Location"
+        title="Maron's Muscle Studio Location"
       />
     </div>
   );
