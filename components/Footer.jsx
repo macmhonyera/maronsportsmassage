@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
   const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_LINK || "https://wa.me/263780525557";
   const instagram = process.env.NEXT_PUBLIC_INSTAGRAM_LINK || "https://www.instagram.com/maron_zw/?utm_source=ig_web_button_share_sheet";
-  const facebook = process.env.NEXT_PUBLIC_FACEBOOK_LINK || "https://www.facebook.com/profile.php?id=61577595272486#";
+  const facebook = process.env.NEXT_PUBLIC_FACEBOOK_LINK || "https://www.facebook.com/profile.php?id=61590121575664";
 
   return (
     <footer className="border-t border-white/10 bg-[#0F1F2E]/80 backdrop-blur-md">
