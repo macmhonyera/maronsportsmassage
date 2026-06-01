@@ -5,8 +5,10 @@ import Reviews from "../../components/Reviews";
 import GoogleMapEmbed from "../../components/GoogleMapEmbed";
 
 export const metadata = {
-  title: "Maron's Muscle Studio | Elevate your Recovery & Wellness",
-  description: "Book sports massage sessions online. Recovery-focused treatments.",
+  title: "Maron's Muscle Studio | Sports Massage & Recovery in Harare",
+  description:
+    "Maron's Muscle Studio — premium sports massage, deep tissue, Swedish and assisted stretching in Harare. Book your recovery session online today.",
+  alternates: { canonical: "/" },
 };
 
 const SERVICES = [

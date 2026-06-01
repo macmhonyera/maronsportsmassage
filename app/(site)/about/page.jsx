@@ -2,8 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About | Maron's Muscle Studio",
-  description: "Learn about our mission, approach, and therapist standards.",
+  title: "About | Maron's Muscle Studio Harare",
+  description:
+    "Meet Maron's Muscle Studio — sports-informed massage therapy in Harare. Our approach, values and certified-therapist standards for recovery, mobility and wellbeing.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About | Maron's Muscle Studio Harare",
+    description:
+      "Sports-informed massage therapy in Harare. Recovery, mobility and wellbeing by certified therapists.",
+    url: "https://maronfitness.co.zw/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
