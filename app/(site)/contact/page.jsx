@@ -3,8 +3,17 @@ import GoogleMapEmbed from "../../../components/GoogleMapEmbed";
 import ContactForm from "../../../components/ContactForm";
 
 export const metadata = {
-  title: "Contact | Sports Massage",
-  description: "Get in touch, find our location, and book your session.",
+  title: "Contact | Maron's Muscle Studio Harare",
+  description:
+    "Get in touch with Maron's Muscle Studio. Visit us at 264 Herbert Chitepo Avenue, Harare, or reach us by WhatsApp, phone or email to book a session.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | Maron's Muscle Studio Harare",
+    description:
+      "Visit us at 264 Herbert Chitepo Avenue, Harare. WhatsApp, phone or email to book.",
+    url: "https://maronfitness.co.zw/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

@@ -2,8 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Services | Sports Massage",
-  description: "Browse massage and spa services. Book online.",
+  title: "Services | Maron's Muscle Studio Harare",
+  description:
+    "Sports Massage, Full Body (Structural & Restorative), Assisted Stretching and the Gentlemen's Package at Maron's Muscle Studio in Harare. Book your session online.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services | Maron's Muscle Studio Harare",
+    description:
+      "Sports Massage, Full Body (Structural & Restorative), Assisted Stretching and the Gentlemen's Package — all bookable online.",
+    url: "https://maronfitness.co.zw/services",
+    type: "website",
+  },
 };
 
 function moneyUSD(amount) {
