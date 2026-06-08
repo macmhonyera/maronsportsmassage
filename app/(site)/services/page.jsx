@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Refresh cached HTML hourly so content changes propagate to the edge fast.
+export const revalidate = 3600;
+
 export const metadata = {
   title: "Services | Maron's Muscle Studio Harare",
   description:
