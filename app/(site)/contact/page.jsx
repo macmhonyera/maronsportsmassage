@@ -2,6 +2,9 @@ import Image from "next/image";
 import GoogleMapEmbed from "../../../components/GoogleMapEmbed";
 import ContactForm from "../../../components/ContactForm";
 
+// Refresh cached HTML hourly so content changes propagate to the edge fast.
+export const revalidate = 3600;
+
 export const metadata = {
   title: "Contact | Maron's Muscle Studio Harare",
   description:
