@@ -12,6 +12,7 @@ import {
   THERAPIST_OPTIONS,
   buildServiceGroups,
   findGroupForServiceName,
+  getDurationNote,
   priceLabel,
   serviceAllowsAddOns,
 } from "../../../lib/serviceGroups.js";
@@ -371,6 +372,7 @@ export default function BookingForm({
         {step === 2 && (
           <StepDuration
             label={displayServiceName}
+            serviceName={serviceName}
             durations={durationsForSelection}
             value={durationMin}
             onChange={setDurationMin}
@@ -408,6 +410,7 @@ export default function BookingForm({
             summary={{
               serviceName: displayServiceName,
               durationMin,
+              durationNote: getDurationNote(serviceName, durationMin),
               priceCents: selectedDuration?.priceCents,
               focusAreas,
               addOns,
@@ -622,7 +625,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
   );
 }
 
-function StepDuration({ label, durations, value, onChange }) {
+function StepDuration({ label, serviceName, durations, value, onChange }) {
   return (
     <div>
       <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Choose session length</h2>
@@ -631,6 +634,7 @@ function StepDuration({ label, durations, value, onChange }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {durations.map((d) => {
           const selected = value === d.durationMin;
+          const note = getDurationNote(serviceName, d.durationMin);
           return (
             <button
               key={d.id}
@@ -644,6 +648,7 @@ function StepDuration({ label, durations, value, onChange }) {
               ].join(" ")}
             >
               <div className="text-lg font-bold text-slate-900">{d.durationMin} min</div>
+              {note && <div className="mt-0.5 text-xs font-medium text-slate-500">({note})</div>}
               <div className="mt-1 text-2xl font-bold text-slate-900">{priceLabel(d.priceCents)}</div>
             </button>
           );
@@ -859,7 +864,9 @@ function StepAdminDetails({
         <ul className="mt-2 space-y-1 text-slate-600">
           <li>
             <span className="font-medium text-slate-900">Service:</span> {summary.serviceName || "—"}{" "}
-            {summary.durationMin ? `· ${summary.durationMin} min` : ""}{" "}
+            {summary.durationMin
+              ? `· ${summary.durationMin} min${summary.durationNote ? ` (${summary.durationNote})` : ""}`
+              : ""}{" "}
             {summary.priceCents != null ? `· ${priceLabel(summary.priceCents)}` : ""}
           </li>
           <li>

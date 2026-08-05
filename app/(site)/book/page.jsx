@@ -11,6 +11,7 @@ import {
   STEPS,
   THERAPIST_OPTIONS,
   buildServiceGroups,
+  getDurationNote,
   priceLabel,
   serviceAllowsAddOns,
 } from "../../../lib/serviceGroups.js";
@@ -216,6 +217,7 @@ export default function BookPage() {
             {step === 2 && (
               <StepDuration
                 label={displayServiceName}
+                serviceName={serviceName}
                 durations={durationsForSelection}
                 value={durationMin}
                 onChange={setDurationMin}
@@ -253,6 +255,7 @@ export default function BookPage() {
                 summary={{
                   serviceName: displayServiceName,
                   durationMin,
+                  durationNote: getDurationNote(serviceName, durationMin),
                   priceCents: selectedDuration?.priceCents,
                   focusAreas,
                   addOns,
@@ -459,7 +462,7 @@ function StepService({ groups, selectedGroupId, serviceName, onSelectGroup, onSe
   );
 }
 
-function StepDuration({ label, durations, value, onChange }) {
+function StepDuration({ label, serviceName, durations, value, onChange }) {
   return (
     <div>
       <h2 className="text-xl font-bold text-[#0F1F2E] sm:text-2xl">Choose your session length</h2>
@@ -470,6 +473,7 @@ function StepDuration({ label, durations, value, onChange }) {
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {durations.map((d) => {
           const selected = value === d.durationMin;
+          const note = getDurationNote(serviceName, d.durationMin);
           return (
             <button
               key={d.id}
@@ -483,6 +487,9 @@ function StepDuration({ label, durations, value, onChange }) {
               ].join(" ")}
             >
               <div className="text-lg font-bold text-[#0F1F2E]">{d.durationMin} min</div>
+              {note && (
+                <div className="mt-0.5 text-xs font-medium text-[#64748B]">({note})</div>
+              )}
               <div className="mt-1 text-2xl font-bold text-[#0EA5A8]">{priceLabel(d.priceCents)}</div>
             </button>
           );
@@ -676,7 +683,9 @@ function StepDetails({
         <ul className="mt-2 space-y-1 text-[#64748B]">
           <li>
             <span className="font-medium text-[#0F1F2E]">Service:</span> {summary.serviceName || "—"}{" "}
-            {summary.durationMin ? `· ${summary.durationMin} min` : ""}{" "}
+            {summary.durationMin
+              ? `· ${summary.durationMin} min${summary.durationNote ? ` (${summary.durationNote})` : ""}`
+              : ""}{" "}
             {summary.priceCents != null ? `· ${priceLabel(summary.priceCents)}` : ""}
           </li>
           <li>
