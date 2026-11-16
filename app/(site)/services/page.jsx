@@ -61,7 +61,7 @@ const SPECIALS = [
     id: "gentlemens-package",
     name: "Gentlemen’s Package",
     tagline: "Best-value bundle for a full refresh",
-    price: 50,
+    price: 60,
     durationLabel: "90 min",
     image: "/images/gent.png",
     includes: ["Foot Scrub", "Full Body Massage", "Underarm Wax"],
