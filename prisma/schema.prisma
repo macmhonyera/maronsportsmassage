@@ -61,7 +61,7 @@ model Booking {
   status              BookingStatus @default(PENDING)
 
   // public flow stores this string only:
-  therapistPreference String?       // "any" | "male" | "female"
+  therapistPreference String?       // "any" | "male" (older rows may hold "female")
 
   // optional, for admin assignment later:
   therapistId         String?

@@ -21,7 +21,7 @@ const FULL_LADDER_SERVICES = [
   { slug: "swedish", name: "Restorative", description: "Long, soothing strokes to restore calm and ease muscle tension." },
 ];
 
-// USD cents. 30 min = $20 (all), 90 min = $50 (all). 60 min varies per service.
+// USD cents. 30 min = $20 (all), 90 min = $60 (all). 60 min varies per service.
 // Structural + Restorative (Full Body Massage intensities) both priced at $40 for 60 min.
 const PRICE_60 = {
   sports: 4000,
@@ -33,7 +33,7 @@ const ACTIVE_SERVICES = [
   ...FULL_LADDER_SERVICES.flatMap((s) => [
     { id: `${s.slug}-30`, name: s.name, description: s.description, durationMin: 30, priceCents: 2000 },
     { id: `${s.slug}-60`, name: s.name, description: s.description, durationMin: 60, priceCents: PRICE_60[s.slug] },
-    { id: `${s.slug}-90`, name: s.name, description: s.description, durationMin: 90, priceCents: 5000 },
+    { id: `${s.slug}-90`, name: s.name, description: s.description, durationMin: 90, priceCents: 6000 },
   ]),
   // Assisted Stretching is offered as a single 30-minute session only.
   {
@@ -49,7 +49,7 @@ const ACTIVE_SERVICES = [
     name: "Gentlemen's Package",
     description: "Foot Scrub, Full Body Massage, and Underarm Wax in a single curated session.",
     durationMin: 90,
-    priceCents: 5000,
+    priceCents: 6000,
   },
 ];
 

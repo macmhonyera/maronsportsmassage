@@ -27,7 +27,8 @@ function buildInitialValues(initialValues = {}) {
     timeHHMM: initialValues.timeHHMM || "",
     serviceId: initialValues.serviceId || "",
     serviceName: initialValues.serviceName || "",
-    therapistPreference: initialValues.therapistPreference || "any",
+    // Only male therapists are offered now; older bookings saved as "female" fall back to "any".
+    therapistPreference: initialValues.therapistPreference === "male" ? "male" : "any",
     therapistId: initialValues.therapistId || "",
     fullName: initialValues.fullName || "",
     countryCode: initialValues.countryCode || "",
